@@ -1,2319 +1,581 @@
-<!DOCTYPE html>
-<html lang="pt-MZ">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>BH Segurança & Comunidade</title>
-<script src="https://unpkg.com/lucide@latest"></script>
-<link href="https://cdn.jsdelivr.net/npm/fontsource-inter@5.1.0/400.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/fontsource-inter@5.1.0/500.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/fontsource-inter@5.1.0/600.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/fontsource-inter@5.1.0/700.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/fontsource-inter@5.1.0/800.css" rel="stylesheet">
-<style>
-:root {
-  --bg-primary: #06120b;
-  --bg-secondary: #0a1c10;
-  --bg-card: #112818;
-  --bg-card-hover: #183824;
-  --bg-elevated: #1d452c;
-  --green-deep: #0c2014;
-  --green-primary: #166534;
-  --green-accent: #22c55e;
-  --green-soft: #4ade80;
-  --gold-primary: #c9a84c;
-  --gold-soft: #e2c878;
-  --gold-light: #f0dfa0;
-  --gold-border: rgba(201,168,76,0.35);
-  --red-emergency: #dc2626;
-  --red-soft: #ef4444;
-  --red-bg: rgba(220,38,38,0.08);
-  --blue-neutral: #3b82f6;
-  --blue-soft: #60a5fa;
-  --blue-bg: rgba(59,130,246,0.06);
-  --text-primary: #f5f5f0;
-  --text-secondary: #b5c5ae;
-  --text-muted: #6d7f68;
-  --border-subtle: rgba(255,255,255,0.05);
-  --border-card: rgba(255,255,255,0.07);
-  --shadow-card: 0 4px 24px rgba(0,0,0,0.45);
-  --shadow-elevated: 0 8px 48px rgba(0,0,0,0.55);
-  --shadow-soft: 0 2px 12px rgba(0,0,0,0.3);
-  --radius-xs: 8px;
-  --radius-sm: 10px;
-  --radius-md: 14px;
-  --radius-lg: 18px;
-  --radius-xl: 24px;
-  --radius-full: 9999px;
-  --ease-fast: cubic-bezier(0.2,0,0,1);
-  --ease-smooth: cubic-bezier(0.4,0,0.2,1);
-}
-
-* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-html { font-size:16px; }
-body {
-  font-family: 'Inter', system-ui, sans-serif;
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  min-height:100vh;
-  overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-}
-
-.app-container {
-  max-width:430px;
-  margin:0 auto;
-  min-height:100vh;
-  position:relative;
-  background: var(--bg-primary);
-  overflow-x:hidden;
-}
-
-/* ===== SCREENS ===== */
-.screen {
-  display:none;
-  padding-bottom:96px;
-  animation: screenIn 0.3s var(--ease-smooth);
-}
-.screen.active { display:block; }
-@keyframes screenIn {
-  from { opacity:0; transform:translateY(8px); }
-  to { opacity:1; transform:translateY(0); }
-}
-
-/* ===== HERO ===== */
-.hero-section {
-  position:relative;
-  height:320px;
-  overflow:hidden;
-  border-radius:0 0 var(--radius-xl) var(--radius-xl);
-}
-.hero-bg {
-  position:absolute; inset:0;
-  background-size:cover; background-position:center;
-  transition: background 1s var(--ease-smooth);
-}
-.hero-overlay {
-  position:absolute; inset:0;
-  background: linear-gradient(180deg, rgba(6,18,11,0.25) 0%, rgba(6,18,11,0.55) 45%, rgba(6,18,11,0.96) 100%);
-}
-.hero-content {
-  position:relative; z-index:2;
-  padding:18px 20px 22px;
-  height:100%;
-  display:flex; flex-direction:column; justify-content:space-between;
-}
-.hero-top { display:flex; justify-content:space-between; align-items:flex-start; }
-.hero-greeting {
-  font-size:13px; font-weight:600;
-  color: var(--gold-soft);
-  letter-spacing:0.8px; text-transform:uppercase;
-  text-shadow:0 1px 8px rgba(0,0,0,0.4);
-}
-.hero-time {
-  font-size:44px; font-weight:800;
-  color: #fff; line-height:1.05;
-  text-shadow:0 2px 24px rgba(0,0,0,0.6);
-  letter-spacing:-1px;
-}
-.hero-date {
-  font-size:13px; color:rgba(255,255,255,0.7);
-  margin-top:6px; font-weight:400;
-}
-.hero-brand { display:flex; flex-direction:column; align-items:flex-end; gap:8px; }
-.hero-logo-pill {
-  display:flex; align-items:center; gap:7px;
-  background:rgba(6,18,11,0.65); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
-  padding:8px 14px; border-radius:var(--radius-full);
-  border:1px solid var(--gold-border);
-}
-.hero-logo-icon { width:20px; height:20px; color:var(--gold-primary); }
-.hero-logo-text {
-  font-size:10px; font-weight:700;
-  color:var(--gold-soft); letter-spacing:1.2px; text-transform:uppercase;
-}
-.hero-notif-btn {
-  width:38px; height:38px; border-radius:50%;
-  background:rgba(6,18,11,0.6); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
-  border:1px solid var(--border-subtle);
-  display:flex; align-items:center; justify-content:center;
-  cursor:pointer; transition:all 0.15s var(--ease-fast); position:relative;
-}
-.hero-notif-btn:active { transform:scale(0.88); background:rgba(255,255,255,0.1); }
-.hero-notif-btn svg { width:19px; height:19px; color:rgba(255,255,255,0.9); }
-.hero-notif-badge {
-  position:absolute; top:5px; right:5px;
-  width:9px; height:9px; background:var(--red-emergency);
-  border-radius:50%; border:2px solid var(--bg-primary);
-  animation: badgePulse 2s ease infinite;
-}
-@keyframes badgePulse {
-  0%,100% { transform:scale(1); }
-  50% { transform:scale(1.35); }
-}
-.hero-bottom { display:flex; justify-content:space-between; align-items:flex-end; }
-.hero-weather {
-  display:flex; align-items:center; gap:10px;
-  background:rgba(6,18,11,0.5); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
-  padding:10px 14px; border-radius:var(--radius-md);
-  border:1px solid rgba(255,255,255,0.08);
-}
-.hero-weather-icon { font-size:22px; line-height:1; }
-.hero-weather-temp { font-size:22px; font-weight:700; color:#fff; }
-.hero-weather-desc { font-size:11px; color:rgba(255,255,255,0.65); font-weight:500; margin-top:1px; }
-.hero-status { display:flex; flex-direction:column; align-items:flex-end; gap:4px; }
-.hero-status-pill {
-  display:flex; align-items:center; gap:6px;
-  background:rgba(34,197,94,0.12); border:1px solid rgba(34,197,94,0.25);
-  padding:6px 12px; border-radius:var(--radius-full);
-}
-.hero-status-dot {
-  width:7px; height:7px; background:var(--green-accent);
-  border-radius:50%; animation: statusPulse 2s ease infinite;
-}
-@keyframes statusPulse {
-  0% { box-shadow:0 0 0 0 rgba(34,197,94,0.5); }
-  70% { box-shadow:0 0 0 8px rgba(34,197,94,0); }
-  100% { box-shadow:0 0 0 0 rgba(34,197,94,0); }
-}
-.hero-status-text { font-size:11px; font-weight:700; color:var(--green-soft); letter-spacing:0.2px; }
-.hero-verified-label { font-size:9px; color:var(--text-muted); font-weight:600; letter-spacing:0.6px; text-transform:uppercase; }
-
-/* ===== IDENTITY STRIP ===== */
-.identity-strip {
-  margin:-22px 16px 0; position:relative; z-index:10;
-  background:linear-gradient(135deg, var(--bg-card) 0%, var(--bg-elevated) 100%);
-  border-radius:var(--radius-lg); padding:16px 18px;
-  border:1px solid var(--border-card);
-  box-shadow:var(--shadow-card);
-  display:flex; align-items:center; gap:14px;
-}
-.identity-avatar {
-  width:50px; height:50px; border-radius:50%;
-  overflow:hidden; border:2px solid var(--gold-primary);
-  flex-shrink:0; box-shadow:0 0 0 3px rgba(201,168,76,0.12);
-}
-.identity-avatar img { width:100%; height:100%; object-fit:cover; }
-.identity-info { flex:1; min-width:0; }
-.identity-name {
-  font-size:14.5px; font-weight:650;
-  color:var(--text-primary); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-}
-.identity-zone { font-size:12px; color:var(--text-secondary); margin-top:2px; font-weight:450; }
-.identity-badges { display:flex; gap:5px; flex-shrink:0; }
-.badge {
-  display:flex; align-items:center; gap:3.5px;
-  padding:5px 9px; border-radius:var(--radius-full);
-  font-size:9.5px; font-weight:700; letter-spacing:0.2px;
-}
-.badge-verified {
-  background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.22); color:var(--gold-soft);
-}
-.badge-active {
-  background:rgba(34,197,94,0.08); border:1px solid rgba(34,197,94,0.18); color:var(--green-soft);
-}
-.badge svg { width:11px; height:11px; }
-
-/* ===== SOS BUTTON ===== */
-.sos-section { padding:16px 16px 0; }
-.sos-button {
-  width:100%; padding:14px; border:none; border-radius:var(--radius-lg);
-  background:linear-gradient(135deg, #991b1b 0%, #dc2626 45%, #b91c1c 100%);
-  color:#fff; font-size:14px; font-weight:800; letter-spacing:2.5px; text-transform:uppercase;
-  cursor:pointer; position:relative; overflow:hidden;
-  display:flex; align-items:center; justify-content:center; gap:9px;
-  box-shadow:0 4px 24px rgba(220,38,38,0.28), inset 0 1px 0 rgba(255,255,255,0.12);
-  transition:all 0.15s var(--ease-fast); font-family:inherit;
-}
-.sos-button:active { transform:scale(0.975); box-shadow:0 2px 14px rgba(220,38,38,0.2); }
-.sos-button svg { width:19px; height:19px; }
-.sos-sweep {
-  position:absolute; inset:0;
-  background:linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
-  animation: sweepMove 3.5s ease infinite;
-}
-@keyframes sweepMove { 0% { transform:translateX(-100%); } 100% { transform:translateX(100%); } }
-.sos-ring {
-  position:absolute; inset:-2px; border-radius:var(--radius-lg);
-  border:2px solid var(--red-emergency);
-  animation: sosRingPulse 2.2s ease infinite;
-}
-@keyframes sosRingPulse { 0% { opacity:0.5; transform:scale(1); } 100% { opacity:0; transform:scale(1.04); } }
-
-/* ===== SECTIONS ===== */
-.section-header {
-  display:flex; justify-content:space-between; align-items:center;
-  padding:20px 16px 10px;
-}
-.section-title { font-size:15.5px; font-weight:750; color:var(--text-primary); letter-spacing:0.1px; }
-.section-link {
-  font-size:11.5px; font-weight:650; color:var(--gold-primary);
-  cursor:pointer; display:flex; align-items:center; gap:3px;
-  transition:color 0.15s var(--ease-fast);
-}
-.section-link:active { color:var(--gold-soft); }
-.section-link svg { width:13px; height:13px; }
-
-/* ===== PRIMARY CARDS ===== */
-.primary-card {
-  margin:0 16px 10px; border-radius:var(--radius-lg); padding:16px;
-  border:1px solid var(--border-card); box-shadow:var(--shadow-card);
-  position:relative; overflow:hidden; transition:transform 0.15s var(--ease-fast);
-}
-.primary-card:active { transform:scale(0.985); }
-.primary-card::before {
-  content:''; position:absolute; top:0; left:0; width:3px; height:100%; border-radius:0 3px 3px 0;
-}
-.primary-card.incident::before { background:var(--red-emergency); }
-.primary-card.incident { background:linear-gradient(135deg, rgba(220,38,38,0.06) 0%, var(--bg-card) 100%); }
-.primary-card.notice::before { background:var(--blue-neutral); }
-.primary-card.notice { background:linear-gradient(135deg, rgba(59,130,246,0.05) 0%, var(--bg-card) 100%); }
-.card-header-row { display:flex; justify-content:space-between; align-items:center; margin-bottom:9px; }
-.card-label {
-  font-size:9.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.9px;
-  padding:3.5px 9px; border-radius:var(--radius-full);
-}
-.card-label.urgent { background:rgba(220,38,38,0.12); color:var(--red-soft); }
-.card-label.info-label { background:rgba(59,130,246,0.1); color:var(--blue-soft); }
-.card-label.warning { background:rgba(201,168,76,0.1); color:var(--gold-soft); }
-.card-time { font-size:11px; color:var(--text-muted); font-weight:500; }
-.card-title { font-size:14.5px; font-weight:650; color:var(--text-primary); margin-bottom:5px; line-height:1.3; }
-.card-desc { font-size:12.5px; color:var(--text-secondary); line-height:1.55; }
-.card-footer {
-  display:flex; justify-content:space-between; align-items:center;
-  margin-top:12px; padding-top:11px; border-top:1px solid var(--border-subtle);
-}
-.card-location { display:flex; align-items:center; gap:4px; font-size:11px; color:var(--text-muted); font-weight:500; }
-.card-location svg { width:12px; height:12px; }
-.card-action {
-  font-size:11.5px; font-weight:650; color:var(--gold-primary);
-  cursor:pointer; padding:5px 10px; border-radius:var(--radius-full);
-  background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.18);
-  transition:all 0.15s var(--ease-fast); font-family:inherit;
-}
-.card-action:active { transform:scale(0.94); background:rgba(201,168,76,0.16); }
-
-/* ===== QUICK ACTIONS ===== */
-.quick-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:9px; padding:0 16px; }
-.quick-btn {
-  display:flex; flex-direction:column; align-items:center; gap:7px;
-  padding:15px 6px 14px; border-radius:var(--radius-md);
-  background:var(--bg-card); border:1px solid var(--border-card);
-  cursor:pointer; transition:all 0.15s var(--ease-fast); position:relative; overflow:hidden;
-}
-.quick-btn:active { transform:scale(0.93); background:var(--bg-card-hover); }
-.quick-btn::after {
-  content:''; position:absolute; inset:0;
-  background:radial-gradient(circle at 50% 40%, rgba(255,255,255,0.06) 0%, transparent 65%);
-  opacity:0; transition:opacity 0.2s var(--ease-fast);
-}
-.quick-btn:active::after { opacity:1; }
-.quick-btn.highlight { border-color:var(--gold-border); background:linear-gradient(145deg, var(--bg-card) 0%, rgba(201,168,76,0.06) 100%); }
-.quick-icon {
-  width:40px; height:40px; border-radius:var(--radius-sm);
-  display:flex; align-items:center; justify-content:center; transition:transform 0.15s var(--ease-fast);
-}
-.quick-btn:active .quick-icon { transform:scale(0.85); }
-.quick-icon.green { background:rgba(34,197,94,0.1); color:var(--green-soft); }
-.quick-icon.gold { background:rgba(201,168,76,0.1); color:var(--gold-soft); }
-.quick-icon.blue { background:rgba(59,130,246,0.1); color:var(--blue-soft); }
-.quick-icon.red { background:rgba(220,38,38,0.1); color:var(--red-soft); }
-.quick-icon svg { width:20px; height:20px; }
-.quick-label { font-size:10.5px; font-weight:650; color:var(--text-secondary); text-align:center; }
-
-/* ===== KPI GRID ===== */
-.kpi-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:9px; padding:0 16px; }
-.kpi-card {
-  background:var(--bg-card); border-radius:var(--radius-md); padding:14px;
-  border:1px solid var(--border-card); position:relative; overflow:hidden;
-  transition:transform 0.15s var(--ease-fast);
-}
-.kpi-card:active { transform:scale(0.96); }
-.kpi-card::before {
-  content:''; position:absolute; top:0; left:0; right:0; height:2px;
-}
-.kpi-card.green::before { background:var(--green-accent); }
-.kpi-card.gold::before { background:var(--gold-primary); }
-.kpi-card.blue::before { background:var(--blue-neutral); }
-.kpi-card.red::before { background:var(--red-emergency); }
-.kpi-icon-wrap {
-  width:30px; height:30px; border-radius:var(--radius-xs);
-  display:flex; align-items:center; justify-content:center; margin-bottom:9px;
-}
-.kpi-icon-wrap.green { background:rgba(34,197,94,0.08); color:var(--green-soft); }
-.kpi-icon-wrap.gold { background:rgba(201,168,76,0.08); color:var(--gold-soft); }
-.kpi-icon-wrap.blue { background:rgba(59,130,246,0.08); color:var(--blue-soft); }
-.kpi-icon-wrap.red { background:rgba(220,38,38,0.08); color:var(--red-soft); }
-.kpi-icon-wrap svg { width:15px; height:15px; }
-.kpi-value { font-size:23px; font-weight:800; color:var(--text-primary); line-height:1; }
-.kpi-label { font-size:10.5px; color:var(--text-muted); margin-top:3px; font-weight:550; }
-.kpi-trend {
-  display:inline-flex; align-items:center; gap:2.5px;
-  font-size:9.5px; font-weight:700; margin-top:5px; padding:2px 5.5px;
-  border-radius:var(--radius-full);
-}
-.kpi-trend.up { background:rgba(34,197,94,0.08); color:var(--green-soft); }
-.kpi-trend.down { background:rgba(220,38,38,0.08); color:var(--red-soft); }
-.kpi-trend svg { width:9px; height:9px; }
-
-/* ===== SUPPORT GRID ===== */
-.support-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:7px; padding:0 16px; }
-.support-card {
-  background:var(--bg-card); border-radius:var(--radius-sm); padding:11px 8px;
-  border:1px solid var(--border-card); text-align:center;
-  transition:transform 0.15s var(--ease-fast);
-}
-.support-card:active { transform:scale(0.95); }
-.support-icon-wrap {
-  width:26px; height:26px; border-radius:var(--radius-xs);
-  display:flex; align-items:center; justify-content:center; margin:0 auto 7px;
-}
-.support-icon-wrap.green { background:rgba(34,197,94,0.08); color:var(--green-soft); }
-.support-icon-wrap.gold { background:rgba(201,168,76,0.08); color:var(--gold-soft); }
-.support-icon-wrap.blue { background:rgba(59,130,246,0.08); color:var(--blue-soft); }
-.support-icon-wrap svg { width:13px; height:13px; }
-.support-value { font-size:13px; font-weight:750; color:var(--text-primary); }
-.support-label { font-size:8.5px; color:var(--text-muted); margin-top:1.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.2px; }
-
-/* ===== PROXIMITY / DANGER-CLOSE ===== */
-.proximity-section { padding:0 16px; margin-bottom:4px; }
-.proximity-card {
-  background:linear-gradient(145deg, var(--bg-card) 0%, var(--bg-elevated) 100%);
-  border-radius:var(--radius-lg); padding:18px;
-  border:1px solid var(--border-card); box-shadow:var(--shadow-card); position:relative; overflow:hidden;
-}
-.proximity-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
-.proximity-title {
-  font-size:12.5px; font-weight:700; color:var(--text-primary);
-  display:flex; align-items:center; gap:6px;
-}
-.proximity-title svg { width:15px; height:15px; color:var(--green-soft); }
-.proximity-count { font-size:10.5px; font-weight:700; color:var(--green-soft); }
-.proximity-scanner {
-  position:relative; height:120px; display:flex; align-items:center; justify-content:center;
-  margin-bottom:14px;
-}
-.proximity-scanner-bg {
-  position:absolute; width:100px; height:100px; border-radius:50%;
-  border:1px solid rgba(34,197,94,0.15);
-}
-.proximity-ring {
-  position:absolute; border-radius:50%; border:1px solid rgba(34,197,94,0.12);
-  animation: scanPulse 4s ease infinite;
-}
-.proximity-ring:nth-child(1) { width:40px; height:40px; animation-delay:0s; }
-.proximity-ring:nth-child(2) { width:70px; height:70px; animation-delay:0.8s; }
-.proximity-ring:nth-child(3) { width:100px; height:100px; animation-delay:1.6s; }
-@keyframes scanPulse {
-  0% { opacity:0.6; transform:scale(1); }
-  50% { opacity:0.2; transform:scale(1.08); }
-  100% { opacity:0; transform:scale(1.15); }
-}
-.proximity-center {
-  position:relative; z-index:2; width:10px; height:10px;
-  background:var(--green-accent); border-radius:50%;
-  box-shadow:0 0 0 3px rgba(34,197,94,0.25);
-}
-.proximity-dot {
-  position:absolute; width:8px; height:8px; border-radius:50%;
-  z-index:3;
-}
-.proximity-dot.user {
-  background:var(--gold-primary);
-  box-shadow:0 0 0 2px rgba(201,168,76,0.3);
-  animation: dotPulse 3s ease infinite;
-}
-.proximity-dot.alert {
-  background:var(--red-emergency);
-  box-shadow:0 0 0 2px rgba(220,38,38,0.35);
-  animation: alertPulse 1.5s ease infinite;
-}
-@keyframes dotPulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.3); } }
-@keyframes alertPulse { 0%,100% { transform:scale(1); opacity:1; } 50% { transform:scale(1.5); opacity:0.7; } }
-.proximity-dot[data-pos="1"] { top:25%; left:20%; }
-.proximity-dot[data-pos="2"] { top:15%; left:55%; }
-.proximity-dot[data-pos="3"] { top:45%; left:75%; }
-.proximity-dot[data-pos="4"] { top:65%; left:30%; }
-.proximity-dot[data-pos="5"] { top:70%; left:60%; }
-.proximity-legend { display:flex; gap:12px; justify-content:center; margin-top:2px; }
-.proximity-legend-item { display:flex; align-items:center; gap:4px; font-size:9.5px; color:var(--text-muted); font-weight:550; }
-.proximity-legend-dot { width:6px; height:6px; border-radius:50%; }
-.proximity-legend-dot.green { background:var(--green-accent); }
-.proximity-legend-dot.gold { background:var(--gold-primary); }
-.proximity-legend-dot.red { background:var(--red-emergency); }
-
-.danger-close-banner {
-  background:rgba(220,38,38,0.08); border:1px solid rgba(220,38,38,0.18);
-  border-radius:var(--radius-sm); padding:10px 12px; margin-top:12px;
-  display:flex; align-items:center; gap:8px;
-}
-.danger-close-icon { width:20px; height:20px; color:var(--red-soft); flex-shrink:0; }
-.danger-close-text { flex:1; }
-.danger-close-label { font-size:10.5px; font-weight:700; color:var(--red-soft); }
-.danger-close-desc { font-size:10px; color:rgba(239,68,68,0.7); margin-top:1px; font-weight:500; }
-
-/* ===== COMMUNITY LIST ===== */
-.community-list { display:flex; flex-direction:column; gap:8px; }
-.community-member {
-  display:flex; align-items:center; gap:10px; padding:9px 10px;
-  background:rgba(255,255,255,0.02); border-radius:var(--radius-sm);
-  border:1px solid var(--border-subtle); transition:transform 0.15s var(--ease-fast);
-}
-.community-member:active { transform:scale(0.98); }
-.community-avatar {
-  width:36px; height:36px; border-radius:50%; overflow:hidden;
-  border:1px solid var(--border-subtle); flex-shrink:0;
-  background:var(--bg-elevated); display:flex; align-items:center; justify-content:center;
-  font-size:13px; font-weight:650; color:var(--gold-soft);
-}
-.community-avatar img { width:100%; height:100%; object-fit:cover; }
-.community-info { flex:1; }
-.community-name { font-size:12.5px; font-weight:600; color:var(--text-primary); }
-.community-zone { font-size:10.5px; color:var(--text-muted); margin-top:1px; }
-.community-online { display:flex; align-items:center; gap:3.5px; font-size:9.5px; font-weight:700; color:var(--green-soft); }
-.community-online-dot { width:5px; height:5px; background:var(--green-accent); border-radius:50%; }
-
-/* ===== INCIDENTS LIST ===== */
-.incidents-list { padding:0 16px; display:flex; flex-direction:column; gap:7px; }
-.incident-item {
-  display:flex; align-items:center; gap:10px; padding:11px 12px;
-  background:var(--bg-card); border-radius:var(--radius-md);
-  border:1px solid var(--border-card); transition:all 0.15s var(--ease-fast);
-}
-.incident-item:active { transform:scale(0.98); background:var(--bg-card-hover); }
-.incident-icon {
-  width:36px; height:36px; border-radius:var(--radius-xs);
-  display:flex; align-items:center; justify-content:center; flex-shrink:0;
-}
-.incident-icon.red { background:rgba(220,38,38,0.08); color:var(--red-soft); }
-.incident-icon.gold { background:rgba(201,168,76,0.08); color:var(--gold-soft); }
-.incident-icon.blue { background:rgba(59,130,246,0.08); color:var(--blue-soft); }
-.incident-icon svg { width:17px; height:17px; }
-.incident-info { flex:1; min-width:0; }
-.incident-title {
-  font-size:12.5px; font-weight:650; color:var(--text-primary);
-  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-}
-.incident-meta { display:flex; align-items:center; gap:7px; margin-top:3px; }
-.incident-time { font-size:10.5px; color:var(--text-muted); }
-.incident-zone-tag {
-  font-size:9px; color:var(--text-muted); background:rgba(255,255,255,0.04);
-  padding:1px 6px; border-radius:var(--radius-full); font-weight:600;
-}
-.incident-status {
-  font-size:9.5px; font-weight:700; padding:3px 7px; border-radius:var(--radius-full);
-  flex-shrink:0;
-}
-.incident-status.pending { background:rgba(239,68,68,0.1); color:var(--red-soft); }
-.incident-status.resolved { background:rgba(34,197,94,0.08); color:var(--green-soft); }
-.incident-status.progress { background:rgba(201,168,76,0.08); color:var(--gold-soft); }
-
-/* ===== BOTTOM NAV ===== */
-.bottom-nav {
-  position:fixed; bottom:0; left:50%; transform:translateX(-50%);
-  width:100%; max-width:430px;
-  background:linear-gradient(180deg, rgba(6,18,11,0.82) 0%, rgba(6,18,11,0.97) 100%);
-  backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
-  border-top:1px solid var(--border-subtle);
-  display:flex; align-items:center; justify-content:space-around;
-  padding:6px 0; padding-bottom:max(6px, env(safe-area-inset-bottom));
-  z-index:100;
-}
-.nav-item {
-  display:flex; flex-direction:column; align-items:center; gap:3px;
-  padding:6px 14px; border-radius:var(--radius-sm); cursor:pointer;
-  transition:all 0.15s var(--ease-fast); position:relative;
-}
-.nav-item:active { transform:scale(0.9); }
-.nav-item svg { width:21px; height:21px; color:var(--text-muted); transition:color 0.15s var(--ease-fast); }
-.nav-item span { font-size:9.5px; font-weight:550; color:var(--text-muted); transition:color 0.15s var(--ease-fast); }
-.nav-item.active svg { color:var(--gold-soft); }
-.nav-item.active span { color:var(--gold-soft); font-weight:700; }
-.nav-item.active::before {
-  content:''; position:absolute; top:-1px; left:50%; transform:translateX(-50%);
-  width:18px; height:2.5px; background:var(--gold-primary); border-radius:0 0 3px 3px;
-}
-.nav-center-btn {
-  width:54px; height:54px; border-radius:50%;
-  background:linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-soft) 100%);
-  display:flex; align-items:center; justify-content:center; cursor:pointer;
-  margin-top:-26px; box-shadow:0 4px 22px rgba(201,168,76,0.28), 0 0 0 4px var(--bg-primary);
-  transition:all 0.15s var(--ease-fast); position:relative;
-}
-.nav-center-btn:active { transform:scale(0.9); }
-.nav-center-btn svg { width:25px; height:25px; color:var(--bg-primary); }
-.nav-center-btn::after {
-  content:''; position:absolute; inset:-4px; border-radius:50%;
-  border:2px solid rgba(201,168,76,0.25); animation: navRing 2.5s ease infinite;
-}
-@keyframes navRing { 0% { opacity:0.4; transform:scale(1); } 100% { opacity:0; transform:scale(1.12); } }
-
-/* ===== SCREEN HEADERS ===== */
-.screen-header {
-  display:flex; align-items:center; justify-content:space-between;
-  padding:14px 16px; padding-top:max(14px, env(safe-area-inset-top));
-  position:sticky; top:0; background:var(--bg-primary);
-  z-index:10; border-bottom:1px solid var(--border-subtle);
-}
-.screen-header-title { font-size:17px; font-weight:800; color:var(--text-primary); }
-.screen-header-back {
-  width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center;
-  cursor:pointer; transition:all 0.15s var(--ease-fast);
-}
-.screen-header-back:active { transform:scale(0.9); background:rgba(255,255,255,0.06); }
-.screen-header-back svg { width:20px; height:20px; color:var(--text-secondary); }
-.screen-header-action {
-  width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center;
-  cursor:pointer; transition:all 0.15s var(--ease-fast);
-}
-.screen-header-action:active { transform:scale(0.9); background:rgba(255,255,255,0.06); }
-.screen-header-action svg { width:20px; height:20px; color:var(--text-secondary); }
-
-/* ===== CARTÃO SCREEN ===== */
-.card-screen { padding:16px; }
-.resident-card {
-  position:relative; background:linear-gradient(145deg, #1d452c 0%, #0c2014 55%, #06120b 100%);
-  border-radius:var(--radius-xl); padding:22px 20px 18px;
-  border:1px solid var(--gold-border); box-shadow:var(--shadow-elevated), 0 0 50px rgba(201,168,76,0.04);
-  overflow:hidden;
-}
-.resident-card::before {
-  content:''; position:absolute; top:-40%; right:-25%;
-  width:180px; height:180px;
-  background:radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 65%); border-radius:50%;
-}
-.card-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; }
-.card-brand { font-size:11px; font-weight:800; color:var(--gold-primary); letter-spacing:2px; text-transform:uppercase; }
-.card-chip {
-  width:38px; height:28px; border-radius:5px;
-  background:linear-gradient(135deg, var(--gold-primary), var(--gold-soft));
-  position:relative; overflow:hidden;
-}
-.card-chip::before {
-  content:''; position:absolute; top:50%; left:8%; right:8%; height:1px;
-  background:rgba(0,0,0,0.15); transform:translateY(-50%);
-}
-.card-chip::after {
-  content:''; position:absolute; left:50%; top:8%; bottom:8%; width:1px;
-  background:rgba(0,0,0,0.15); transform:translateX(-50%);
-}
-.card-profile-row { display:flex; align-items:center; gap:14px; margin-bottom:18px; }
-.card-photo {
-  width:64px; height:64px; border-radius:50%; overflow:hidden;
-  border:2.5px solid var(--gold-primary);
-  box-shadow:0 0 0 4px rgba(201,168,76,0.12); flex-shrink:0;
-}
-.card-photo img { width:100%; height:100%; object-fit:cover; }
-.card-details h3 { font-size:17px; font-weight:750; color:var(--text-primary); margin-bottom:2px; }
-.card-details p { font-size:12.5px; color:var(--text-secondary); }
-.card-verified-pill {
-  display:inline-flex; align-items:center; gap:3.5px;
-  background:rgba(201,168,76,0.12); border:1px solid rgba(201,168,76,0.22);
-  padding:4px 9px; border-radius:var(--radius-full); margin-top:7px;
-}
-.card-verified-pill svg { width:11px; height:11px; color:var(--gold-soft); }
-.card-verified-pill span { font-size:9.5px; font-weight:700; color:var(--gold-soft); letter-spacing:0.2px; }
-.card-info-row { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; margin-bottom:14px; }
-.card-info-item {
-  background:rgba(255,255,255,0.03); border-radius:var(--radius-xs);
-  padding:9px 10px; border:1px solid var(--border-subtle);
-}
-.card-info-item label {
-  font-size:8.5px; font-weight:700; color:var(--text-muted);
-  text-transform:uppercase; letter-spacing:0.5px; display:block; margin-bottom:3px;
-}
-.card-info-item span { font-size:12.5px; font-weight:650; color:var(--text-primary); }
-.card-qr-box {
-  display:flex; align-items:center; justify-content:center;
-  padding:14px; background:#fff; border-radius:var(--radius-md); margin-bottom:14px;
-}
-.card-perms { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:14px; }
-.card-perm {
-  font-size:9px; font-weight:700; padding:3.5px 8px; border-radius:var(--radius-full);
-  background:rgba(34,197,94,0.08); color:var(--green-soft);
-  border:1px solid rgba(34,197,94,0.15);
-}
-.card-validity-row {
-  display:flex; justify-content:space-between; align-items:center;
-  padding-top:10px; border-top:1px solid var(--border-subtle);
-}
-.card-validity-label { font-size:9.5px; color:var(--text-muted); font-weight:550; }
-.card-validity-value { font-size:12.5px; font-weight:700; color:var(--green-soft); }
-
-/* Benefits */
-.benefits-section { margin-top:18px; }
-.benefits-title {
-  font-size:13.5px; font-weight:750; color:var(--text-primary);
-  margin-bottom:10px; display:flex; align-items:center; gap:7px;
-}
-.benefits-title svg { width:17px; height:17px; color:var(--gold-soft); }
-.benefits-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
-.benefit-card {
-  background:var(--bg-card); border-radius:var(--radius-md); padding:12px;
-  border:1px solid var(--border-card); display:flex; align-items:center; gap:9px;
-  transition:transform 0.15s var(--ease-fast);
-}
-.benefit-card:active { transform:scale(0.97); }
-.benefit-icon {
-  width:34px; height:34px; border-radius:var(--radius-xs);
-  background:rgba(201,168,76,0.08); display:flex; align-items:center; justify-content:center; flex-shrink:0;
-}
-.benefit-icon svg { width:17px; height:17px; color:var(--gold-soft); }
-.benefit-info h4 { font-size:11.5px; font-weight:650; color:var(--text-primary); }
-.benefit-info p { font-size:9.5px; color:var(--text-muted); margin-top:1px; }
-
-/* ===== REPORT SCREEN ===== */
-.report-screen { padding:16px; }
-.report-header { text-align:center; margin-bottom:20px; }
-.report-header h2 { font-size:21px; font-weight:800; color:var(--text-primary); }
-.report-header p { font-size:12.5px; color:var(--text-secondary); margin-top:4px; line-height:1.5; }
-.form-group { margin-bottom:14px; }
-.form-label {
-  font-size:11px; font-weight:700; color:var(--text-secondary);
-  margin-bottom:7px; display:block; letter-spacing:0.3px;
-}
-.form-input {
-  width:100%; padding:13px 14px; background:var(--bg-card);
-  border:1px solid var(--border-card); border-radius:var(--radius-md);
-  color:var(--text-primary); font-size:14px; font-family:inherit;
-  transition:all 0.15s var(--ease-fast); outline:none;
-}
-.form-input:focus { border-color:var(--gold-primary); box-shadow:0 0 0 3px rgba(201,168,76,0.08); }
-.form-input::placeholder { color:var(--text-muted); }
-textarea.form-input { min-height:90px; resize:vertical; }
-.form-select {
-  width:100%; padding:13px 14px; background:var(--bg-card);
-  border:1px solid var(--border-card); border-radius:var(--radius-md);
-  color:var(--text-primary); font-size:14px; font-family:inherit;
-  outline:none; appearance:none; cursor:pointer;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%236d7f68' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-  background-repeat:no-repeat; background-position:right 14px center;
-}
-.form-select:focus { border-color:var(--gold-primary); box-shadow:0 0 0 3px rgba(201,168,76,0.08); }
-.severity-row { display:flex; gap:6px; }
-.sev-btn {
-  flex:1; padding:10px; border-radius:var(--radius-sm);
-  border:1px solid var(--border-card); background:var(--bg-card);
-  color:var(--text-secondary); font-size:11px; font-weight:650;
-  font-family:inherit; cursor:pointer; text-align:center; transition:all 0.15s var(--ease-fast);
-}
-.sev-btn:active { transform:scale(0.96); }
-.sev-btn.sel { border-color:var(--gold-primary); background:rgba(201,168,76,0.08); color:var(--gold-soft); }
-.sev-btn.low.sel { border-color:var(--green-accent); background:rgba(34,197,94,0.08); color:var(--green-soft); }
-.sev-btn.high.sel { border-color:var(--red-emergency); background:rgba(220,38,38,0.08); color:var(--red-soft); }
-.anon-toggle {
-  display:flex; align-items:center; gap:10px; padding:12px 14px;
-  background:var(--bg-card); border-radius:var(--radius-md);
-  border:1px solid var(--border-card); margin-bottom:14px; cursor:pointer;
-  transition:all 0.15s var(--ease-fast);
-}
-.anon-toggle:active { transform:scale(0.98); }
-.anon-toggle.active { border-color:var(--gold-border); background:rgba(201,168,76,0.04); }
-.anon-switch {
-  width:42px; height:24px; border-radius:var(--radius-full);
-  background:rgba(255,255,255,0.1); position:relative; transition:background 0.2s var(--ease-fast);
-  flex-shrink:0;
-}
-.anon-toggle.active .anon-switch { background:rgba(201,168,76,0.25); }
-.anon-switch-dot {
-  width:18px; height:18px; border-radius:50%; background:#fff;
-  position:absolute; top:3px; left:3px; transition:transform 0.2s var(--ease-fast);
-}
-.anon-toggle.active .anon-switch-dot { transform:translateX(18px); }
-.anon-text { font-size:12.5px; color:var(--text-secondary); font-weight:550; }
-.camera-upload {
-  width:100%; height:110px; border:2px dashed var(--border-card);
-  border-radius:var(--radius-md); display:flex; flex-direction:column;
-  align-items:center; justify-content:center; gap:7px;
-  cursor:pointer; transition:all 0.2s var(--ease-fast); position:relative; overflow:hidden;
-}
-.camera-upload:active { background:rgba(255,255,255,0.02); border-color:var(--gold-primary); }
-.camera-upload svg { width:28px; height:28px; color:var(--text-muted); }
-.camera-upload span { font-size:12px; color:var(--text-muted); font-weight:600; }
-.camera-upload-sub { font-size:10px; color:var(--text-muted); font-weight:500; opacity:0.7; }
-.camera-preview {
-  position:absolute; inset:0; display:none;
-  background-size:cover; background-position:center;
-}
-.camera-preview.active { display:block; }
-.camera-preview .camera-remove {
-  position:absolute; top:8px; right:8px; width:24px; height:24px;
-  border-radius:50%; background:rgba(0,0,0,0.6); display:flex;
-  align-items:center; justify-content:center; cursor:pointer;
-}
-.camera-remove svg { width:14px; height:14px; color:#fff; }
-.submit-btn {
-  width:100%; padding:15px; border:none; border-radius:var(--radius-lg);
-  background:linear-gradient(135deg, var(--gold-primary), var(--gold-soft));
-  color:var(--bg-primary); font-size:14.5px; font-weight:800;
-  font-family:inherit; letter-spacing:0.4px; cursor:pointer;
-  transition:all 0.15s var(--ease-fast);
-  box-shadow:0 4px 20px rgba(201,168,76,0.22); margin-top:4px;
-}
-.submit-btn:active { transform:scale(0.98); box-shadow:0 2px 12px rgba(201,168,76,0.15); }
-.submit-btn:disabled { opacity:0.45; cursor:not-allowed; }
-
-/* ===== CAMERA MODAL ===== */
-.camera-modal {
-  position:fixed; inset:0; background:var(--bg-primary);
-  z-index:300; display:none; flex-direction:column;
-}
-.camera-modal.active { display:flex; }
-.camera-header {
-  display:flex; justify-content:space-between; align-items:center;
-  padding:14px 16px; padding-top:max(14px, env(safe-area-inset-top));
-  background:rgba(6,18,11,0.9); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--border-subtle);
-}
-.camera-header-title { font-size:15px; font-weight:700; color:var(--text-primary); }
-.camera-close {
-  width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center;
-  cursor:pointer; background:rgba(255,255,255,0.08); transition:all 0.15s var(--ease-fast);
-}
-.camera-close:active { transform:scale(0.9); }
-.camera-close svg { width:20px; height:20px; color:var(--text-primary); }
-.camera-viewport {
-  flex:1; display:flex; align-items:center; justify-content:center;
-  position:relative; background:#000;
-}
-.camera-viewport video { width:100%; height:100%; object-fit:cover; }
-.camera-placeholder {
-  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px;
-  color:var(--text-muted);
-}
-.camera-placeholder svg { width:48px; height:48px; opacity:0.3; }
-.camera-placeholder span { font-size:13px; font-weight:550; }
-.camera-controls {
-  padding:20px 16px; padding-bottom:max(20px, env(safe-area-inset-bottom));
-  display:flex; justify-content:center; align-items:center; gap:20px;
-  background:rgba(6,18,11,0.9); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
-  border-top:1px solid var(--border-subtle);
-}
-.shutter-btn {
-  width:64px; height:64px; border-radius:50%; border:3px solid #fff;
-  background:transparent; display:flex; align-items:center; justify-content:center;
-  cursor:pointer; transition:all 0.15s var(--ease-fast);
-}
-.shutter-btn:active { transform:scale(0.9); }
-.shutter-btn-inner {
-  width:50px; height:50px; border-radius:50%; background:#fff;
-  transition:all 0.15s var(--ease-fast);
-}
-.shutter-btn:active .shutter-btn-inner { width:44px; height:44px; }
-.camera-side-btn {
-  width:42px; height:42px; border-radius:50%; background:rgba(255,255,255,0.08);
-  display:flex; align-items:center; justify-content:center; cursor:pointer;
-  transition:all 0.15s var(--ease-fast);
-}
-.camera-side-btn:active { transform:scale(0.9); }
-.camera-side-btn svg { width:20px; height:20px; color:#fff; }
-
-/* ===== SUCCESS STATE ===== */
-.success-state {
-  text-align:center; padding:40px 24px;
-}
-.success-icon {
-  width:72px; height:72px; border-radius:50%;
-  background:rgba(34,197,94,0.1); margin:0 auto 16px;
-  display:flex; align-items:center; justify-content:center;
-  animation: successPop 0.5s var(--ease-smooth);
-}
-@keyframes successPop {
-  0% { transform:scale(0.5); opacity:0; }
-  70% { transform:scale(1.1); }
-  100% { transform:scale(1); opacity:1; }
-}
-.success-icon svg { width:36px; height:36px; color:var(--green-soft); }
-.success-title { font-size:20px; font-weight:800; color:var(--text-primary); margin-bottom:8px; }
-.success-desc { font-size:13px; color:var(--text-secondary); line-height:1.6; margin-bottom:20px; }
-.success-tracking {
-  background:var(--bg-card); border-radius:var(--radius-md); padding:14px;
-  border:1px solid var(--border-card); margin-bottom:20px; text-align:left;
-}
-.success-tracking-row { display:flex; justify-content:space-between; align-items:center; padding:6px 0; }
-.success-tracking-label { font-size:11px; color:var(--text-muted); font-weight:550; }
-.success-tracking-value { font-size:12px; color:var(--text-primary); font-weight:650; }
-.success-btn {
-  width:100%; padding:14px; border:none; border-radius:var(--radius-lg);
-  background:var(--bg-card); color:var(--text-primary); font-size:14px; font-weight:650;
-  font-family:inherit; cursor:pointer; border:1px solid var(--border-card);
-  transition:all 0.15s var(--ease-fast);
-}
-.success-btn:active { transform:scale(0.98); }
-
-/* ===== VISITORS SCREEN ===== */
-.visitors-screen { padding:16px; }
-.visitor-tabs {
-  display:flex; gap:3px; margin-bottom:14px;
-  background:var(--bg-card); border-radius:var(--radius-md); padding:3px;
-  border:1px solid var(--border-card);
-}
-.visitor-tab {
-  flex:1; padding:9px; border-radius:var(--radius-sm); border:none;
-  background:transparent; color:var(--text-muted); font-size:11.5px; font-weight:650;
-  font-family:inherit; cursor:pointer; transition:all 0.15s var(--ease-fast);
-}
-.visitor-tab.active { background:var(--bg-elevated); color:var(--gold-soft); }
-.visitor-tab:active { transform:scale(0.96); }
-.visitor-card {
-  background:var(--bg-card); border-radius:var(--radius-md); padding:14px;
-  border:1px solid var(--border-card); margin-bottom:8px;
-  transition:transform 0.15s var(--ease-fast);
-}
-.visitor-card:active { transform:scale(0.985); }
-.visitor-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px; }
-.visitor-name { font-size:13.5px; font-weight:650; color:var(--text-primary); }
-.visitor-company { font-size:11.5px; color:var(--text-muted); margin-top:2px; }
-.visitor-status {
-  font-size:9px; font-weight:800; padding:3.5px 8px; border-radius:var(--radius-full);
-  text-transform:uppercase; letter-spacing:0.4px;
-}
-.visitor-status.pending { background:rgba(201,168,76,0.1); color:var(--gold-soft); }
-.visitor-status.authorized { background:rgba(34,197,94,0.08); color:var(--green-soft); }
-.visitor-status.inside { background:rgba(59,130,246,0.1); color:var(--blue-soft); }
-.visitor-status.expired { background:rgba(220,38,38,0.08); color:var(--red-soft); }
-.visitor-status.completed { background:rgba(109,127,104,0.12); color:var(--text-muted); }
-.visitor-details { display:grid; grid-template-columns:repeat(2,1fr); gap:6px; margin-bottom:10px; }
-.visitor-detail label { font-size:9.5px; color:var(--text-muted); display:block; margin-bottom:1.5px; font-weight:550; }
-.visitor-detail span { font-size:11.5px; color:var(--text-secondary); font-weight:600; }
-.visitor-actions { display:flex; gap:6px; }
-.v-action {
-  flex:1; padding:9px; border-radius:var(--radius-sm);
-  border:1px solid var(--border-card); background:var(--bg-card);
-  color:var(--text-secondary); font-size:11px; font-weight:650; font-family:inherit;
-  cursor:pointer; display:flex; align-items:center; justify-content:center; gap:5px;
-  transition:all 0.15s var(--ease-fast);
-}
-.v-action:active { transform:scale(0.96); }
-.v-action svg { width:13px; height:13px; }
-.v-action.approve { background:rgba(34,197,94,0.06); border-color:rgba(34,197,94,0.15); color:var(--green-soft); }
-.v-action.revoke { background:rgba(220,38,38,0.05); border-color:rgba(220,38,38,0.12); color:var(--red-soft); }
-.v-action.cancel { background:rgba(109,127,104,0.06); color:var(--text-muted); }
-
-/* ===== SECURITY SCREEN ===== */
-.security-screen { padding:16px; }
-.security-emergency {
-  background:linear-gradient(135deg, rgba(220,38,38,0.07) 0%, var(--bg-card) 100%);
-  border-radius:var(--radius-lg); padding:16px; border:1px solid rgba(220,38,38,0.15);
-  margin-bottom:14px;
-}
-.security-emergency-title {
-  font-size:13px; font-weight:750; color:var(--red-soft); margin-bottom:12px;
-  display:flex; align-items:center; gap:7px;
-}
-.security-emergency-title svg { width:16px; height:16px; }
-.emergency-contacts { display:flex; flex-direction:column; gap:6px; }
-.emergency-contact {
-  display:flex; align-items:center; gap:10px; padding:11px;
-  background:rgba(255,255,255,0.02); border-radius:var(--radius-sm);
-  border:1px solid var(--border-subtle); cursor:pointer;
-  transition:all 0.15s var(--ease-fast);
-}
-.emergency-contact:active { transform:scale(0.985); background:rgba(255,255,255,0.04); }
-.ec-icon {
-  width:38px; height:38px; border-radius:var(--radius-sm);
-  display:flex; align-items:center; justify-content:center; flex-shrink:0;
-}
-.ec-icon.prm { background:rgba(59,130,246,0.1); color:var(--blue-soft); }
-.ec-icon.coord { background:rgba(201,168,76,0.08); color:var(--gold-soft); }
-.ec-icon.sec { background:rgba(34,197,94,0.08); color:var(--green-soft); }
-.ec-icon svg { width:18px; height:18px; }
-.ec-info { flex:1; }
-.ec-name { font-size:12.5px; font-weight:650; color:var(--text-primary); }
-.ec-role { font-size:10.5px; color:var(--text-muted); margin-top:1px; }
-.ec-number { font-size:14px; font-weight:800; color:var(--green-soft); }
-.security-status-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; margin-bottom:14px; }
-.security-status-card {
-  background:var(--bg-card); border-radius:var(--radius-md); padding:13px;
-  border:1px solid var(--border-card);
-}
-.security-status-title {
-  font-size:9.5px; font-weight:750; color:var(--text-muted);
-  text-transform:uppercase; letter-spacing:0.5px; margin-bottom:6px;
-}
-.security-status-value { font-size:21px; font-weight:800; color:var(--text-primary); }
-.security-status-sub { font-size:10.5px; color:var(--text-secondary); margin-top:3px; font-weight:500; }
-.security-ops {
-  background:var(--bg-card); border-radius:var(--radius-lg); padding:16px;
-  border:1px solid var(--border-card); margin-bottom:14px;
-}
-.security-ops-title {
-  font-size:12.5px; font-weight:750; color:var(--text-primary); margin-bottom:12px;
-  display:flex; align-items:center; gap:6px;
-}
-.security-ops-title svg { width:15px; height:15px; color:var(--gold-soft); }
-.ops-list { display:flex; flex-direction:column; gap:8px; }
-.ops-item { display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid var(--border-subtle); }
-.ops-item:last-child { border-bottom:none; }
-.ops-item-label { font-size:12px; color:var(--text-secondary); font-weight:550; }
-.ops-item-value {
-  font-size:11.5px; font-weight:700; padding:3px 8px; border-radius:var(--radius-full);
-}
-.ops-item-value.green { background:rgba(34,197,94,0.08); color:var(--green-soft); }
-.ops-item-value.gold { background:rgba(201,168,76,0.08); color:var(--gold-soft); }
-.ops-item-value.red { background:rgba(220,38,38,0.08); color:var(--red-soft); }
-.ops-item-value.blue { background:rgba(59,130,246,0.08); color:var(--blue-soft); }
-
-/* ===== ALERTS SCREEN ===== */
-.alerts-screen { padding:16px; }
-.alerts-filters {
-  display:flex; gap:5px; margin-bottom:14px; overflow-x:auto;
-  padding-bottom:4px; -webkit-overflow-scrolling:touch;
-}
-.alerts-filters::-webkit-scrollbar { display:none; }
-.alert-filter {
-  padding:7px 12px; border-radius:var(--radius-full);
-  border:1px solid var(--border-card); background:var(--bg-card);
-  color:var(--text-muted); font-size:11px; font-weight:650; font-family:inherit;
-  cursor:pointer; white-space:nowrap; transition:all 0.15s var(--ease-fast);
-}
-.alert-filter.active { background:var(--bg-elevated); border-color:var(--gold-border); color:var(--gold-soft); }
-.alert-filter:active { transform:scale(0.95); }
-.alert-card {
-  background:var(--bg-card); border-radius:var(--radius-md); padding:14px;
-  border:1px solid var(--border-card); margin-bottom:8px; position:relative;
-  transition:transform 0.15s var(--ease-fast);
-}
-.alert-card:active { transform:scale(0.985); }
-.alert-card::before {
-  content:''; position:absolute; top:0; left:0; width:3px; height:100%;
-  border-radius:0 3px 3px 0;
-}
-.alert-card.critical::before { background:var(--red-emergency); }
-.alert-card.critical { background:linear-gradient(135deg, rgba(220,38,38,0.05) 0%, var(--bg-card) 100%); }
-.alert-card.warning::before { background:var(--gold-primary); }
-.alert-card.info-card::before { background:var(--blue-neutral); }
-.alert-card.resolved::before { background:var(--text-muted); opacity:0.4; }
-.alert-card.resolved { opacity:0.55; }
-.alert-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:7px; }
-.alert-priority {
-  font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:0.5px;
-  padding:3px 7px; border-radius:var(--radius-full);
-}
-.alert-priority.critical { background:rgba(220,38,38,0.1); color:var(--red-soft); }
-.alert-priority.warning { background:rgba(201,168,76,0.08); color:var(--gold-soft); }
-.alert-priority.info { background:rgba(59,130,246,0.08); color:var(--blue-soft); }
-.alert-priority.resolved-label { background:rgba(109,127,104,0.1); color:var(--text-muted); }
-.alert-time { font-size:10.5px; color:var(--text-muted); font-weight:550; }
-.alert-title { font-size:13.5px; font-weight:650; color:var(--text-primary); margin-bottom:3px; }
-.alert-desc { font-size:11.5px; color:var(--text-secondary); line-height:1.55; margin-bottom:8px; }
-.alert-meta-row { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:8px; }
-.alert-meta { display:flex; align-items:center; gap:3.5px; font-size:10px; color:var(--text-muted); font-weight:550; }
-.alert-meta svg { width:11px; height:11px; }
-.alert-action-btn {
-  font-size:11px; font-weight:650; color:var(--gold-primary);
-  cursor:pointer; display:flex; align-items:center; gap:3.5px;
-  padding:6px 10px; border-radius:var(--radius-full);
-  background:rgba(201,168,76,0.06); border:1px solid rgba(201,168,76,0.12);
-  transition:all 0.15s var(--ease-fast); font-family:inherit;
-}
-.alert-action-btn:active { transform:scale(0.95); background:rgba(201,168,76,0.12); }
-.alert-action-btn svg { width:13px; height:13px; }
-.nearby-badge {
-  display:inline-flex; align-items:center; gap:3px;
-  font-size:9px; font-weight:700; padding:2px 6px; border-radius:var(--radius-full);
-  background:rgba(239,68,68,0.1); color:var(--red-soft); margin-left:auto;
-}
-
-/* ===== PROFILE SCREEN ===== */
-.profile-screen { padding:16px; }
-.profile-top { text-align:center; margin-bottom:18px; }
-.profile-avatar {
-  width:80px; height:80px; border-radius:50%; overflow:hidden;
-  border:3px solid var(--gold-primary); margin:0 auto 10px;
-  box-shadow:0 0 0 4px rgba(201,168,76,0.1), var(--shadow-card);
-}
-.profile-avatar img { width:100%; height:100%; object-fit:cover; }
-.profile-name { font-size:19px; font-weight:800; color:var(--text-primary); }
-.profile-zone { font-size:12.5px; color:var(--text-secondary); margin-top:2px; font-weight:500; }
-.profile-verified-pill {
-  display:inline-flex; align-items:center; gap:3.5px;
-  background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.2);
-  padding:4px 10px; border-radius:var(--radius-full); margin-top:7px;
-}
-.profile-verified-pill svg { width:13px; height:13px; color:var(--gold-soft); }
-.profile-verified-pill span { font-size:10.5px; font-weight:700; color:var(--gold-soft); }
-.profile-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:16px; }
-.profile-stat {
-  text-align:center; padding:12px 8px; background:var(--bg-card);
-  border-radius:var(--radius-md); border:1px solid var(--border-card);
-}
-.profile-stat-value { font-size:21px; font-weight:800; color:var(--text-primary); }
-.profile-stat-label { font-size:9.5px; color:var(--text-muted); margin-top:2px; font-weight:600; }
-.profile-section { margin-bottom:16px; }
-.profile-section-title {
-  font-size:12.5px; font-weight:750; color:var(--text-primary); margin-bottom:8px;
-  display:flex; align-items:center; gap:6px;
-}
-.profile-section-title svg { width:15px; height:15px; color:var(--gold-soft); }
-.profile-menu-item {
-  display:flex; align-items:center; gap:10px; padding:12px 13px;
-  background:var(--bg-card); border-radius:var(--radius-md);
-  border:1px solid var(--border-card); margin-bottom:5px;
-  cursor:pointer; transition:all 0.15s var(--ease-fast);
-}
-.profile-menu-item:active { transform:scale(0.985); background:var(--bg-card-hover); }
-.pm-icon {
-  width:36px; height:36px; border-radius:var(--radius-xs);
-  display:flex; align-items:center; justify-content:center; flex-shrink:0;
-}
-.pm-icon svg { width:17px; height:17px; }
-.pm-icon.green { background:rgba(34,197,94,0.08); color:var(--green-soft); }
-.pm-icon.gold { background:rgba(201,168,76,0.08); color:var(--gold-soft); }
-.pm-icon.blue { background:rgba(59,130,246,0.08); color:var(--blue-soft); }
-.pm-icon.red { background:rgba(220,38,38,0.08); color:var(--red-soft); }
-.pm-info { flex:1; }
-.pm-title { font-size:12.5px; font-weight:650; color:var(--text-primary); }
-.pm-subtitle { font-size:10.5px; color:var(--text-muted); margin-top:1px; font-weight:500; }
-.pm-arrow { color:var(--text-muted); }
-.pm-arrow svg { width:15px; height:15px; }
-.vehicle-item {
-  display:flex; align-items:center; gap:10px; padding:10px 12px;
-  background:var(--bg-card); border-radius:var(--radius-md);
-  border:1px solid var(--border-card); margin-bottom:6px;
-}
-.vehicle-icon {
-  width:38px; height:38px; border-radius:var(--radius-xs);
-  background:rgba(59,130,246,0.08); display:flex; align-items:center; justify-content:center; flex-shrink:0;
-}
-.vehicle-icon svg { width:18px; height:18px; color:var(--blue-soft); }
-.vehicle-info { flex:1; }
-.vehicle-plate { font-size:13px; font-weight:750; color:var(--text-primary); }
-.vehicle-model { font-size:10.5px; color:var(--text-muted); margin-top:1px; }
-.vehicle-status {
-  font-size:9px; font-weight:700; padding:2.5px 7px; border-radius:var(--radius-full);
-  background:rgba(34,197,94,0.08); color:var(--green-soft);
-}
-.household-item {
-  display:flex; align-items:center; gap:10px; padding:10px 12px;
-  background:var(--bg-card); border-radius:var(--radius-md);
-  border:1px solid var(--border-card); margin-bottom:6px;
-}
-.household-avatar {
-  width:36px; height:36px; border-radius:50%; background:var(--bg-elevated);
-  display:flex; align-items:center; justify-content:center; flex-shrink:0;
-  font-size:13px; font-weight:650; color:var(--gold-soft);
-}
-.household-info { flex:1; }
-.household-name { font-size:12.5px; font-weight:600; color:var(--text-primary); }
-.household-role { font-size:10.5px; color:var(--text-muted); margin-top:1px; }
-.doc-item {
-  display:flex; align-items:center; gap:10px; padding:10px 12px;
-  background:var(--bg-card); border-radius:var(--radius-md);
-  border:1px solid var(--border-card); margin-bottom:5px; cursor:pointer;
-  transition:all 0.15s var(--ease-fast);
-}
-.doc-item:active { transform:scale(0.985); }
-.doc-icon {
-  width:36px; height:36px; border-radius:var(--radius-xs);
-  background:rgba(201,168,76,0.08); display:flex; align-items:center; justify-content:center; flex-shrink:0;
-}
-.doc-icon svg { width:17px; height:17px; color:var(--gold-soft); }
-.doc-info { flex:1; }
-.doc-name { font-size:12px; font-weight:650; color:var(--text-primary); }
-.doc-date { font-size:10px; color:var(--text-muted); margin-top:1px; }
-.access-item {
-  display:flex; align-items:center; gap:10px; padding:10px 12px;
-  background:var(--bg-card); border-radius:var(--radius-md);
-  border:1px solid var(--border-card); margin-bottom:5px;
-}
-.access-icon {
-  width:34px; height:34px; border-radius:50%;
-  display:flex; align-items:center; justify-content:center; flex-shrink:0;
-}
-.access-icon.in { background:rgba(34,197,94,0.08); color:var(--green-soft); }
-.access-icon.out { background:rgba(59,130,246,0.08); color:var(--blue-soft); }
-.access-icon svg { width:15px; height:15px; }
-.access-info { flex:1; }
-.access-time { font-size:12px; font-weight:650; color:var(--text-primary); }
-.access-type { font-size:10px; color:var(--text-muted); margin-top:1px; }
-.pref-item {
-  display:flex; align-items:center; justify-content:space-between;
-  padding:12px 13px; background:var(--bg-card); border-radius:var(--radius-md);
-  border:1px solid var(--border-card); margin-bottom:5px;
-}
-.pref-label { font-size:12.5px; font-weight:600; color:var(--text-primary); }
-.pref-toggle {
-  width:40px; height:22px; border-radius:var(--radius-full);
-  background:rgba(255,255,255,0.1); position:relative; cursor:pointer;
-  transition:background 0.2s var(--ease-fast);
-}
-.pref-toggle.on { background:rgba(34,197,94,0.25); }
-.pref-toggle-dot {
-  width:16px; height:16px; border-radius:50%; background:#fff;
-  position:absolute; top:3px; left:3px; transition:transform 0.2s var(--ease-fast);
-}
-.pref-toggle.on .pref-toggle-dot { transform:translateX(18px); }
-.profile-logout {
-  width:100%; padding:13px; border-radius:var(--radius-md);
-  border:1px solid rgba(220,38,38,0.18); background:rgba(220,38,38,0.05);
-  color:var(--red-soft); font-size:13.5px; font-weight:700; font-family:inherit;
-  cursor:pointer; display:flex; align-items:center; justify-content:center; gap:7px;
-  transition:all 0.15s var(--ease-fast); margin-top:6px;
-}
-.profile-logout:active { transform:scale(0.98); background:rgba(220,38,38,0.08); }
-.profile-logout svg { width:17px; height:17px; }
-
-/* ===== MODALS ===== */
-.modal-overlay {
-  display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75);
-  z-index:200; align-items:flex-end; justify-content:center;
-}
-.modal-overlay.active { display:flex; }
-.modal-content {
-  width:100%; max-width:430px; background:var(--bg-secondary);
-  border-radius:var(--radius-xl) var(--radius-xl) 0 0;
-  padding:22px 16px; padding-bottom:max(22px, env(safe-area-inset-bottom));
-  animation: modalUp 0.3s var(--ease-smooth);
-}
-@keyframes modalUp { from { transform:translateY(100%); } to { transform:translateY(0); } }
-.modal-handle {
-  width:36px; height:4px; background:var(--text-muted);
-  border-radius:2px; margin:0 auto 14px; opacity:0.5;
-}
-.modal-title { font-size:17px; font-weight:800; color:var(--text-primary); margin-bottom:14px; text-align:center; }
-.modal-actions { display:grid; grid-template-columns:repeat(3,1fr); gap:7px; }
-.modal-action {
-  display:flex; flex-direction:column; align-items:center; gap:6px;
-  padding:14px 6px; border-radius:var(--radius-md);
-  background:var(--bg-card); border:1px solid var(--border-card);
-  cursor:pointer; transition:all 0.15s var(--ease-fast);
-}
-.modal-action:active { transform:scale(0.94); }
-.modal-action svg { width:22px; height:22px; color:var(--gold-soft); }
-.modal-action span { font-size:10.5px; font-weight:650; color:var(--text-secondary); text-align:center; }
-.modal-close-btn {
-  width:100%; padding:13px; border-radius:var(--radius-md);
-  border:1px solid var(--border-card); background:var(--bg-card);
-  color:var(--text-secondary); font-size:13.5px; font-weight:650;
-  font-family:inherit; cursor:pointer; margin-top:10px;
-  transition:all 0.15s var(--ease-fast);
-}
-.modal-close-btn:active { transform:scale(0.98); }
-
-/* SOS Modal */
-.sos-modal-content { text-align:center; padding:20px 16px; }
-.sos-modal-icon {
-  width:76px; height:76px; border-radius:50%;
-  background:rgba(220,38,38,0.12); margin:0 auto 14px;
-  display:flex; align-items:center; justify-content:center;
-  animation: sosPulseIcon 1.5s ease infinite;
-}
-@keyframes sosPulseIcon {
-  0% { box-shadow:0 0 0 0 rgba(220,38,38,0.35); }
-  50% { box-shadow:0 0 0 18px rgba(220,38,38,0); }
-  100% { box-shadow:0 0 0 0 rgba(220,38,38,0); }
-}
-.sos-modal-icon svg { width:36px; height:36px; color:var(--red-soft); }
-.sos-modal-title { font-size:21px; font-weight:800; color:var(--red-soft); margin-bottom:7px; }
-.sos-modal-desc { font-size:13px; color:var(--text-secondary); margin-bottom:22px; line-height:1.6; }
-.sos-modal-actions { display:flex; flex-direction:column; gap:8px; }
-.sos-modal-btn {
-  padding:13px; border-radius:var(--radius-md); border:none;
-  font-size:13.5px; font-weight:650; font-family:inherit;
-  cursor:pointer; display:flex; align-items:center; justify-content:center; gap:7px;
-  transition:all 0.15s var(--ease-fast);
-}
-.sos-modal-btn:active { transform:scale(0.98); }
-.sos-modal-btn svg { width:17px; height:17px; }
-.sos-modal-btn.primary { background:var(--red-emergency); color:#fff; box-shadow:0 4px 18px rgba(220,38,38,0.25); }
-.sos-modal-btn.secondary { background:var(--bg-card); color:var(--text-secondary); border:1px solid var(--border-card); }
-
-/* Toast */
-.toast {
-  position:fixed; top:16px; left:50%; transform:translateX(-50%) translateY(-120px);
-  max-width:400px; width:calc(100% - 32px); padding:12px 14px;
-  border-radius:var(--radius-md); background:var(--bg-elevated);
-  border:1px solid var(--border-card); box-shadow:var(--shadow-elevated);
-  z-index:300; display:flex; align-items:center; gap:9px;
-  transition:transform 0.4s var(--ease-smooth);
-}
-.toast.show { transform:translateX(-50%) translateY(0); }
-.toast-icon {
-  width:22px; height:22px; border-radius:50%;
-  display:flex; align-items:center; justify-content:center; flex-shrink:0;
-}
-.toast-icon.success { background:rgba(34,197,94,0.12); color:var(--green-soft); }
-.toast-icon.error { background:rgba(220,38,38,0.12); color:var(--red-soft); }
-.toast-icon svg { width:13px; height:13px; }
-.toast-text { font-size:12.5px; font-weight:550; color:var(--text-primary); flex:1; }
-
-/* ===== RESPONSIVE ===== */
-@media (min-width:431px) {
-  .app-container { border-left:1px solid var(--border-subtle); border-right:1px solid var(--border-subtle); }
-}
-
-/* ===== SCROLLBAR ===== */
-::-webkit-scrollbar { width:0; }
-</style>
-</head>
-<body>
-<div class="app-container" id="app">
-  <!-- Toast -->
-  <div class="toast" id="toast">
-    <div class="toast-icon" id="toastIcon"><i data-lucide="check"></i></div>
-    <span class="toast-text" id="toastText"></span>
-  </div>
-
-  <!-- ==================== HOME SCREEN ==================== -->
-  <div class="screen active" id="screen-home">
-    <div class="hero-section">
-      <div class="hero-bg" id="heroBg"></div>
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <div class="hero-top">
-          <div>
-            <div class="hero-greeting" id="heroGreeting">Bom dia</div>
-            <div class="hero-time" id="heroTime">08:30</div>
-            <div class="hero-date" id="heroDate">Sábado, 14 de Junho</div>
-          </div>
-          <div class="hero-brand">
-            <div class="hero-logo-pill">
-              <svg class="hero-logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              <span class="hero-logo-text">BH</span>
-            </div>
-            <div class="hero-notif-btn" onclick="navigateTo('alerts')">
-              <i data-lucide="bell"></i>
-              <div class="hero-notif-badge"></div>
-            </div>
-          </div>
-        </div>
-        <div class="hero-bottom">
-          <div class="hero-weather" id="heroWeather">
-            <span class="hero-weather-icon">☀️</span>
-            <div>
-              <div class="hero-weather-temp" id="heroTemp">28°C</div>
-              <div class="hero-weather-desc" id="heroWeatherDesc">Ensolarado · BH, Boane</div>
-            </div>
-          </div>
-          <div class="hero-status">
-            <div class="hero-status-pill">
-              <div class="hero-status-dot"></div>
-              <span class="hero-status-text">Seguro</span>
-            </div>
-            <span class="hero-verified-label">Comunidade Verificada</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="identity-strip">
-      <div class="identity-avatar"><img src="https://image.qwenlm.ai/public_source/99d8fa64-043e-47ba-9f92-ebc4131818d5/1a17b6a02-6193-4862-bfa7-ebd103d930f7.png" alt=""></div>
-      <div class="identity-info">
-        <div class="identity-name">Carlos Alberto Mondlane</div>
-        <div class="identity-zone">Quarteirão 4 · Lote 12</div>
-      </div>
-      <div class="identity-badges">
-        <div class="badge badge-verified"><i data-lucide="badge-check"></i><span>Verificado</span></div>
-      </div>
-    </div>
-
-    <div class="sos-section">
-      <button class="sos-button" onclick="showSOSModal()">
-        <div class="sos-ring"></div>
-        <div class="sos-sweep"></div>
-        <i data-lucide="siren"></i>
-        <span>Pânico / Emergência</span>
-      </button>
-    </div>
-
-    <div class="section-header">
-      <span class="section-title">Ocorrência Activa</span>
-      <span class="section-link" onclick="navigateTo('alerts')">Ver Todas <i data-lucide="chevron-right"></i></span>
-    </div>
-    <div class="primary-card incident">
-      <div class="card-header-row">
-        <span class="card-label urgent">Urgente</span>
-        <span class="card-time">Há 25 min</span>
-      </div>
-      <div class="card-title">Actividade Suspeita no Portão Principal</div>
-      <div class="card-desc">Indivíduos não identificados observados a tentar aceder ao bairro sem autorização. Segurança já no local.</div>
-      <div class="card-footer">
-        <div class="card-location"><i data-lucide="map-pin"></i><span>Portão Principal · Q2</span></div>
-        <button class="card-action">Acompanhar</button>
-      </div>
-    </div>
-
-    <div class="primary-card notice">
-      <div class="card-header-row">
-        <span class="card-label info-label">Aviso</span>
-        <span class="card-time">Hoje, 07:00</span>
-      </div>
-      <div class="card-title">Reunião Geral da AMOBELO</div>
-      <div class="card-desc">Reunião mensal da AMOBELO com a Coordenação do Bairro. Tema: Plano de segurança e manutenção de infraestruturas. Presença recomendada.</div>
-      <div class="card-footer">
-        <div class="card-location"><i data-lucide="calendar"></i><span>18 Jun · 18:00 · Centro Comunitário</span></div>
-        <button class="card-action">Confirmar</button>
-      </div>
-    </div>
-
-    <div class="section-header"><span class="section-title">Acções Rápidas</span></div>
-    <div class="quick-grid">
-      <div class="quick-btn highlight" onclick="navigateTo('card')">
-        <div class="quick-icon green"><i data-lucide="credit-card"></i></div>
-        <span class="quick-label">Cartão</span>
-      </div>
-      <div class="quick-btn highlight" onclick="navigateTo('report')">
-        <div class="quick-icon gold"><i data-lucide="file-warning"></i></div>
-        <span class="quick-label">Reportar</span>
-      </div>
-      <div class="quick-btn" onclick="navigateTo('visitors')">
-        <div class="quick-icon blue"><i data-lucide="users"></i></div>
-        <span class="quick-label">Visitantes</span>
-      </div>
-      <div class="quick-btn" onclick="navigateTo('security')">
-        <div class="quick-icon green"><i data-lucide="shield-check"></i></div>
-        <span class="quick-label">Segurança</span>
-      </div>
-      <div class="quick-btn" onclick="navigateTo('alerts')">
-        <div class="quick-icon red"><i data-lucide="bell-ring"></i></div>
-        <span class="quick-label">Alertas</span>
-      </div>
-      <div class="quick-btn" onclick="showToast('Contactos da coordenação disponíveis','success')">
-        <div class="quick-icon gold"><i data-lucide="phone"></i></div>
-        <span class="quick-label">Contactos</span>
-      </div>
-    </div>
-
-    <div class="section-header"><span class="section-title">Painel Operacional</span></div>
-    <div class="kpi-grid">
-      <div class="kpi-card green">
-        <div class="kpi-icon-wrap green"><i data-lucide="arrow-down-to-line"></i></div>
-        <div class="kpi-value" data-count="47">0</div>
-        <div class="kpi-label">Acessos Hoje</div>
-        <div class="kpi-trend up"><i data-lucide="trending-up"></i> +12%</div>
-      </div>
-      <div class="kpi-card red">
-        <div class="kpi-icon-wrap red"><i data-lucide="x-circle"></i></div>
-        <div class="kpi-value" data-count="3">0</div>
-        <div class="kpi-label">Acessos Negados</div>
-        <div class="kpi-trend down"><i data-lucide="trending-down"></i> -5%</div>
-      </div>
-      <div class="kpi-card blue">
-        <div class="kpi-icon-wrap blue"><i data-lucide="users"></i></div>
-        <div class="kpi-value" data-count="8">0</div>
-        <div class="kpi-label">Visitantes Activos</div>
-        <div class="kpi-trend up"><i data-lucide="trending-up"></i> +2</div>
-      </div>
-      <div class="kpi-card gold">
-        <div class="kpi-icon-wrap gold"><i data-lucide="bell"></i></div>
-        <div class="kpi-value" data-count="5">0</div>
-        <div class="kpi-label">Alertas Activos</div>
-        <div class="kpi-trend down"><i data-lucide="trending-down"></i> -1</div>
-      </div>
-      <div class="kpi-card green">
-        <div class="kpi-icon-wrap green"><i data-lucide="clock"></i></div>
-        <div class="kpi-value" data-count="8">0</div>
-        <div class="kpi-label">TMR (min)</div>
-        <div class="kpi-trend up"><i data-lucide="trending-up"></i> Óptimo</div>
-      </div>
-      <div class="kpi-card blue">
-        <div class="kpi-icon-wrap blue"><i data-lucide="check-circle"></i></div>
-        <div class="kpi-value" data-count="23">0</div>
-        <div class="kpi-label">Resolvidos Hoje</div>
-        <div class="kpi-trend up"><i data-lucide="trending-up"></i> +8%</div>
-      </div>
-    </div>
-
-    <div class="section-header" style="padding-bottom:8px;"><span class="section-title" style="font-size:13.5px;">Estado do Sistema</span></div>
-    <div class="support-grid">
-      <div class="support-card">
-        <div class="support-icon-wrap green"><i data-lucide="shield"></i></div>
-        <div class="support-value">Online</div>
-        <div class="support-label">Sistema</div>
-      </div>
-      <div class="support-card">
-        <div class="support-icon-wrap gold"><i data-lucide="git-branch"></i></div>
-        <div class="support-value">4</div>
-        <div class="support-label">Pendentes</div>
-      </div>
-      <div class="support-card">
-        <div class="support-icon-wrap blue"><i data-lucide="calendar-check"></i></div>
-        <div class="support-value">18/06</div>
-        <div class="support-label">Próx. Reunião</div>
-      </div>
-      <div class="support-card">
-        <div class="support-icon-wrap green"><i data-lucide="navigation"></i></div>
-        <div class="support-value">22:15</div>
-        <div class="support-label">Últ. Ronda</div>
-      </div>
-      <div class="support-card">
-        <div class="support-icon-wrap blue"><i data-lucide="lock"></i></div>
-        <div class="support-value">Abertos</div>
-        <div class="support-label">Acessos</div>
-      </div>
-      <div class="support-card">
-        <div class="support-icon-wrap gold"><i data-lucide="refresh-cw"></i></div>
-        <div class="support-value">14:32</div>
-        <div class="support-label">Actualizado</div>
-      </div>
-    </div>
-
-    <!-- PROXIMITY INTELLIGENCE -->
-    <div class="section-header"><span class="section-title">Presença nas Proximidades</span></div>
-    <div class="proximity-section" style="margin-bottom:16px;">
-      <div class="proximity-card">
-        <div class="proximity-header">
-          <div class="proximity-title"><i data-lucide="radar"></i> Actividade na Zona</div>
-          <span class="proximity-count">12 activos</span>
-        </div>
-        <div class="proximity-scanner">
-          <div class="proximity-scanner-bg"></div>
-          <div class="proximity-ring"></div>
-          <div class="proximity-ring"></div>
-          <div class="proximity-ring"></div>
-          <div class="proximity-center"></div>
-          <div class="proximity-dot user" data-pos="1"></div>
-          <div class="proximity-dot user" data-pos="2"></div>
-          <div class="proximity-dot user" data-pos="3"></div>
-          <div class="proximity-dot user" data-pos="4"></div>
-          <div class="proximity-dot alert" data-pos="5"></div>
-        </div>
-        <div class="proximity-legend">
-          <div class="proximity-legend-item"><div class="proximity-legend-dot green"></div> Posição</div>
-          <div class="proximity-legend-item"><div class="proximity-legend-dot gold"></div> Morador</div>
-          <div class="proximity-legend-item"><div class="proximity-legend-dot red"></div> Alerta Próximo</div>
-        </div>
-        <div class="danger-close-banner">
-          <svg class="danger-close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          <div class="danger-close-text">
-            <div class="danger-close-label">Alerta nas Proximidades</div>
-            <div class="danger-close-desc">Actividade suspeita reportada a ~150m da sua posição (Q2)</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- COMMUNITY PRESENCE -->
-    <div class="section-header"><span class="section-title">Moradores Activos na Zona</span></div>
-    <div style="padding:0 16px 4px;">
-      <div class="community-card">
-        <div class="community-list">
-          <div class="community-member">
-            <div class="community-avatar"><img src="https://image.qwenlm.ai/public_source/99d8fa64-043e-47ba-9f92-ebc4131818d5/1a17b6a02-6193-4862-bfa7-ebd103d930f7.png" alt=""></div>
-            <div class="community-info">
-              <div class="community-name">Ana Paula Matola</div>
-              <div class="community-zone">Quarteirão 3 · Lote 7</div>
-            </div>
-            <div class="community-online"><div class="community-online-dot"></div><span>Online</span></div>
-          </div>
-          <div class="community-member">
-            <div class="community-avatar" style="background:rgba(201,168,76,0.1);">JM</div>
-            <div class="community-info">
-              <div class="community-name">João Marcos Tembe</div>
-              <div class="community-zone">Quarteirão 1 · Lote 3</div>
-            </div>
-            <div class="community-online"><div class="community-online-dot"></div><span>Online</span></div>
-          </div>
-          <div class="community-member">
-            <div class="community-avatar" style="background:rgba(59,130,246,0.1);">FS</div>
-            <div class="community-info">
-              <div class="community-name">Fátima Santos Machava</div>
-              <div class="community-zone">Quarteirão 5 · Lote 19</div>
-            </div>
-            <div class="community-online"><div class="community-online-dot"></div><span>Online</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- RECENT INCIDENTS -->
-    <div class="section-header"><span class="section-title">Ocorrências Recentes</span><span class="section-link" onclick="navigateTo('alerts')">Ver Todas <i data-lucide="chevron-right"></i></span></div>
-    <div class="incidents-list" style="margin-bottom:16px;">
-      <div class="incident-item">
-        <div class="incident-icon red"><i data-lucide="user-x"></i></div>
-        <div class="incident-info">
-          <div class="incident-title">Intrusão no Quarteirão 3</div>
-          <div class="incident-meta"><span class="incident-time">Há 2h</span><span class="incident-zone-tag">Q3</span></div>
-        </div>
-        <span class="incident-status progress">Em curso</span>
-      </div>
-      <div class="incident-item">
-        <div class="incident-icon gold"><i data-lucide="volume-x"></i></div>
-        <div class="incident-info">
-          <div class="incident-title">Ruído Excessivo - Festa</div>
-          <div class="incident-meta"><span class="incident-time">Há 4h</span><span class="incident-zone-tag">Q1</span></div>
-        </div>
-        <span class="incident-status resolved">Resolvido</span>
-      </div>
-      <div class="incident-item">
-        <div class="incident-icon blue"><i data-lucide="lightbulb-off"></i></div>
-        <div class="incident-info">
-          <div class="incident-title">Iluminação Pública Q5</div>
-          <div class="incident-meta"><span class="incident-time">Há 6h</span><span class="incident-zone-tag">Q5</span></div>
-        </div>
-        <span class="incident-status pending">Pendente</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== CARTÃO SCREEN ==================== -->
-  <div class="screen" id="screen-card">
-    <div class="screen-header">
-      <div class="screen-header-back" onclick="navigateTo('home')"><i data-lucide="arrow-left"></i></div>
-      <span class="screen-header-title">Cartão do Morador</span>
-      <div class="screen-header-action"><i data-lucide="more-vertical"></i></div>
-    </div>
-    <div class="card-screen">
-      <div class="resident-card">
-        <div class="card-top">
-          <span class="card-brand">BH Segurança</span>
-          <div class="card-chip"></div>
-        </div>
-        <div class="card-profile-row">
-          <div class="card-photo"><img src="https://image.qwenlm.ai/public_source/99d8fa64-043e-47ba-9f92-ebc4131818d5/1a17b6a02-6193-4862-bfa7-ebd103d930f7.png" alt=""></div>
-          <div class="card-details">
-            <h3>Carlos A. Mondlane</h3>
-            <p>Q4 · Lote 12 · Belo Horizonte</p>
-            <div class="card-verified-pill"><i data-lucide="badge-check"></i><span>Morador Verificado</span></div>
-          </div>
-        </div>
-        <div class="card-info-row">
-          <div class="card-info-item"><label>ID Residente</label><span>BH-2024-0412</span></div>
-          <div class="card-info-item"><label>Contacto</label><span>+258 84 123 4567</span></div>
-          <div class="card-info-item"><label>Emergência</label><span>+258 87 765 4321</span></div>
-          <div class="card-info-item"><label>Quarteirão</label><span>Q4 · Belo Horizonte</span></div>
-        </div>
-        <div class="card-qr-box">
-          <svg width="100" height="100" viewBox="0 0 100 100">
-            <rect x="5" y="5" width="90" height="90" fill="none" stroke="#0c2014" stroke-width="1"/>
-            <rect x="10" y="10" width="25" height="25" fill="#0c2014"/><rect x="65" y="10" width="25" height="25" fill="#0c2014"/><rect x="10" y="65" width="25" height="25" fill="#0c2014"/>
-            <rect x="13" y="13" width="19" height="19" fill="#fff"/><rect x="68" y="13" width="19" height="19" fill="#fff"/><rect x="13" y="68" width="19" height="19" fill="#fff"/>
-            <rect x="16" y="16" width="13" height="13" fill="#0c2014"/><rect x="71" y="16" width="13" height="13" fill="#0c2014"/><rect x="16" y="71" width="13" height="13" fill="#0c2014"/>
-            <rect x="40" y="10" width="6" height="6" fill="#0c2014"/><rect x="50" y="10" width="6" height="6" fill="#0c2014"/>
-            <rect x="40" y="20" width="6" height="6" fill="#0c2014"/><rect x="45" y="25" width="6" height="6" fill="#0c2014"/>
-            <rect x="10" y="40" width="6" height="6" fill="#0c2014"/><rect x="20" y="40" width="6" height="6" fill="#0c2014"/>
-            <rect x="30" y="45" width="6" height="6" fill="#0c2014"/><rect x="40" y="40" width="6" height="6" fill="#0c2014"/>
-            <rect x="55" y="40" width="6" height="6" fill="#0c2014"/><rect x="70" y="45" width="6" height="6" fill="#0c2014"/>
-            <rect x="80" y="40" width="6" height="6" fill="#0c2014"/>
-            <rect x="40" y="55" width="6" height="6" fill="#0c2014"/><rect x="50" y="60" width="6" height="6" fill="#0c2014"/>
-            <rect x="60" y="55" width="6" height="6" fill="#0c2014"/>
-            <rect x="40" y="70" width="6" height="6" fill="#0c2014"/><rect x="50" y="75" width="6" height="6" fill="#0c2014"/>
-            <rect x="60" y="70" width="6" height="6" fill="#0c2014"/>
-            <rect x="70" y="65" width="6" height="6" fill="#0c2014"/><rect x="80" y="70" width="6" height="6" fill="#0c2014"/>
-            <rect x="70" y="80" width="6" height="6" fill="#0c2014"/><rect x="80" y="80" width="6" height="6" fill="#0c2014"/>
-          </svg>
-        </div>
-        <div class="card-perms">
-          <span class="card-perm">Acesso Residencial</span>
-          <span class="card-perm">Estacionamento</span>
-          <span class="card-perm">Áreas Comuns</span>
-          <span class="card-perm">Área Recreativa</span>
-        </div>
-        <div class="card-validity-row">
-          <span class="card-validity-label">Validade do Cartão</span>
-          <span class="card-validity-value">Válido até Dez 2025</span>
-        </div>
-      </div>
-      <div class="benefits-section">
-        <div class="benefits-title"><i data-lucide="star"></i> Benefícios Exclusivos</div>
-        <div class="benefits-grid">
-          <div class="benefit-card"><div class="benefit-icon"><i data-lucide="wifi"></i></div><div class="benefit-info"><h4>Wi-Fi Comunitário</h4><p>Acesso gratuito</p></div></div>
-          <div class="benefit-card"><div class="benefit-icon"><i data-lucide="dumbbell"></i></div><div class="benefit-info"><h4>Ginásio do Bairro</h4><p>Horário estendido</p></div></div>
-          <div class="benefit-card"><div class="benefit-icon"><i data-lucide="trees"></i></div><div class="benefit-info"><h4>Parque Comunitário</h4><p>Acesso prioritário</p></div></div>
-          <div class="benefit-card"><div class="benefit-icon"><i data-lucide="book-open"></i></div><div class="benefit-info"><h4>Biblioteca</h4><p>Empréstimo gratuito</p></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== REPORT SCREEN ==================== -->
-  <div class="screen" id="screen-report">
-    <div class="screen-header">
-      <div class="screen-header-back" onclick="navigateTo('home')"><i data-lucide="arrow-left"></i></div>
-      <span class="screen-header-title">Reportar Ocorrência</span>
-      <div style="width:36px;"></div>
-    </div>
-    <div class="report-screen" id="reportFormContainer">
-      <div class="report-header">
-        <h2>Nova Ocorrência</h2>
-        <p>Preencha os dados para reportar uma situação ao bairro</p>
-      </div>
-      <form id="reportForm" onsubmit="submitReport(event)">
-        <div class="form-group">
-          <label class="form-label">Nome Completo</label>
-          <input type="text" class="form-input" placeholder="O seu nome" value="Carlos Alberto Mondlane">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Contacto</label>
-          <input type="tel" class="form-input" placeholder="+258 84 000 0000" value="+258 84 123 4567">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Localização</label>
-          <select class="form-select">
-            <option>Quarteirão 4 · Lote 12</option>
-            <option>Quarteirão 1 · Lote 3</option>
-            <option>Quarteirão 2 · Lote 8</option>
-            <option>Quarteirão 3 · Lote 7</option>
-            <option>Quarteirão 5 · Lote 19</option>
-            <option>Área Comum</option>
-            <option>Portão Principal</option>
-            <option>Outro</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Tipo de Ocorrência</label>
-          <select class="form-select" id="occurrenceType">
-            <option value="">Seleccione o tipo</option>
-            <option>Intrusão</option><option>Actividade Suspeita</option><option>Roubo</option><option>Ruído</option><option>Iluminação</option><option>Lixo</option><option>Outro</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Gravidade</label>
-          <div class="severity-row">
-            <button type="button" class="sev-btn low" onclick="selectSeverity(this)">Baixa</button>
-            <button type="button" class="sev-btn sel" onclick="selectSeverity(this)">Média</button>
-            <button type="button" class="sev-btn high" onclick="selectSeverity(this)">Alta</button>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Descrição</label>
-          <textarea class="form-input" placeholder="Descreva a ocorrência com o máximo detalhe possível..."></textarea>
-        </div>
-        <div class="anon-toggle" onclick="this.classList.toggle('active')">
-          <div class="anon-switch"><div class="anon-switch-dot"></div></div>
-          <span class="anon-text">Enviar como anónimo</span>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Evidência Fotográfica (opcional)</label>
-          <div class="camera-upload" onclick="openCamera()">
-            <div class="camera-preview" id="cameraPreview">
-              <div class="camera-remove" onclick="removePhoto(event)"><i data-lucide="x"></i></div>
-            </div>
-            <i data-lucide="camera"></i>
-            <span>Toque para capturar foto</span>
-            <span class="camera-upload-sub">Câmara integrada</span>
-          </div>
-        </div>
-        <button type="submit" class="submit-btn">Enviar Ocorrência</button>
-      </form>
-    </div>
-    <!-- Success State (hidden by default) -->
-    <div class="report-screen" id="reportSuccess" style="display:none;">
-      <div class="success-state">
-        <div class="success-icon"><i data-lucide="check-circle"></i></div>
-        <div class="success-title">Ocorrência Enviada</div>
-        <div class="success-desc">A sua ocorrência foi registada com sucesso. A coordenação do bairro e a equipa de segurança foram notificados.</div>
-        <div class="success-tracking">
-          <div class="success-tracking-row"><span class="success-tracking-label">ID da Ocorrência</span><span class="success-tracking-value">OCC-2025-0847</span></div>
-          <div class="success-tracking-row"><span class="success-tracking-label">Estado</span><span class="success-tracking-value" style="color:var(--gold-soft);">Em análise</span></div>
-          <div class="success-tracking-row"><span class="success-tracking-label">Previsão de Resposta</span><span class="success-tracking-value">~8 minutos</span></div>
-          <div class="success-tracking-row"><span class="success-tracking-label">Notificado</span><span class="success-tracking-value">Segurança + AMOBELO</span></div>
-        </div>
-        <button class="success-btn" onclick="resetReport()">Voltar ao Início</button>
-        <button class="success-btn" style="margin-top:8px;background:transparent;color:var(--gold-primary);border-color:var(--gold-border);" onclick="navigateTo('home')">Acompanhar Ocorrência</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== VISITORS SCREEN ==================== -->
-  <div class="screen" id="screen-visitors">
-    <div class="screen-header">
-      <div class="screen-header-back" onclick="navigateTo('home')"><i data-lucide="arrow-left"></i></div>
-      <span class="screen-header-title">Gestão de Visitantes</span>
-      <div class="screen-header-action" onclick="showToast('Novo visitante adicionado','success')"><i data-lucide="plus"></i></div>
-    </div>
-    <div class="visitors-screen">
-      <div class="visitor-tabs">
-        <button class="visitor-tab active" onclick="switchVisitorTab(this,'pending')">Pendentes</button>
-        <button class="visitor-tab" onclick="switchVisitorTab(this,'active')">Activos</button>
-        <button class="visitor-tab" onclick="switchVisitorTab(this,'history')">Histórico</button>
-      </div>
-      <div id="visitor-list-pending">
-        <div class="visitor-card">
-          <div class="visitor-header">
-            <div><div class="visitor-name">Manuel José Cossa</div><div class="visitor-company">Técnico EDM · Electricidade</div></div>
-            <span class="visitor-status pending">Pendente</span>
-          </div>
-          <div class="visitor-details">
-            <div class="visitor-detail"><label>Visitante de</label><span>Q4 · Lote 12</span></div>
-            <div class="visitor-detail"><label>Validade</label><span>14/06 · 08:00 - 17:00</span></div>
-          </div>
-          <div class="visitor-actions">
-            <button class="v-action approve" onclick="showToast('Visitante aprovado','success')"><i data-lucide="check"></i> Aprovar</button>
-            <button class="v-action cancel" onclick="showToast('Visita cancelada','error')"><i data-lucide="x"></i> Cancelar</button>
-          </div>
-        </div>
-        <div class="visitor-card">
-          <div class="visitor-header">
-            <div><div class="visitor-name">Sofia Nhantumbo</div><div class="visitor-company">Visita Familiar</div></div>
-            <span class="visitor-status pending">Pendente</span>
-          </div>
-          <div class="visitor-details">
-            <div class="visitor-detail"><label>Visitante de</label><span>Q2 · Lote 5</span></div>
-            <div class="visitor-detail"><label>Validade</label><span>14/06 · 10:00 - 22:00</span></div>
-          </div>
-          <div class="visitor-actions">
-            <button class="v-action approve" onclick="showToast('Visitante aprovado','success')"><i data-lucide="check"></i> Aprovar</button>
-            <button class="v-action cancel" onclick="showToast('Visita cancelada','error')"><i data-lucide="x"></i> Cancelar</button>
-          </div>
-        </div>
-      </div>
-      <div id="visitor-list-active" style="display:none;">
-        <div class="visitor-card">
-          <div class="visitor-header">
-            <div><div class="visitor-name">Dr. Paulo Machango</div><div class="visitor-company">Consulta Médica</div></div>
-            <span class="visitor-status inside">Dentro</span>
-          </div>
-          <div class="visitor-details">
-            <div class="visitor-detail"><label>Visitante de</label><span>Q3 · Lote 9</span></div>
-            <div class="visitor-detail"><label>Entrada</label><span>14/06 · 09:15</span></div>
-          </div>
-          <div class="visitor-actions">
-            <button class="v-action revoke" onclick="showToast('Acesso revogado','error')"><i data-lucide="shield-off"></i> Revogar</button>
-          </div>
-        </div>
-        <div class="visitor-card">
-          <div class="visitor-header">
-            <div><div class="visitor-name">Teresa Langa</div><div class="visitor-company">Entrega de Encomenda</div></div>
-            <span class="visitor-status inside">Dentro</span>
-          </div>
-          <div class="visitor-details">
-            <div class="visitor-detail"><label>Visitante de</label><span>Q1 · Lote 2</span></div>
-            <div class="visitor-detail"><label>Entrada</label><span>14/06 · 11:30</span></div>
-          </div>
-          <div class="visitor-actions">
-            <button class="v-action revoke" onclick="showToast('Acesso revogado','error')"><i data-lucide="shield-off"></i> Revogar</button>
-          </div>
-        </div>
-      </div>
-      <div id="visitor-list-history" style="display:none;">
-        <div class="visitor-card" style="opacity:0.55;">
-          <div class="visitor-header">
-            <div><div class="visitor-name">Eng. Domingos Matsinhe</div><div class="visitor-company">Inspeção de Obras</div></div>
-            <span class="visitor-status completed">Concluído</span>
-          </div>
-          <div class="visitor-details">
-            <div class="visitor-detail"><label>Visitante de</label><span>Q5 · Lote 15</span></div>
-            <div class="visitor-detail"><label>Período</label><span>13/06 · 08:00 - 16:00</span></div>
-          </div>
-        </div>
-        <div class="visitor-card" style="opacity:0.55;">
-          <div class="visitor-header">
-            <div><div class="visitor-name">Miguel Tembe</div><div class="visitor-company">Visita Social</div></div>
-            <span class="visitor-status expired">Expirado</span>
-          </div>
-          <div class="visitor-details">
-            <div class="visitor-detail"><label>Visitante de</label><span>Q4 · Lote 8</span></div>
-            <div class="visitor-detail"><label>Período</label><span>12/06 · 14:00 - 18:00</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== SECURITY SCREEN ==================== -->
-  <div class="screen" id="screen-security">
-    <div class="screen-header">
-      <div class="screen-header-back" onclick="navigateTo('home')"><i data-lucide="arrow-left"></i></div>
-      <span class="screen-header-title">Centro de Segurança</span>
-      <div class="screen-header-action"><i data-lucide="settings"></i></div>
-    </div>
-    <div class="security-screen">
-      <div class="security-emergency">
-        <div class="security-emergency-title"><i data-lucide="alert-triangle"></i> Contactos de Emergência</div>
-        <div class="emergency-contacts">
-          <div class="emergency-contact" onclick="showToast('A ligar PRM Boane...','success')">
-            <div class="ec-icon prm"><i data-lucide="shield"></i></div>
-            <div class="ec-info"><div class="ec-name">PRM - Esquadra de Boane</div><div class="ec-role">Polícia da República de Moçambique</div></div>
-            <div class="ec-number">113</div>
-          </div>
-          <div class="emergency-contact" onclick="showToast('A ligar coordenação...','success')">
-            <div class="ec-icon coord"><i data-lucide="map-pin"></i></div>
-            <div class="ec-info"><div class="ec-name">Coordenação do Bairro</div><div class="ec-role">AMOBELO · Belo Horizonte</div></div>
-            <div class="ec-number">84 555 0001</div>
-          </div>
-          <div class="emergency-contact" onclick="showToast('A ligar segurança privada...','success')">
-            <div class="ec-icon sec"><i data-lucide="lock"></i></div>
-            <div class="ec-info"><div class="ec-name">Segurança Privada</div><div class="ec-role">Posto de Controlo Principal</div></div>
-            <div class="ec-number">84 555 0002</div>
-          </div>
-          <div class="emergency-contact" onclick="showToast('A ligar Conselho Municipal...','success')">
-            <div class="ec-icon prm"><i data-lucide="building-2"></i></div>
-            <div class="ec-info"><div class="ec-name">Conselho Municipal de Boane</div><div class="ec-role">Serviços de Emergência</div></div>
-            <div class="ec-number">84 222 0010</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- OPERATIONS STATUS -->
-      <div class="security-ops">
-        <div class="security-ops-title"><i data-lucide="activity"></i> Operações em Tempo Real</div>
-        <div class="ops-list">
-          <div class="ops-item"><span class="ops-item-label">Nível de Risco</span><span class="ops-item-value gold">Moderado</span></div>
-          <div class="ops-item"><span class="ops-item-label">Zona sob Observação</span><span class="ops-item-value red">Q2 · Q3</span></div>
-          <div class="ops-item"><span class="ops-item-label">Segurança em Resposta</span><span class="ops-item-value blue">2 equipas</span></div>
-          <div class="ops-item"><span class="ops-item-label">Câmaras Online</span><span class="ops-item-value green">18/20</span></div>
-          <div class="ops-item"><span class="ops-item-label">Modo Operacional</span><span class="ops-item-value green">Padrão</span></div>
-          <div class="ops-item"><span class="ops-item-label">Alerta Próximo</span><span class="ops-item-value red">~150m</span></div>
-        </div>
-      </div>
-
-      <div class="security-status-grid">
-        <div class="security-status-card"><div class="security-status-title">Pendentes</div><div class="security-status-value">5</div><div class="security-status-sub">2 urgentes</div></div>
-        <div class="security-status-card"><div class="security-status-title">Alertas Activos</div><div class="security-status-value">3</div><div class="security-status-sub">1 crítico</div></div>
-        <div class="security-status-card"><div class="security-status-title">Última Ronda</div><div class="security-status-value">22:15</div><div class="security-status-sub">Completa · Q1-Q5</div></div>
-        <div class="security-status-card"><div class="security-status-title">Acessos Hoje</div><div class="security-status-value">47</div><div class="security-status-sub">3 negados</div></div>
-      </div>
-
-      <div class="section-header" style="padding:8px 0 8px;"><span class="section-title" style="font-size:13.5px;">Acções Rápidas</span></div>
-      <div class="quick-grid" style="padding:0;">
-        <div class="quick-btn" onclick="showSOSModal()"><div class="quick-icon red"><i data-lucide="siren"></i></div><span class="quick-label">Pânico</span></div>
-        <div class="quick-btn" onclick="navigateTo('report')"><div class="quick-icon gold"><i data-lucide="file-warning"></i></div><span class="quick-label">Reportar</span></div>
-        <div class="quick-btn" onclick="navigateTo('alerts')"><div class="quick-icon blue"><i data-lucide="bell-ring"></i></div><span class="quick-label">Alertas</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== ALERTS SCREEN ==================== -->
-  <div class="screen" id="screen-alerts">
-    <div class="screen-header">
-      <div class="screen-header-back" onclick="navigateTo('home')"><i data-lucide="arrow-left"></i></div>
-      <span class="screen-header-title">Alertas</span>
-      <div class="screen-header-action"><i data-lucide="filter"></i></div>
-    </div>
-    <div class="alerts-screen">
-      <div class="alerts-filters">
-        <button class="alert-filter active" onclick="filterAlerts(this,'all')">Todos</button>
-        <button class="alert-filter" onclick="filterAlerts(this,'critical')">Críticos</button>
-        <button class="alert-filter" onclick="filterAlerts(this,'warning')">Avisos</button>
-        <button class="alert-filter" onclick="filterAlerts(this,'info-card')">Informação</button>
-        <button class="alert-filter" onclick="filterAlerts(this,'resolved')">Resolvidos</button>
-      </div>
-
-      <div class="alert-card critical" data-type="critical">
-        <div class="alert-top">
-          <span class="alert-priority critical">Crítico</span>
-          <span class="nearby-badge"><i data-lucide="map-pin" style="width:10px;height:10px;"></i> Perto de si</span>
-        </div>
-        <div class="alert-time" style="margin-bottom:5px;">Há 25 min</div>
-        <div class="alert-title">Actividade Suspeita no Portão Principal</div>
-        <div class="alert-desc">Indivíduos não identificados observados a tentar aceder ao bairro sem autorização. Equipa de segurança despachada para o local.</div>
-        <div class="alert-meta-row">
-          <div class="alert-meta"><i data-lucide="map-pin"></i> Portão Principal</div>
-          <div class="alert-meta"><i data-lucide="user"></i> Segurança BH</div>
-          <div class="alert-meta"><i data-lucide="eye"></i> Em resposta</div>
-        </div>
-        <button class="alert-action-btn" onclick="showToast('A acompanhar alerta...','success')">Acompanhar <i data-lucide="arrow-right"></i></button>
-      </div>
-
-      <div class="alert-card warning" data-type="warning">
-        <div class="alert-top">
-          <span class="alert-priority warning">Urgente</span>
-          <span class="alert-time">Há 2h</span>
-        </div>
-        <div class="alert-title">Intrusão Reportada no Quarteirão 3</div>
-        <div class="alert-desc">Morador reportou presença de pessoa estranha dentro do perímetro. Equipa de resposta no local. Segurança a investigar.</div>
-        <div class="alert-meta-row">
-          <div class="alert-meta"><i data-lucide="map-pin"></i> Q3 · Lote 14</div>
-          <div class="alert-meta"><i data-lucide="user"></i> Morador</div>
-          <div class="alert-meta"><i data-lucide="shield-check"></i> Reconhecido</div>
-        </div>
-        <button class="alert-action-btn" onclick="showToast('A acompanhar alerta...','success')">Acompanhar <i data-lucide="arrow-right"></i></button>
-      </div>
-
-      <div class="alert-card info-card" data-type="info-card">
-        <div class="alert-top">
-          <span class="alert-priority info">Informação</span>
-          <span class="alert-time">Hoje, 07:00</span>
-        </div>
-        <div class="alert-title">Reunião Geral da AMOBELO</div>
-        <div class="alert-desc">Reunião mensal com a Coordenação do Bairro. Tema: Plano de segurança e manutenção. Presença de todos os moradores recomendada.</div>
-        <div class="alert-meta-row">
-          <div class="alert-meta"><i data-lucide="calendar"></i> 18 Jun · 18:00</div>
-          <div class="alert-meta"><i data-lucide="map-pin"></i> Centro Comunitário</div>
-        </div>
-      </div>
-
-      <div class="alert-card warning" data-type="warning">
-        <div class="alert-top">
-          <span class="alert-priority warning">Aviso</span>
-          <span class="alert-time">Há 6h</span>
-        </div>
-        <div class="alert-title">Falha de Iluminação no Quarteirão 5</div>
-        <div class="alert-desc">Postes de iluminação pública entre os lotes 15 e 22 não funcionam. Notificação enviada à EDM para reparação urgente.</div>
-        <div class="alert-meta-row">
-          <div class="alert-meta"><i data-lucide="map-pin"></i> Q5 · Rua Central</div>
-          <div class="alert-meta"><i data-lucide="user"></i> Morador</div>
-        </div>
-        <button class="alert-action-btn" onclick="showToast('A acompanhar alerta...','success')">Acompanhar <i data-lucide="arrow-right"></i></button>
-      </div>
-
-      <div class="alert-card resolved" data-type="resolved">
-        <div class="alert-top">
-          <span class="alert-priority resolved-label">Resolvido</span>
-          <span class="alert-time">Ontem, 22:30</span>
-        </div>
-        <div class="alert-title">Ruído Excessivo - Festa no Q1</div>
-        <div class="alert-desc">Festa com som alto após as 22h. Coordenação contactou os moradores responsáveis. Situação normalizada às 23:15.</div>
-        <div class="alert-meta-row">
-          <div class="alert-meta"><i data-lucide="map-pin"></i> Q1 · Lote 6</div>
-          <div class="alert-meta"><i data-lucide="check-circle"></i> Resolvido</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== PROFILE SCREEN ==================== -->
-  <div class="screen" id="screen-profile">
-    <div class="screen-header">
-      <div style="width:36px;"></div>
-      <span class="screen-header-title">Perfil</span>
-      <div class="screen-header-action"><i data-lucide="settings"></i></div>
-    </div>
-    <div class="profile-screen">
-      <div class="profile-top">
-        <div class="profile-avatar"><img src="https://image.qwenlm.ai/public_source/99d8fa64-043e-47ba-9f92-ebc4131818d5/1a17b6a02-6193-4862-bfa7-ebd103d930f7.png" alt=""></div>
-        <div class="profile-name">Carlos Alberto Mondlane</div>
-        <div class="profile-zone">Quarteirão 4 · Lote 12 · Belo Horizonte</div>
-        <div class="profile-verified-pill"><i data-lucide="badge-check"></i><span>Morador Verificado · Residente Activo</span></div>
-      </div>
-
-      <div class="profile-stats">
-        <div class="profile-stat"><div class="profile-stat-value">47</div><div class="profile-stat-label">Acessos</div></div>
-        <div class="profile-stat"><div class="profile-stat-value">8</div><div class="profile-stat-label">Reportes</div></div>
-        <div class="profile-stat"><div class="profile-stat-value">12</div><div class="profile-stat-label">Meses</div></div>
-      </div>
-
-      <div class="profile-section">
-        <div class="profile-section-title"><i data-lucide="credit-card"></i> Cartão do Morador</div>
-        <div class="profile-menu-item" onclick="navigateTo('card')">
-          <div class="pm-icon gold"><i data-lucide="eye"></i></div>
-          <div class="pm-info"><div class="pm-title">Ver Cartão Digital</div><div class="pm-subtitle">ID: BH-2024-0412 · Válido até Dez 2025</div></div>
-          <div class="pm-arrow"><i data-lucide="chevron-right"></i></div>
-        </div>
-      </div>
-
-      <div class="profile-section">
-        <div class="profile-section-title"><i data-lucide="users"></i> Membros do Agregado</div>
-        <div class="household-item">
-          <div class="household-avatar" style="background:rgba(34,197,94,0.1);color:var(--green-soft);">AM</div>
-          <div class="household-info"><div class="household-name">Ana Maria Mondlane</div><div class="household-role">Cônjuge · Morador Principal</div></div>
-          <span class="vehicle-status">Verificado</span>
-        </div>
-        <div class="household-item">
-          <div class="household-avatar" style="background:rgba(59,130,246,0.1);color:var(--blue-soft);">DM</div>
-          <div class="household-info"><div class="household-name">Daniel Mondlane</div><div class="household-role">Filho · Dependente</div></div>
-          <span class="vehicle-status">Verificado</span>
-        </div>
-      </div>
-
-      <div class="profile-section">
-        <div class="profile-section-title"><i data-lucide="car"></i> Veículos Associados</div>
-        <div class="vehicle-item">
-          <div class="vehicle-icon"><i data-lucide="car"></i></div>
-          <div class="vehicle-info"><div class="vehicle-plate">AA-123-MZ</div><div class="vehicle-model">Toyota Hilux · 2022</div></div>
-          <span class="vehicle-status">Registado</span>
-        </div>
-        <div class="vehicle-item">
-          <div class="vehicle-icon"><i data-lucide="car"></i></div>
-          <div class="vehicle-info"><div class="vehicle-plate">BB-456-MZ</div><div class="vehicle-model">Toyota Corolla · 2020</div></div>
-          <span class="vehicle-status">Registado</span>
-        </div>
-      </div>
-
-      <div class="profile-section">
-        <div class="profile-section-title"><i data-lucide="file-text"></i> Documentos Úteis</div>
-        <div class="doc-item"><div class="doc-icon"><i data-lucide="file-text"></i></div><div class="doc-info"><div class="doc-name">Regulamento do Bairro</div><div class="doc-date">Actualizado em Jan 2025</div></div></div>
-        <div class="doc-item"><div class="doc-icon"><i data-lucide="file-text"></i></div><div class="doc-info"><div class="doc-name">Plano de Segurança</div><div class="doc-date">Revisão de Mar 2025</div></div></div>
-        <div class="doc-item"><div class="doc-icon"><i data-lucide="file-text"></i></div><div class="doc-info"><div class="doc-name">Mapa do Bairro</div><div class="doc-date">Versão actualizada</div></div></div>
-      </div>
-
-      <div class="profile-section">
-        <div class="profile-section-title"><i data-lucide="history"></i> Histórico de Acessos</div>
-        <div class="access-item">
-          <div class="access-icon in"><i data-lucide="log-in"></i></div>
-          <div class="access-info"><div class="access-time">Entrada · 14/06 · 07:45</div><div class="access-type">Portão Principal · Veículo</div></div>
-        </div>
-        <div class="access-item">
-          <div class="access-icon out"><i data-lucide="log-out"></i></div>
-          <div class="access-info"><div class="access-time">Saída · 13/06 · 22:10</div><div class="access-type">Portão Principal · Veículo</div></div>
-        </div>
-        <div class="access-item">
-          <div class="access-icon in"><i data-lucide="log-in"></i></div>
-          <div class="access-info"><div class="access-time">Entrada · 13/06 · 06:30</div><div class="access-type">Portão Principal · Veículo</div></div>
-        </div>
-      </div>
-
-      <div class="profile-section">
-        <div class="profile-section-title"><i data-lucide="bell"></i> Preferências de Notificação</div>
-        <div class="pref-item"><span class="pref-label">Alertas Críticos</span><div class="pref-toggle on" onclick="this.classList.toggle('on')"><div class="pref-toggle-dot"></div></div></div>
-        <div class="pref-item"><span class="pref-label">Avisos Gerais</span><div class="pref-toggle on" onclick="this.classList.toggle('on')"><div class="pref-toggle-dot"></div></div></div>
-        <div class="pref-item"><span class="pref-label">Actualizações de Segurança</span><div class="pref-toggle on" onclick="this.classList.toggle('on')"><div class="pref-toggle-dot"></div></div></div>
-        <div class="pref-item"><span class="pref-label">Reuniões e Eventos</span><div class="pref-toggle" onclick="this.classList.toggle('on')"><div class="pref-toggle-dot"></div></div></div>
-      </div>
-
-      <div class="profile-section">
-        <div class="profile-section-title"><i data-lucide="settings-2"></i> Definições da Conta</div>
-        <div class="profile-menu-item"><div class="pm-icon blue"><i data-lucide="shield-check"></i></div><div class="pm-info"><div class="pm-title">Segurança da Conta</div><div class="pm-subtitle">Senha, autenticação, privacidade</div></div><div class="pm-arrow"><i data-lucide="chevron-right"></i></div></div>
-        <div class="profile-menu-item"><div class="pm-icon gold"><i data-lucide="user-cog"></i></div><div class="pm-info"><div class="pm-title">Dados Pessoais</div><div class="pm-subtitle">Editar informações do perfil</div></div><div class="pm-arrow"><i data-lucide="chevron-right"></i></div></div>
-        <div class="profile-menu-item"><div class="pm-icon green"><i data-lucide="info"></i></div><div class="pm-info"><div class="pm-title">Sobre a App</div><div class="pm-subtitle">Versão 2.4.1 · BH Segurança</div></div><div class="pm-arrow"><i data-lucide="chevron-right"></i></div></div>
-      </div>
-
-      <button class="profile-logout" onclick="showToast('Sessão terminada','success')"><i data-lucide="log-out"></i> Terminar Sessão</button>
-      <div style="text-align:center;margin-top:14px;margin-bottom:6px;"><span style="font-size:10px;color:var(--text-muted);">BH Segurança & Comunidade · Belo Horizonte · Boane · Moçambique</span></div>
-    </div>
-  </div>
-
-  <!-- ==================== BOTTOM NAV ==================== -->
-  <nav class="bottom-nav" id="bottomNav">
-    <div class="nav-item active" data-screen="home" onclick="navigateTo('home')"><i data-lucide="home"></i><span>Início</span></div>
-    <div class="nav-item" data-screen="card" onclick="navigateTo('card')"><i data-lucide="credit-card"></i><span>Cartão</span></div>
-    <div class="nav-center-btn" onclick="toggleModal()"><i data-lucide="plus"></i></div>
-    <div class="nav-item" data-screen="alerts" onclick="navigateTo('alerts')"><i data-lucide="bell-ring"></i><span>Alertas</span></div>
-    <div class="nav-item" data-screen="profile" onclick="navigateTo('profile')"><i data-lucide="user"></i><span>Perfil</span></div>
-  </nav>
-
-  <!-- ==================== QUICK ACTIONS MODAL ==================== -->
-  <div class="modal-overlay" id="quickActionsModal" onclick="closeModal(event)">
-    <div class="modal-content" onclick="event.stopPropagation()">
-      <div class="modal-handle"></div>
-      <div class="modal-title">Acções Rápidas</div>
-      <div class="modal-actions">
-        <div class="modal-action" onclick="navigateTo('report');closeModalDirect();"><i data-lucide="file-warning"></i><span>Reportar</span></div>
-        <div class="modal-action" onclick="navigateTo('visitors');closeModalDirect();"><i data-lucide="users"></i><span>Visitantes</span></div>
-        <div class="modal-action" onclick="navigateTo('security');closeModalDirect();"><i data-lucide="shield-check"></i><span>Segurança</span></div>
-        <div class="modal-action" onclick="showSOSModal();closeModalDirect();"><i data-lucide="siren"></i><span>Pânico</span></div>
-        <div class="modal-action" onclick="showToast('Contactos da coordenação disponíveis','success');closeModalDirect();"><i data-lucide="phone"></i><span>Contactos</span></div>
-        <div class="modal-action" onclick="showToast('Mapa do bairro a abrir...','success');closeModalDirect();"><i data-lucide="map"></i><span>Mapa</span></div>
-      </div>
-      <button class="modal-close-btn" onclick="closeModalDirect()">Fechar</button>
-    </div>
-  </div>
-
-  <!-- ==================== SOS MODAL ==================== -->
-  <div class="modal-overlay" id="sosModal" onclick="closeSOSModal(event)">
-    <div class="modal-content" onclick="event.stopPropagation()">
-      <div class="sos-modal-content">
-        <div class="sos-modal-icon"><i data-lucide="siren"></i></div>
-        <div class="sos-modal-title">Botão de Pânico</div>
-        <div class="sos-modal-desc">Ao activar o botão de pânico, a coordenação do bairro e a segurança privada serão imediatamente notificados da sua localização e situação de emergência.</div>
-        <div class="sos-modal-actions">
-          <button class="sos-modal-btn primary" onclick="activateSOS()"><i data-lucide="siren"></i> Activar Pânico</button>
-          <button class="sos-modal-btn secondary" onclick="closeSOSModalDirect()"><i data-lucide="phone"></i> Ligar PRM (113)</button>
-          <button class="sos-modal-btn secondary" onclick="closeSOSModalDirect()">Cancelar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== CAMERA MODAL ==================== -->
-  <div class="camera-modal" id="cameraModal">
-    <div class="camera-header">
-      <div class="camera-close" onclick="closeCamera()"><i data-lucide="x"></i></div>
-      <span class="camera-header-title">Capturar Evidência</span>
-      <div style="width:36px;"></div>
-    </div>
-    <div class="camera-viewport" id="cameraViewport">
-      <div class="camera-placeholder">
-        <i data-lucide="camera"></i>
-        <span>Câmara a preparar...</span>
-      </div>
-    </div>
-    <div class="camera-controls">
-      <div class="camera-side-btn" onclick="showToast('Galeria seleccionada','success')"><i data-lucide="image"></i></div>
-      <button class="shutter-btn" onclick="capturePhoto()"><div class="shutter-btn-inner"></div></button>
-      <div class="camera-side-btn" onclick="showToast('Flash activado','success')"><i data-lucide="zap"></i></div>
-    </div>
-  </div>
-</div>
-
-<script>
-lucide.createIcons();
-
-/* ===== TIME-BASED HERO ===== */
-function updateHero() {
-  const h = new Date().getHours();
-  const bg = document.getElementById('heroBg');
-  const greet = document.getElementById('heroGreeting');
-  const time = document.getElementById('heroTime');
-  const date = document.getElementById('heroDate');
-  const temp = document.getElementById('heroTemp');
-  const wdesc = document.getElementById('heroWeatherDesc');
-  const wicon = document.querySelector('.hero-weather-icon');
-
-  bg.className = 'hero-bg';
-  if (h >= 5 && h < 12) {
-    bg.classList.add('morning');
-    greet.textContent = 'Bom dia';
-    wicon.textContent = '🌤️'; temp.textContent = '26°C'; wdesc.textContent = 'Parcialmente nublado · BH, Boane';
-  } else if (h >= 12 && h < 17) {
-    bg.classList.add('afternoon');
-    greet.textContent = 'Boa tarde';
-    wicon.textContent = '☀️'; temp.textContent = '32°C'; wdesc.textContent = 'Ensolarado · BH, Boane';
-  } else if (h >= 17 && h < 20) {
-    bg.classList.add('evening');
-    greet.textContent = 'Boa tarde';
-    wicon.textContent = '🌅'; temp.textContent = '28°C'; wdesc.textContent = 'Pôr do sol · BH, Boane';
-  } else {
-    bg.classList.add('night');
-    greet.textContent = 'Boa noite';
-    wicon.textContent = '🌙'; temp.textContent = '22°C'; wdesc.textContent = 'Céu limpo · BH, Boane';
-  }
-
-  const now = new Date();
-  time.textContent = `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
-  const days = ['Domingo','Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado'];
-  const months = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
-  date.textContent = `${days[now.getDay()]}, ${now.getDate()} de ${months[now.getMonth()]}`;
-}
-updateHero();
-setInterval(updateHero, 30000);
-
-/* ===== NAVIGATION ===== */
-function navigateTo(name) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  const target = document.getElementById(`screen-${name}`);
-  if (target) target.classList.add('active');
-  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-  const navItem = document.querySelector(`.nav-item[data-screen="${name}"]`);
-  if (navItem) navItem.classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-  lucide.createIcons();
-  animateKPIs();
-}
-
-/* ===== MODALS ===== */
-function toggleModal() { document.getElementById('quickActionsModal').classList.add('active'); }
-function closeModal(e) { if (e.target === e.currentTarget) e.currentTarget.classList.remove('active'); }
-function closeModalDirect() { document.getElementById('quickActionsModal').classList.remove('active'); }
-function showSOSModal() { document.getElementById('sosModal').classList.add('active'); }
-function closeSOSModal(e) { if (e.target === e.currentTarget) e.currentTarget.classList.remove('active'); }
-function closeSOSModalDirect() { document.getElementById('sosModal').classList.remove('active'); }
-function activateSOS() { closeSOSModalDirect(); showToast(' Pânico activado! Segurança e coordenação notificados.', 'error'); }
-
-/* ===== TOAST ===== */
-function showToast(msg, type = 'success') {
-  const toast = document.getElementById('toast');
-  const txt = document.getElementById('toastText');
-  const ico = document.getElementById('toastIcon');
-  txt.textContent = msg;
-  ico.className = `toast-icon ${type}`;
-  ico.innerHTML = type === 'error' ? '<i data-lucide="alert-triangle"></i>' : '<i data-lucide="check"></i>';
-  toast.classList.add('show');
-  lucide.createIcons();
-  setTimeout(() => toast.classList.remove('show'), 3000);
-}
-
-/* ===== SEVERITY ===== */
-function selectSeverity(btn) {
-  document.querySelectorAll('.sev-btn').forEach(b => b.classList.remove('sel'));
-  btn.classList.add('sel');
-}
-
-/* ===== REPORT FORM ===== */
-function submitReport(e) {
-  e.preventDefault();
-  document.getElementById('reportFormContainer').style.display = 'none';
-  document.getElementById('reportSuccess').style.display = 'block';
-  showToast('Ocorrência enviada com sucesso!', 'success');
-}
-function resetReport() {
-  document.getElementById('reportFormContainer').style.display = 'block';
-  document.getElementById('reportSuccess').style.display = 'none';
-  navigateTo('home');
-}
-
-/* ===== VISITOR TABS ===== */
-function switchVisitorTab(btn, tab) {
-  document.querySelectorAll('.visitor-tab').forEach(t => t.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('visitor-list-pending').style.display = tab === 'pending' ? 'block' : 'none';
-  document.getElementById('visitor-list-active').style.display = tab === 'active' ? 'block' : 'none';
-  document.getElementById('visitor-list-history').style.display = tab === 'history' ? 'block' : 'none';
-}
-
-/* ===== ALERTS FILTER ===== */
-function filterAlerts(btn, type) {
-  document.querySelectorAll('.alert-filter').forEach(f => f.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('.alert-card').forEach(item => {
-    if (type === 'all') { item.style.display = 'block'; }
-    else if (type === 'resolved') { item.style.display = item.classList.contains('resolved') ? 'block' : 'none'; }
-    else { item.style.display = item.dataset.type === type ? 'block' : 'none'; }
-  });
-}
-
-/* ===== KPI ANIMATION ===== */
-function animateKPIs() {
-  document.querySelectorAll('.kpi-value[data-count]').forEach(el => {
-    const target = parseInt(el.getAttribute('data-count'));
-    let cur = 0;
-    const step = target / 50;
-    function update() {
-      cur += step;
-      if (cur >= target) { el.textContent = target; return; }
-      el.textContent = Math.floor(cur);
-      requestAnimationFrame(update);
-    }
-    el.textContent = '0';
-    requestAnimationFrame(update);
-  });
-}
-setTimeout(() => animateKPIs(), 300);
-
-/* ===== CAMERA ===== */
-let cameraStream = null;
-function openCamera() {
-  const modal = document.getElementById('cameraModal');
-  modal.classList.add('active');
-  const viewport = document.getElementById('cameraViewport');
-  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
-      .then(stream => {
-        cameraStream = stream;
-        viewport.innerHTML = '';
-        const video = document.createElement('video');
-        video.srcObject = stream;
-        video.autoplay = true;
-        video.playsInline = true;
-        video.style.width = '100%';
-        video.style.height = '100%';
-        video.style.objectFit = 'cover';
-        viewport.appendChild(video);
-      })
-      .catch(() => {
-        viewport.innerHTML = '<div class="camera-placeholder"><i data-lucide="camera-off"></i><span>Câmara não disponível</span><span style="font-size:11px;opacity:0.6;margin-top:4px;">Verifique as permissões</span></div>';
-        lucide.createIcons();
-      });
-  } else {
-    viewport.innerHTML = '<div class="camera-placeholder"><i data-lucide="camera-off"></i><span>Câmara não disponível</span></div>';
-    lucide.createIcons();
-  }
-}
-function closeCamera() {
-  document.getElementById('cameraModal').classList.remove('active');
-  if (cameraStream) {
-    cameraStream.getTracks().forEach(track => track.stop());
-    cameraStream = null;
-  }
-  const viewport = document.getElementById('cameraViewport');
-  viewport.innerHTML = '<div class="camera-placeholder"><i data-lucide="camera"></i><span>Câmara a preparar...</span></div>';
-  lucide.createIcons();
-}
-function capturePhoto() {
-  const video = document.querySelector('#cameraViewport video');
-  if (video) {
-    const canvas = document.createElement('canvas');
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-    canvas.getContext('2d').drawImage(video, 0, 0);
-    const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
-    const preview = document.getElementById('cameraPreview');
-    preview.style.backgroundImage = `url(${dataUrl})`;
-    preview.classList.add('active');
-    closeCamera();
-    showToast('Foto capturada com sucesso', 'success');
-  }
-}
-function removePhoto(e) {
-  e.stopPropagation();
-  const preview = document.getElementById('cameraPreview');
-  preview.style.backgroundImage = '';
-  preview.classList.remove('active');
-}
-</script>
-</body>
-</html>
-
+Act as a principal product designer, senior UX architect, mobile performance specialist, premium civic-tech platform strategist, and frontend systems thinker.
+
+I want you to redesign and improve my neighbourhood platform from scratch as a stronger, cleaner, more stable, more premium mobile-first product for:
+
+BH Segurança & Comunidade
+
+Location:
+Belo Horizonte, Boane, Mozambique
+
+Language:
+Portuguese (Portugal), natural for Mozambique.
+
+CORE PURPOSE
+This must be a private community platform for residents of Belo Horizonte.
+It should combine:
+- security
+- alerts
+- incident reporting
+- resident identity
+- visitor management
+- neighbourhood communication
+- operational visibility
+- community organisation
+- proximity awareness
+- emergency response
+- camera-assisted reporting
+
+IMPORTANT PRODUCT GOAL
+The app already has a strong concept, but the current implementation is too heavy and unstable on mobile.
+I want a new version that keeps the premium look but becomes:
+- lighter
+- more stable on Android
+- faster
+- cleaner
+- less overloaded
+- easier to render
+- less visually fragile
+- more production-ready
+
+DO NOT create a visually broken or overly heavy interface.
+Avoid effects that can cause rendering glitches on mobile browsers.
+
+DO NOT OVERUSE
+- backdrop blur
+- heavy glassmorphism
+- too many shadows
+- too many layered gradients
+- repeated glow effects
+- excessive pulse animations
+- too many animated rings
+- duplicated sections
+- overloaded home screen
+
+POSITIONING
+The app must feel:
+- premium
+- exclusive
+- secure
+- elegant
+- modern
+- 2026
+- polished
+- credible
+- desirable
+- suitable for a high-standard private community
+
+Do not make it feel:
+- plain
+- flat
+- childish
+- generic
+- like a template
+- like a wireframe
+- like a fintech
+- like a gaming UI
+- visually noisy
+- technically unstable
+
+VISUAL DIRECTION
+Use a refined premium interface style with:
+- deep dark green
+- green-black gradients
+- soft gold accents
+- off-white and light grey
+- red only for emergency and critical alerts
+- soft blue only for neutral operational information
+
+The visual system must include:
+- refined but lighter shadows
+- premium depth without excess
+- layered cards but not too many effects
+- elegant rounded corners
+- limited and tasteful glass treatment only where necessary
+- clean typography
+- strong hierarchy
+- better spacing
+- stronger contrast
+- premium iconography
+- subtle microinteractions
+- buttons that clearly feel clickable
+
+MOBILE PERFORMANCE RULES
+This is critical.
+
+Design for real Android mobile performance.
+Make the interface lighter and safer to render.
+
+Requirements:
+- reduce heavy GPU effects
+- reduce compositing stress
+- use fewer overlapping effects
+- reduce simultaneous animations
+- avoid duplicated rendering layers
+- avoid too many large shadows
+- keep transitions smooth but light
+- optimise for mobile browser stability
+- prefer cleaner CSS over flashy effects
+- preserve quality without overdesign
+
+MOZAMBIQUE CONTEXT
+The platform must feel local and credible.
+Use realistic labels and context such as:
+- Belo Horizonte
+- Boane
+- Moçambique
+- Quarteirão
+- Morador
+- Coordenação do Bairro
+- AMOBELO
+- PRM
+- Conselho Municipal de Boane
+- EDM
+- AdRM
+
+Use realistic Mozambican names, realistic notices, realistic incidents, realistic community references, and realistic operational data.
+
+MAIN EXPERIENCE
+The app must be mobile-first and easy to use for:
+- young adults
+- working adults
+- older residents
+
+So I want:
+- strong legibility
+- large touch areas
+- simple navigation
+- very clear buttons
+- practical flows
+- elegant but accessible design
+
+HERO SECTION
+Create a premium but lighter hero section for the home screen.
+
+It must include:
+- a realistic and elegant image inspired by Belo Horizonte / Boane
+- premium live-wallpaper feeling, but lightweight
+- dynamic mood based on time of day
+
+Hero states:
+- morning: light, fresh, calm
+- afternoon: brighter, warmer
+- evening: soft golden tone
+- night: darker premium ambience with subtle lights
+
+Hero content:
+- greeting: Bom dia / Boa tarde / Boa noite
+- BH Segurança & Comunidade
+- Belo Horizonte · Boane · Moçambique
+- current time
+- temperature
+- weather state
+- neighbourhood status
+- Comunidade Verificada
+- notification icon
+- elegant SOS / Pânico button
+
+Important:
+- weather must appear only in the hero
+- do not repeat weather elsewhere
+- make the hero more compact
+- do not let the hero dominate too much vertical space
+
+EXCLUSIVITY LAYER
+The app must feel like a verified private community.
+
+Add premium exclusivity signals such as:
+- Morador Verificado
+- Residente Activo
+- Comunidade Verificada
+- secure badges
+- premium identity strip
+- trusted access state
+- resident-only appearance
+- a feeling of status and belonging
+
+HOME SCREEN
+Redesign the home screen so it becomes cleaner and more focused.
+
+Do not overload the home screen.
+Use this structure:
+
+1. compact premium hero
+2. resident identity strip
+3. elegant SOS / Pânico button
+4. one active incident card
+5. one important meeting / notice card
+6. quick actions
+7. four main KPI cards only
+8. one proximity / nearby awareness card
+9. one short recent incidents section
+
+Quick actions:
+- Cartão
+- Reportar
+- Visitantes
+- Segurança
+- Alertas
+- Contactos
+
+HOME SCREEN RULES
+- do not repeat large sections
+- do not repeat community lists multiple times
+- do not duplicate cards
+- do not overload the page with too many widgets
+- keep the home screen premium and concise
+- prioritise clarity over quantity
+
+MAIN KPI CARDS ONLY
+Use only four stronger KPI cards on the home screen:
+- Acessos Hoje
+- Acessos Negados
+- Alertas Activos
+- Tempo Médio de Resposta
+
+Other information can go in secondary screens.
+
+PROXIMITY / NEARBY AWARENESS
+Keep the proximity idea but make it lighter and more useful.
+
+I do not want a childish fake radar.
+I want an elegant premium feature that can communicate:
+- moradores activos próximos
+- presença próxima
+- actividade nas imediações
+- nearby alert if relevant
+- point of attention near the user
+
+Possible labels:
+- Presença na Zona
+- Moradores Próximos
+- Actividade nas Proximidades
+- Atenção nas Imediações
+- Alerta Próximo
+- Perímetro Próximo
+
+I want:
+- one premium nearby awareness card
+- subtle animated dots only if lightweight
+- no heavy scanner rings if they hurt performance
+- clear distinction between normal nearby presence and nearby alert
+- premium and controlled visuals
+
+Do not let this section become too visually heavy.
+
+CARD SCREEN
+Create a premium Cartão do Morador screen with:
+- resident name
+- photo or premium avatar
+- zone / quarteirão
+- contact
+- emergency contact
+- resident ID
+- QR code
+- Morador Verificado
+- validity
+- access permissions
+- premium benefits / exclusive access section
+
+Important:
+- remove duplicated stacked visual artifacts
+- keep the card strong but technically lighter
+- avoid layered duplicates or ghost rendering
+- make the card clean and stable
+
+REPORT SCREEN
+Create a clean and efficient report flow with:
+- Nome
+- Contacto
+- Localização
+- Tipo de Ocorrência
+- Gravidade
+- Descrição
+- camera/photo attachment area
+- Enviar Ocorrência
+
+Categories:
+- Intrusão
+- Actividade Suspeita
+- Roubo
+- Ruído
+- Iluminação
+- Lixo
+- Outro
+
+REPORT FLOW UPGRADE
+Add:
+- location autofill or zone selector
+- camera attach flow
+- evidence attached state
+- severity selector
+- anonymous or identified option if useful
+- confirmation state
+- incident submitted success card
+- incident tracking state
+
+CAMERA INTEGRATION
+Add a camera-connected workflow to the app.
+
+I want the user to be able to:
+- open the phone camera from the app
+- capture a photo during incident reporting
+- attach the image to an occurrence
+- optionally use camera for QR verification later
+- use the camera for evidence and visitor/security workflows
+
+This should integrate naturally into:
+- Reportar Ocorrência
+- Cartão / QR verification
+- Visitantes
+- Segurança
+
+The design must show:
+- camera access button
+- preview state
+- attachment state
+- success state
+- permission request state if needed
+
+Make this feel natural, premium, and technically clean.
+
+VISITORS SCREEN
+Create a serious and premium visitor management section with:
+- visitante pré-aprovado
+- visitante pendente
+- histórico recente
+- validade do acesso
+- state of visitor
+- aprovar
+- cancelar
+- revogar
+
+States:
+- pendente
+- autorizado
+- dentro
+- expirado
+- concluído
+
+SECURITY SCREEN
+Create a strong but efficient security centre with:
+- PRM
+- coordenação do bairro
+- emergency contacts
+- private security if relevant
+- emergency button
+- recent alerts
+- priority incidents
+- access status
+- quick emergency actions
+
+SECURITY OPERATIONS LAYER
+Add or improve:
+- nearby incidents
+- last patrol zone
+- security acknowledgment
+- zone under watch
+- access point status
+- current operational mode
+- threat level
+- nearby danger state
+
+Possible widgets:
+- Zona sob Observação
+- Alerta Próximo
+- Última Ronda
+- Segurança em Resposta
+- Estado dos Acessos
+- Nível de Risco Actual
+
+ALERTS SCREEN
+Create a premium alerts section with:
+- alertas críticos
+- alertas gerais
+- alertas resolvidos
+- priority
+- time
+- location
+- source
+- state
+- recommended action
+- simple filters
+
+ALERT INTELLIGENCE
+Alerts should include:
+- criticality
+- urgency
+- zone / quarteirão
+- time
+- status
+- action taken
+- recommended next action
+- whether the alert is near the user
+- whether security has acknowledged it
+- whether it is still active or resolved
+
+Use states such as:
+- Crítico
+- Urgente
+- Em observação
+- Em resposta
+- Resolvido
+
+Also add:
+- nearby alert logic
+- escalation visuals
+- priority chips
+- stronger alert hierarchy
+- better CTA buttons such as Acompanhar, Confirmar, Ver detalhes, Contactar
+
+PROFILE SCREEN
+Create a richer profile screen with:
+- resident identity
+- resident card summary
+- emergency contacts
+- associated vehicles
+- permissions
+- useful documents
+- notifications
+- access history
+- account settings
+- verification state
+
+Add:
+- associated household members
+- history summary
+- community standing / member status
+- safety preferences
+- notification preferences
+
+BOTTOM NAVIGATION
+Create a premium bottom navigation with:
+- Início
+- Cartão
+- central action button
+- Alertas
+- Perfil
+
+The central action button must feel strong and premium.
+It can be used for:
+- Reportar Ocorrência
+or
+- open a quick actions menu
+
+Important:
+- remove unnecessary glow excess
+- keep it elegant
+- strengthen active state
+- keep it lightweight and stable on Android
+
+BUTTONS
+All buttons must feel real and interactive.
+I want:
+- hover state where applicable
+- pressed state
+- active state
+- disabled state where needed
+- better visual feedback
+- stronger clickability
+
+QUICK ACTIONS UPGRADE
+Improve the quick actions area with:
+- stronger card clickability
+- better states
+- more visual priority
+- more elegant icon treatment
+- richer interaction feedback
+- optional highlight for most-used actions
+
+Keep:
+- Cartão
+- Reportar
+- Visitantes
+- Segurança
+- Alertas
+- Contactos
+
+ICONS
+Use a single premium modern icon family.
+Do not use emojis as the main UI language.
+
+Icons must feel:
+- premium
+- elegant
+- consistent
+- serious
+- slightly animated only if lightweight
+
+MICROINTERACTIONS
+Add subtle premium microinteractions such as:
+- notification bell pulse
+- soft SOS pulse
+- active alert glow
+- smooth count-up transitions on KPIs
+- refined screen transitions
+- stronger active state in bottom nav
+- elegant hover and tap responses
+
+Keep motion limited and technically safe.
+
+PERFORMANCE AND INTERACTION QUALITY
+This is critical.
+
+Upgrade the interface to feel:
+- faster
+- smoother
+- lighter
+- more stable
+- less static
+- more premium without overload
+
+I want:
+- smoother but lighter transitions
+- quicker screen changes
+- less heavy card styling
+- better spacing rhythm
+- stronger click feedback
+- premium hover and pressed states
+- responsive quick action cards
+- stronger interaction cues for buttons
+
+Do not create a version that looks good in theory but breaks on Android rendering.
+
+VISUAL REFINEMENT
+Keep the premium direction but improve it with:
+- better icons
+- more polished chips
+- more refined gradients
+- better card hierarchy
+- more exclusive resident identity treatment
+- stronger bottom nav active state
+- more elegant but lighter microinteractions
+
+MASTER RULES
+- do not duplicate weather outside the hero
+- do not overload the home screen
+- do not repeat lists or sections
+- do not use too many blur layers
+- do not use too many shadows
+- do not use too many simultaneous animations
+- do not make the proximity feature childish
+- do not make camera integration feel tacked on
+- do not reduce the premium private-community feeling
+- optimise for real Android browser performance
+
+DELIVERABLE
+I want the complete updated premium product direction and interface structure.
+If generating code, provide a cleaner, lighter, more stable final version.
+If generating design, provide a refined premium concept that is visually strong but technically realistic.
+
+Focus on:
+- quality
+- realism
+- exclusivity
+- clarity
+- Mozambican credibility
+- better operational intelligence
+- camera integration
+- nearby awareness
+- lighter rendering
+- Android stability
+- stronger premium experience without visual overload
