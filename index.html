@@ -1,581 +1,992 @@
-Act as a principal product designer, senior UX architect, mobile performance specialist, premium civic-tech platform strategist, and frontend systems thinker.
-
-I want you to redesign and improve my neighbourhood platform from scratch as a stronger, cleaner, more stable, more premium mobile-first product for:
-
-BH Segurança & Comunidade
-
-Location:
-Belo Horizonte, Boane, Mozambique
-
-Language:
-Portuguese (Portugal), natural for Mozambique.
-
-CORE PURPOSE
-This must be a private community platform for residents of Belo Horizonte.
-It should combine:
-- security
-- alerts
-- incident reporting
-- resident identity
-- visitor management
-- neighbourhood communication
-- operational visibility
-- community organisation
-- proximity awareness
-- emergency response
-- camera-assisted reporting
-
-IMPORTANT PRODUCT GOAL
-The app already has a strong concept, but the current implementation is too heavy and unstable on mobile.
-I want a new version that keeps the premium look but becomes:
-- lighter
-- more stable on Android
-- faster
-- cleaner
-- less overloaded
-- easier to render
-- less visually fragile
-- more production-ready
-
-DO NOT create a visually broken or overly heavy interface.
-Avoid effects that can cause rendering glitches on mobile browsers.
-
-DO NOT OVERUSE
-- backdrop blur
-- heavy glassmorphism
-- too many shadows
-- too many layered gradients
-- repeated glow effects
-- excessive pulse animations
-- too many animated rings
-- duplicated sections
-- overloaded home screen
-
-POSITIONING
-The app must feel:
-- premium
-- exclusive
-- secure
-- elegant
-- modern
-- 2026
-- polished
-- credible
-- desirable
-- suitable for a high-standard private community
-
-Do not make it feel:
-- plain
-- flat
-- childish
-- generic
-- like a template
-- like a wireframe
-- like a fintech
-- like a gaming UI
-- visually noisy
-- technically unstable
-
-VISUAL DIRECTION
-Use a refined premium interface style with:
-- deep dark green
-- green-black gradients
-- soft gold accents
-- off-white and light grey
-- red only for emergency and critical alerts
-- soft blue only for neutral operational information
-
-The visual system must include:
-- refined but lighter shadows
-- premium depth without excess
-- layered cards but not too many effects
-- elegant rounded corners
-- limited and tasteful glass treatment only where necessary
-- clean typography
-- strong hierarchy
-- better spacing
-- stronger contrast
-- premium iconography
-- subtle microinteractions
-- buttons that clearly feel clickable
-
-MOBILE PERFORMANCE RULES
-This is critical.
-
-Design for real Android mobile performance.
-Make the interface lighter and safer to render.
-
-Requirements:
-- reduce heavy GPU effects
-- reduce compositing stress
-- use fewer overlapping effects
-- reduce simultaneous animations
-- avoid duplicated rendering layers
-- avoid too many large shadows
-- keep transitions smooth but light
-- optimise for mobile browser stability
-- prefer cleaner CSS over flashy effects
-- preserve quality without overdesign
-
-MOZAMBIQUE CONTEXT
-The platform must feel local and credible.
-Use realistic labels and context such as:
-- Belo Horizonte
-- Boane
-- Moçambique
-- Quarteirão
-- Morador
-- Coordenação do Bairro
-- AMOBELO
-- PRM
-- Conselho Municipal de Boane
-- EDM
-- AdRM
-
-Use realistic Mozambican names, realistic notices, realistic incidents, realistic community references, and realistic operational data.
-
-MAIN EXPERIENCE
-The app must be mobile-first and easy to use for:
-- young adults
-- working adults
-- older residents
-
-So I want:
-- strong legibility
-- large touch areas
-- simple navigation
-- very clear buttons
-- practical flows
-- elegant but accessible design
-
-HERO SECTION
-Create a premium but lighter hero section for the home screen.
-
-It must include:
-- a realistic and elegant image inspired by Belo Horizonte / Boane
-- premium live-wallpaper feeling, but lightweight
-- dynamic mood based on time of day
-
-Hero states:
-- morning: light, fresh, calm
-- afternoon: brighter, warmer
-- evening: soft golden tone
-- night: darker premium ambience with subtle lights
-
-Hero content:
-- greeting: Bom dia / Boa tarde / Boa noite
-- BH Segurança & Comunidade
-- Belo Horizonte · Boane · Moçambique
-- current time
-- temperature
-- weather state
-- neighbourhood status
-- Comunidade Verificada
-- notification icon
-- elegant SOS / Pânico button
-
-Important:
-- weather must appear only in the hero
-- do not repeat weather elsewhere
-- make the hero more compact
-- do not let the hero dominate too much vertical space
-
-EXCLUSIVITY LAYER
-The app must feel like a verified private community.
-
-Add premium exclusivity signals such as:
-- Morador Verificado
-- Residente Activo
-- Comunidade Verificada
-- secure badges
-- premium identity strip
-- trusted access state
-- resident-only appearance
-- a feeling of status and belonging
-
-HOME SCREEN
-Redesign the home screen so it becomes cleaner and more focused.
-
-Do not overload the home screen.
-Use this structure:
-
-1. compact premium hero
-2. resident identity strip
-3. elegant SOS / Pânico button
-4. one active incident card
-5. one important meeting / notice card
-6. quick actions
-7. four main KPI cards only
-8. one proximity / nearby awareness card
-9. one short recent incidents section
-
-Quick actions:
-- Cartão
-- Reportar
-- Visitantes
-- Segurança
-- Alertas
-- Contactos
-
-HOME SCREEN RULES
-- do not repeat large sections
-- do not repeat community lists multiple times
-- do not duplicate cards
-- do not overload the page with too many widgets
-- keep the home screen premium and concise
-- prioritise clarity over quantity
-
-MAIN KPI CARDS ONLY
-Use only four stronger KPI cards on the home screen:
-- Acessos Hoje
-- Acessos Negados
-- Alertas Activos
-- Tempo Médio de Resposta
-
-Other information can go in secondary screens.
-
-PROXIMITY / NEARBY AWARENESS
-Keep the proximity idea but make it lighter and more useful.
-
-I do not want a childish fake radar.
-I want an elegant premium feature that can communicate:
-- moradores activos próximos
-- presença próxima
-- actividade nas imediações
-- nearby alert if relevant
-- point of attention near the user
-
-Possible labels:
-- Presença na Zona
-- Moradores Próximos
-- Actividade nas Proximidades
-- Atenção nas Imediações
-- Alerta Próximo
-- Perímetro Próximo
-
-I want:
-- one premium nearby awareness card
-- subtle animated dots only if lightweight
-- no heavy scanner rings if they hurt performance
-- clear distinction between normal nearby presence and nearby alert
-- premium and controlled visuals
-
-Do not let this section become too visually heavy.
-
-CARD SCREEN
-Create a premium Cartão do Morador screen with:
-- resident name
-- photo or premium avatar
-- zone / quarteirão
-- contact
-- emergency contact
-- resident ID
-- QR code
-- Morador Verificado
-- validity
-- access permissions
-- premium benefits / exclusive access section
-
-Important:
-- remove duplicated stacked visual artifacts
-- keep the card strong but technically lighter
-- avoid layered duplicates or ghost rendering
-- make the card clean and stable
-
-REPORT SCREEN
-Create a clean and efficient report flow with:
-- Nome
-- Contacto
-- Localização
-- Tipo de Ocorrência
-- Gravidade
-- Descrição
-- camera/photo attachment area
-- Enviar Ocorrência
-
-Categories:
-- Intrusão
-- Actividade Suspeita
-- Roubo
-- Ruído
-- Iluminação
-- Lixo
-- Outro
-
-REPORT FLOW UPGRADE
-Add:
-- location autofill or zone selector
-- camera attach flow
-- evidence attached state
-- severity selector
-- anonymous or identified option if useful
-- confirmation state
-- incident submitted success card
-- incident tracking state
-
-CAMERA INTEGRATION
-Add a camera-connected workflow to the app.
-
-I want the user to be able to:
-- open the phone camera from the app
-- capture a photo during incident reporting
-- attach the image to an occurrence
-- optionally use camera for QR verification later
-- use the camera for evidence and visitor/security workflows
-
-This should integrate naturally into:
-- Reportar Ocorrência
-- Cartão / QR verification
-- Visitantes
-- Segurança
-
-The design must show:
-- camera access button
-- preview state
-- attachment state
-- success state
-- permission request state if needed
-
-Make this feel natural, premium, and technically clean.
-
-VISITORS SCREEN
-Create a serious and premium visitor management section with:
-- visitante pré-aprovado
-- visitante pendente
-- histórico recente
-- validade do acesso
-- state of visitor
-- aprovar
-- cancelar
-- revogar
-
-States:
-- pendente
-- autorizado
-- dentro
-- expirado
-- concluído
-
-SECURITY SCREEN
-Create a strong but efficient security centre with:
-- PRM
-- coordenação do bairro
-- emergency contacts
-- private security if relevant
-- emergency button
-- recent alerts
-- priority incidents
-- access status
-- quick emergency actions
-
-SECURITY OPERATIONS LAYER
-Add or improve:
-- nearby incidents
-- last patrol zone
-- security acknowledgment
-- zone under watch
-- access point status
-- current operational mode
-- threat level
-- nearby danger state
-
-Possible widgets:
-- Zona sob Observação
-- Alerta Próximo
-- Última Ronda
-- Segurança em Resposta
-- Estado dos Acessos
-- Nível de Risco Actual
-
-ALERTS SCREEN
-Create a premium alerts section with:
-- alertas críticos
-- alertas gerais
-- alertas resolvidos
-- priority
-- time
-- location
-- source
-- state
-- recommended action
-- simple filters
-
-ALERT INTELLIGENCE
-Alerts should include:
-- criticality
-- urgency
-- zone / quarteirão
-- time
-- status
-- action taken
-- recommended next action
-- whether the alert is near the user
-- whether security has acknowledged it
-- whether it is still active or resolved
-
-Use states such as:
-- Crítico
-- Urgente
-- Em observação
-- Em resposta
-- Resolvido
-
-Also add:
-- nearby alert logic
-- escalation visuals
-- priority chips
-- stronger alert hierarchy
-- better CTA buttons such as Acompanhar, Confirmar, Ver detalhes, Contactar
-
-PROFILE SCREEN
-Create a richer profile screen with:
-- resident identity
-- resident card summary
-- emergency contacts
-- associated vehicles
-- permissions
-- useful documents
-- notifications
-- access history
-- account settings
-- verification state
-
-Add:
-- associated household members
-- history summary
-- community standing / member status
-- safety preferences
-- notification preferences
-
-BOTTOM NAVIGATION
-Create a premium bottom navigation with:
-- Início
-- Cartão
-- central action button
-- Alertas
-- Perfil
-
-The central action button must feel strong and premium.
-It can be used for:
-- Reportar Ocorrência
-or
-- open a quick actions menu
-
-Important:
-- remove unnecessary glow excess
-- keep it elegant
-- strengthen active state
-- keep it lightweight and stable on Android
-
-BUTTONS
-All buttons must feel real and interactive.
-I want:
-- hover state where applicable
-- pressed state
-- active state
-- disabled state where needed
-- better visual feedback
-- stronger clickability
-
-QUICK ACTIONS UPGRADE
-Improve the quick actions area with:
-- stronger card clickability
-- better states
-- more visual priority
-- more elegant icon treatment
-- richer interaction feedback
-- optional highlight for most-used actions
-
-Keep:
-- Cartão
-- Reportar
-- Visitantes
-- Segurança
-- Alertas
-- Contactos
-
-ICONS
-Use a single premium modern icon family.
-Do not use emojis as the main UI language.
-
-Icons must feel:
-- premium
-- elegant
-- consistent
-- serious
-- slightly animated only if lightweight
-
-MICROINTERACTIONS
-Add subtle premium microinteractions such as:
-- notification bell pulse
-- soft SOS pulse
-- active alert glow
-- smooth count-up transitions on KPIs
-- refined screen transitions
-- stronger active state in bottom nav
-- elegant hover and tap responses
-
-Keep motion limited and technically safe.
-
-PERFORMANCE AND INTERACTION QUALITY
-This is critical.
-
-Upgrade the interface to feel:
-- faster
-- smoother
-- lighter
-- more stable
-- less static
-- more premium without overload
-
-I want:
-- smoother but lighter transitions
-- quicker screen changes
-- less heavy card styling
-- better spacing rhythm
-- stronger click feedback
-- premium hover and pressed states
-- responsive quick action cards
-- stronger interaction cues for buttons
-
-Do not create a version that looks good in theory but breaks on Android rendering.
-
-VISUAL REFINEMENT
-Keep the premium direction but improve it with:
-- better icons
-- more polished chips
-- more refined gradients
-- better card hierarchy
-- more exclusive resident identity treatment
-- stronger bottom nav active state
-- more elegant but lighter microinteractions
-
-MASTER RULES
-- do not duplicate weather outside the hero
-- do not overload the home screen
-- do not repeat lists or sections
-- do not use too many blur layers
-- do not use too many shadows
-- do not use too many simultaneous animations
-- do not make the proximity feature childish
-- do not make camera integration feel tacked on
-- do not reduce the premium private-community feeling
-- optimise for real Android browser performance
-
-DELIVERABLE
-I want the complete updated premium product direction and interface structure.
-If generating code, provide a cleaner, lighter, more stable final version.
-If generating design, provide a refined premium concept that is visually strong but technically realistic.
-
-Focus on:
-- quality
-- realism
-- exclusivity
-- clarity
-- Mozambican credibility
-- better operational intelligence
-- camera integration
-- nearby awareness
-- lighter rendering
-- Android stability
-- stronger premium experience without visual overload
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>BH Segurança & Comunidade</title>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link href="https://cdn.jsdelivr.net/npm/fontsource-inter@5.1.0/400.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/fontsource-inter@5.1.0/500.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/fontsource-inter@5.1.0/600.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/fontsource-inter@5.1.0/700.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/fontsource-inter@5.1.0/800.css" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#070f0b;--bg2:#0b1a12;--card:#112419;--card2:#163022;--elev:#1a3d2a;
+  --green:#22c55e;--green2:#4ade80;--gold:#c9a84c;--gold2:#e2c878;--goldb:rgba(201,168,76,.3);
+  --red:#dc2626;--red2:#ef4444;--blue:#3b82f6;--blue2:#60a5fa;
+  --txt:#f2f2ee;--txt2:#b5c4ae;--muted:#6a7d64;
+  --brd:rgba(255,255,255,.06);--brd2:rgba(255,255,255,.1);
+  --rad:12px;--rad2:16px;--rad3:20px;--radf:9999px;
+}
+html{font-size:16px}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.app{max-width:430px;margin:0 auto;min-height:100vh;position:relative;overflow-x:hidden}
+
+/* screens */
+.sc{display:none;padding-bottom:92px;animation:fadeUp .25s ease}
+.sc.on{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* hero */
+.hero{position:relative;height:280px;overflow:hidden;border-radius:0 0 var(--rad3) var(--rad3)}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity .6s ease}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,15,11,.2) 0%,rgba(7,15,11,.55) 45%,rgba(7,15,11,.95) 100%)}
+.hero-c{position:relative;z-index:2;padding:16px 18px 18px;height:100%;display:flex;flex-direction:column;justify-content:space-between}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start}
+.h-greet{font-size:12px;font-weight:600;color:var(--gold2);letter-spacing:.7px;text-transform:uppercase}
+.h-time{font-size:40px;font-weight:800;color:#fff;line-height:1.05;text-shadow:0 2px 16px rgba(0,0,0,.5);letter-spacing:-1px}
+.h-date{font-size:12.5px;color:rgba(255,255,255,.65);margin-top:4px}
+.h-brand{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.h-pill{display:flex;align-items:center;gap:6px;background:rgba(7,15,11,.6);padding:7px 12px;border-radius:var(--radf);border:1px solid var(--goldb)}
+.h-pill svg{width:18px;height:18px;color:var(--gold)}
+.h-pill span{font-size:9.5px;font-weight:700;color:var(--gold2);letter-spacing:1.2px;text-transform:uppercase}
+.h-bell{width:36px;height:36px;border-radius:50%;background:rgba(7,15,11,.55);border:1px solid var(--brd);display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative}
+.h-bell svg{width:18px;height:18px;color:rgba(255,255,255,.85)}
+.h-badge{position:absolute;top:4px;right:4px;width:8px;height:8px;background:var(--red);border-radius:50%;border:2px solid var(--bg);animation:bpulse 2s ease infinite}
+@keyframes bpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.4)}}
+.h-bot{display:flex;justify-content:space-between;align-items:flex-end}
+.h-weather{display:flex;align-items:center;gap:8px;background:rgba(7,15,11,.45);padding:8px 12px;border-radius:var(--rad);border:1px solid rgba(255,255,255,.07)}
+.h-wi{font-size:20px}
+.h-wt{font-size:20px;font-weight:700;color:#fff}
+.h-wd{font-size:10.5px;color:rgba(255,255,255,.6);font-weight:500;margin-top:1px}
+.h-st{display:flex;flex-direction:column;align-items:flex-end;gap:3px}
+.h-stp{display:flex;align-items:center;gap:5px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.22);padding:5px 10px;border-radius:var(--radf)}
+.h-stdot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:sdot 2s ease infinite}
+@keyframes sdot{0%{box-shadow:0 0 0 0 rgba(34,197,94,.45)}70%{box-shadow:0 0 0 6px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+.h-stt{font-size:10.5px;font-weight:700;color:var(--green2)}
+.h-vlab{font-size:8.5px;color:var(--muted);font-weight:600;letter-spacing:.5px;text-transform:uppercase}
+
+/* identity strip */
+.id-strip{margin:-18px 14px 0;position:relative;z-index:10;background:var(--card);border-radius:var(--rad2);padding:14px 16px;border:1px solid var(--brd);box-shadow:0 3px 16px rgba(0,0,0,.35);display:flex;align-items:center;gap:12px}
+.id-av{width:46px;height:46px;border-radius:50%;overflow:hidden;border:2px solid var(--gold);flex-shrink:0}
+.id-av img{width:100%;height:100%;object-fit:cover}
+.id-info{flex:1;min-width:0}
+.id-name{font-size:14px;font-weight:650;color:var(--txt);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.id-zone{font-size:11.5px;color:var(--txt2);margin-top:1px}
+.id-badges{display:flex;gap:4px;flex-shrink:0}
+.badge{display:flex;align-items:center;gap:3px;padding:4px 8px;border-radius:var(--radf);font-size:9px;font-weight:700;letter-spacing:.1px}
+.badge-v{background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.2);color:var(--gold2)}
+.badge svg{width:10px;height:10px}
+
+/* sos */
+.sos-sec{padding:12px 14px 0}
+.sos-btn{width:100%;padding:12px;border:none;border-radius:var(--rad2);background:linear-gradient(135deg,#991b1b,#dc2626);color:#fff;font-size:13px;font-weight:800;letter-spacing:2.2px;text-transform:uppercase;cursor:pointer;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 3px 18px rgba(220,38,38,.25);transition:transform .12s ease;font-family:inherit}
+.sos-btn:active{transform:scale(.98)}
+.sos-btn svg{width:17px;height:17px}
+.sos-sw{position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);animation:sweep 3s ease infinite}
+@keyframes sweep{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.sos-rng{position:absolute;inset:-2px;border-radius:var(--rad2);border:2px solid var(--red);animation:sosR 2s ease infinite}
+@keyframes sosR{0%{opacity:.45;transform:scale(1)}100%{opacity:0;transform:scale(1.03)}}
+
+/* section */
+.sec-h{display:flex;justify-content:space-between;align-items:center;padding:16px 14px 8px}
+.sec-t{font-size:14.5px;font-weight:750;color:var(--txt)}
+.sec-l{font-size:11px;font-weight:600;color:var(--gold);cursor:pointer;display:flex;align-items:center;gap:2px}
+.sec-l svg{width:12px;height:12px}
+
+/* cards */
+.pcard{margin:0 14px 8px;border-radius:var(--rad2);padding:14px;border:1px solid var(--brd);box-shadow:0 2px 12px rgba(0,0,0,.28);position:relative;overflow:hidden;transition:transform .12s ease}
+.pcard:active{transform:scale(.988)}
+.pcard::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;border-radius:0 3px 3px 0}
+.pcard.inc::before{background:var(--red)}
+.pcard.inc{background:linear-gradient(135deg,rgba(220,38,38,.04),var(--card))}
+.pcard.not::before{background:var(--blue)}
+.pcard.not{background:linear-gradient(135deg,rgba(59,130,246,.04),var(--card))}
+.c-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
+.c-lbl{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.7px;padding:3px 7px;border-radius:var(--radf)}
+.c-lbl.urg{background:rgba(220,38,38,.1);color:var(--red2)}
+.c-lbl.inf{background:rgba(59,130,246,.08);color:var(--blue2)}
+.c-time{font-size:10.5px;color:var(--muted);font-weight:500}
+.c-title{font-size:13.5px;font-weight:650;color:var(--txt);margin-bottom:4px;line-height:1.25}
+.c-desc{font-size:12px;color:var(--txt2);line-height:1.5}
+.c-foot{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-top:9px;border-top:1px solid var(--brd)}
+.c-loc{display:flex;align-items:center;gap:3px;font-size:10.5px;color:var(--muted);font-weight:500}
+.c-loc svg{width:11px;height:11px}
+.c-act{font-size:11px;font-weight:600;color:var(--gold);cursor:pointer;padding:4px 9px;border-radius:var(--radf);background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.15);transition:all .12s ease;font-family:inherit}
+.c-act:active{transform:scale(.95)}
+
+/* quick actions */
+.q-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:0 14px}
+.q-btn{display:flex;flex-direction:column;align-items:center;gap:6px;padding:13px 4px 12px;border-radius:var(--rad);background:var(--card);border:1px solid var(--brd);cursor:pointer;transition:all .12s ease;position:relative}
+.q-btn:active{transform:scale(.94);background:var(--card2)}
+.q-btn.hl{border-color:var(--goldb);background:linear-gradient(145deg,var(--card),rgba(201,168,76,.04))}
+.q-ico{width:36px;height:36px;border-radius:var(--rad);display:flex;align-items:center;justify-content:center;transition:transform .12s ease}
+.q-btn:active .q-ico{transform:scale(.88)}
+.q-ico.g{background:rgba(34,197,94,.08);color:var(--green2)}
+.q-ico.a{background:rgba(201,168,76,.08);color:var(--gold2)}
+.q-ico.b{background:rgba(59,130,246,.08);color:var(--blue2)}
+.q-ico.r{background:rgba(220,38,38,.08);color:var(--red2)}
+.q-ico svg{width:18px;height:18px}
+.q-lbl{font-size:10px;font-weight:600;color:var(--txt2);text-align:center}
+
+/* kpi */
+.kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;padding:0 14px}
+.kpi{background:var(--card);border-radius:var(--rad);padding:12px 13px;border:1px solid var(--brd);position:relative;overflow:hidden;transition:transform .12s ease}
+.kpi:active{transform:scale(.97)}
+.kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.kpi.g::before{background:var(--green)}.kpi.a::before{background:var(--gold)}.kpi.b::before{background:var(--blue)}.kpi.r::before{background:var(--red)}
+.kpi-ico{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+.kpi-ico.g{background:rgba(34,197,94,.07);color:var(--green2)}.kpi-ico.a{background:rgba(201,168,76,.07);color:var(--gold2)}.kpi-ico.b{background:rgba(59,130,246,.07);color:var(--blue2)}.kpi-ico.r{background:rgba(220,38,38,.07);color:var(--red2)}
+.kpi-ico svg{width:14px;height:14px}
+.kpi-val{font-size:22px;font-weight:800;color:var(--txt);line-height:1}
+.kpi-lbl{font-size:10px;color:var(--muted);margin-top:2px;font-weight:550}
+.kpi-tr{display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:700;margin-top:4px;padding:1.5px 5px;border-radius:var(--radf)}
+.kpi-tr.up{background:rgba(34,197,94,.07);color:var(--green2)}.kpi-tr.dn{background:rgba(220,38,38,.07);color:var(--red2)}
+.kpi-tr svg{width:8px;height:8px}
+
+/* proximity */
+.prox-sec{padding:0 14px}
+.prox-card{background:var(--card);border-radius:var(--rad2);padding:14px;border:1px solid var(--brd);box-shadow:0 2px 10px rgba(0,0,0,.22)}
+.prox-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.prox-title{font-size:12px;font-weight:700;color:var(--txt);display:flex;align-items:center;gap:5px}
+.prox-title svg{width:14px;height:14px;color:var(--green2)}
+.prox-cnt{font-size:10px;font-weight:700;color:var(--green2)}
+.prox-list{display:flex;flex-direction:column;gap:6px}
+.prox-mem{display:flex;align-items:center;gap:8px;padding:7px 8px;background:rgba(255,255,255,.02);border-radius:8px;border:1px solid var(--brd)}
+.prox-av{width:32px;height:32px;border-radius:50%;overflow:hidden;border:1px solid var(--brd);flex-shrink:0;background:var(--elev);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:650;color:var(--gold2)}
+.prox-av img{width:100%;height:100%;object-fit:cover}
+.prox-inf{flex:1}
+.prox-nm{font-size:11.5px;font-weight:600;color:var(--txt)}
+.prox-zn{font-size:9.5px;color:var(--muted);margin-top:1px}
+.prox-on{display:flex;align-items:center;gap:3px;font-size:8.5px;font-weight:700;color:var(--green2)}
+.prox-dot{width:5px;height:5px;background:var(--green);border-radius:50%}
+.prox-alert{background:rgba(220,38,38,.06);border:1px solid rgba(220,38,38,.14);border-radius:8px;padding:8px 10px;margin-top:8px;display:flex;align-items:center;gap:6px}
+.prox-alert svg{width:16px;height:16px;color:var(--red2);flex-shrink:0}
+.prox-alert .pa-lbl{font-size:10px;font-weight:700;color:var(--red2)}
+.prox-alert .pa-desc{font-size:9.5px;color:rgba(239,68,68,.65);margin-top:1px;font-weight:500}
+
+/* incidents */
+.inc-list{padding:0 14px;display:flex;flex-direction:column;gap:6px}
+.inc-item{display:flex;align-items:center;gap:9px;padding:9px 10px;background:var(--card);border-radius:var(--rad);border:1px solid var(--brd);transition:transform .12s ease}
+.inc-item:active{transform:scale(.985)}
+.inc-ico{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.inc-ico.r{background:rgba(220,38,38,.07);color:var(--red2)}.inc-ico.a{background:rgba(201,168,76,.07);color:var(--gold2)}.inc-ico.b{background:rgba(59,130,246,.07);color:var(--blue2)}
+.inc-ico svg{width:15px;height:15px}
+.inc-inf{flex:1;min-width:0}
+.inc-ttl{font-size:12px;font-weight:600;color:var(--txt);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.inc-meta{display:flex;align-items:center;gap:5px;margin-top:2px}
+.inc-tm{font-size:9.5px;color:var(--muted)}.inc-zt{font-size:8.5px;color:var(--muted);background:rgba(255,255,255,.03);padding:1px 5px;border-radius:var(--radf);font-weight:600}
+.inc-st{font-size:8.5px;font-weight:700;padding:2.5px 6px;border-radius:var(--radf);flex-shrink:0}
+.inc-st.pg{background:rgba(201,168,76,.07);color:var(--gold2)}.inc-st.rs{background:rgba(34,197,94,.07);color:var(--green2)}.inc-st.pd{background:rgba(239,68,68,.07);color:var(--red2)}
+
+/* bottom nav */
+.bnav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:rgba(7,15,11,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1px solid var(--brd);display:flex;align-items:center;justify-content:space-around;padding:5px 0;padding-bottom:max(5px,env(safe-area-inset-bottom));z-index:100}
+.ni{display:flex;flex-direction:column;align-items:center;gap:2px;padding:5px 12px;border-radius:8px;cursor:pointer;transition:all .12s ease;position:relative}
+.ni:active{transform:scale(.9)}
+.ni svg{width:20px;height:20px;color:var(--muted);transition:color .12s ease}
+.ni span{font-size:9px;font-weight:550;color:var(--muted);transition:color .12s ease}
+.ni.on svg{color:var(--gold2)}.ni.on span{color:var(--gold2);font-weight:700}
+.ni.on::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:16px;height:2px;background:var(--gold);border-radius:0 0 2px 2px}
+.nc{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));display:flex;align-items:center;justify-content:center;cursor:pointer;margin-top:-24px;box-shadow:0 3px 16px rgba(201,168,76,.22),0 0 0 4px var(--bg);transition:transform .12s ease;position:relative}
+.nc:active{transform:scale(.9)}
+.nc svg{width:23px;height:23px;color:var(--bg)}
+.nc::after{content:'';position:absolute;inset:-3px;border-radius:50%;border:1.5px solid rgba(201,168,76,.2);animation:nring 2.5s ease infinite}
+@keyframes nring{0%{opacity:.35;transform:scale(1)}100%{opacity:0;transform:scale(1.1)}}
+
+/* screen headers */
+.scr-h{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;padding-top:max(12px,env(safe-area-inset-top));position:sticky;top:0;background:var(--bg);z-index:10;border-bottom:1px solid var(--brd)}
+.scr-t{font-size:16.5px;font-weight:800;color:var(--txt)}
+.scr-b{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .12s ease}
+.scr-b:active{transform:scale(.9);background:rgba(255,255,255,.05)}
+.scr-b svg{width:19px;height:19px;color:var(--txt2)}
+.scr-a{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .12s ease}
+.scr-a:active{transform:scale(.9);background:rgba(255,255,255,.05)}
+.scr-a svg{width:19px;height:19px;color:var(--txt2)}
+
+/* card screen */
+.card-sc{padding:14px}
+.r-card{position:relative;background:linear-gradient(145deg,#1d452c,#0c2014,#070f0b);border-radius:var(--rad3);padding:20px 18px 16px;border:1px solid var(--goldb);box-shadow:0 4px 24px rgba(0,0,0,.4);overflow:hidden}
+.r-card::before{content:'';position:absolute;top:-30%;right:-20%;width:150px;height:150px;background:radial-gradient(circle,rgba(201,168,76,.05),transparent 65%);border-radius:50%}
+.rc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.rc-brand{font-size:10px;font-weight:800;color:var(--gold);letter-spacing:2px;text-transform:uppercase}
+.rc-chip{width:36px;height:26px;border-radius:4px;background:linear-gradient(135deg,var(--gold),var(--gold2));position:relative;overflow:hidden}
+.rc-chip::before{content:'';position:absolute;top:50%;left:8%;right:8%;height:1px;background:rgba(0,0,0,.15);transform:translateY(-50%)}
+.rc-chip::after{content:'';position:absolute;left:50%;top:8%;bottom:8%;width:1px;background:rgba(0,0,0,.15);transform:translateX(-50%)}
+.rc-pro{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.rc-ph{width:58px;height:58px;border-radius:50%;overflow:hidden;border:2px solid var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.1);flex-shrink:0}
+.rc-ph img{width:100%;height:100%;object-fit:cover}
+.rc-det h3{font-size:16px;font-weight:750;color:var(--txt);margin-bottom:1px}
+.rc-det p{font-size:12px;color:var(--txt2)}
+.rc-vp{display:inline-flex;align-items:center;gap:3px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.2);padding:3.5px 8px;border-radius:var(--radf);margin-top:6px}
+.rc-vp svg{width:10px;height:10px;color:var(--gold2)}
+.rc-vp span{font-size:9px;font-weight:700;color:var(--gold2)}
+.rc-ir{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px}
+.rc-ii{background:rgba(255,255,255,.03);border-radius:8px;padding:8px 9px;border:1px solid var(--brd)}
+.rc-ii label{font-size:8px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;display:block;margin-bottom:2px}
+.rc-ii span{font-size:11.5px;font-weight:650;color:var(--txt)}
+.rc-qr{display:flex;align-items:center;justify-content:center;padding:12px;background:#fff;border-radius:var(--rad);margin-bottom:12px}
+.rc-prm{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px}
+.rc-pr{font-size:8.5px;font-weight:700;padding:3px 7px;border-radius:var(--radf);background:rgba(34,197,94,.07);color:var(--green2);border:1px solid rgba(34,197,94,.12)}
+.rc-val{display:flex;justify-content:space-between;align-items:center;padding-top:8px;border-top:1px solid var(--brd)}
+.rc-val-l{font-size:9px;color:var(--muted);font-weight:550}
+.rc-val-v{font-size:12px;font-weight:700;color:var(--green2)}
+
+/* benefits */
+.ben-sec{margin-top:16px}
+.ben-t{font-size:13px;font-weight:750;color:var(--txt);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.ben-t svg{width:16px;height:16px;color:var(--gold2)}
+.ben-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.ben-card{background:var(--card);border-radius:var(--rad);padding:11px;border:1px solid var(--brd);display:flex;align-items:center;gap:8px;transition:transform .12s ease}
+.ben-card:active{transform:scale(.97)}
+.ben-ico{width:32px;height:32px;border-radius:8px;background:rgba(201,168,76,.07);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ben-ico svg{width:16px;height:16px;color:var(--gold2)}
+.ben-inf h4{font-size:11px;font-weight:650;color:var(--txt)}
+.ben-inf p{font-size:9px;color:var(--muted);margin-top:1px}
+
+/* report */
+.rep-sc{padding:14px}
+.rep-hd{text-align:center;margin-bottom:16px}
+.rep-hd h2{font-size:19px;font-weight:800;color:var(--txt)}
+.rep-hd p{font-size:12px;color:var(--txt2);margin-top:3px;line-height:1.5}
+.fg{margin-bottom:12px}
+.fl{font-size:10.5px;font-weight:700;color:var(--txt2);margin-bottom:6px;display:block;letter-spacing:.2px}
+.fi{width:100%;padding:12px 13px;background:var(--card);border:1px solid var(--brd);border-radius:var(--rad);color:var(--txt);font-size:13.5px;font-family:inherit;transition:border-color .12s ease;outline:none}
+.fi:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.06)}
+.fi::placeholder{color:var(--muted)}
+textarea.fi{min-height:80px;resize:vertical}
+.fs{width:100%;padding:12px 13px;background:var(--card);border:1px solid var(--brd);border-radius:var(--rad);color:var(--txt);font-size:13.5px;font-family:inherit;outline:none;appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%236a7d64' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+.fs:focus{border-color:var(--gold)}
+.sev-row{display:flex;gap:5px}
+.sv-btn{flex:1;padding:9px;border-radius:8px;border:1px solid var(--brd);background:var(--card);color:var(--txt2);font-size:10.5px;font-weight:650;font-family:inherit;cursor:pointer;text-align:center;transition:all .12s ease}
+.sv-btn:active{transform:scale(.96)}
+.sv-btn.sel{border-color:var(--gold);background:rgba(201,168,76,.07);color:var(--gold2)}
+.sv-btn.lo.sel{border-color:var(--green);background:rgba(34,197,94,.07);color:var(--green2)}
+.sv-btn.hi.sel{border-color:var(--red);background:rgba(220,38,38,.07);color:var(--red2)}
+.anon-tg{display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--card);border-radius:var(--rad);border:1px solid var(--brd);margin-bottom:12px;cursor:pointer}
+.anon-tg:active{transform:scale(.98)}
+.anon-sw{width:38px;height:20px;border-radius:var(--radf);background:rgba(255,255,255,.08);position:relative;transition:background .18s ease;flex-shrink:0}
+.anon-tg.on .anon-sw{background:rgba(201,168,76,.22)}
+.anon-sw-d{width:16px;height:16px;border-radius:50%;background:#fff;position:absolute;top:2px;left:2px;transition:transform .18s ease}
+.anon-tg.on .anon-sw-d{transform:translateX(18px)}
+.anon-txt{font-size:12px;color:var(--txt2);font-weight:550}
+.cam-up{width:100%;height:100px;border:2px dashed var(--brd);border-radius:var(--rad);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;cursor:pointer;transition:all .18s ease;position:relative;overflow:hidden}
+.cam-up:active{border-color:var(--gold)}
+.cam-up svg{width:26px;height:26px;color:var(--muted)}
+.cam-up span{font-size:11.5px;color:var(--muted);font-weight:600}
+.cam-up-sub{font-size:9.5px;color:var(--muted);font-weight:500;opacity:.65}
+.cam-prev{position:absolute;inset:0;display:none;background-size:cover;background-position:center}
+.cam-prev.on{display:block}
+.cam-prev .cam-rm{position:absolute;top:6px;right:6px;width:22px;height:22px;border-radius:50%;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;cursor:pointer}
+.cam-rm svg{width:12px;height:12px;color:#fff}
+.sub-btn{width:100%;padding:14px;border:none;border-radius:var(--rad2);background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--bg);font-size:14px;font-weight:800;font-family:inherit;letter-spacing:.3px;cursor:pointer;transition:transform .12s ease;box-shadow:0 3px 16px rgba(201,168,76,.18);margin-top:4px}
+.sub-btn:active{transform:scale(.98)}
+
+/* success */
+.suc-st{text-align:center;padding:36px 20px}
+.suc-ico{width:64px;height:64px;border-radius:50%;background:rgba(34,197,94,.09);margin:0 auto 14px;display:flex;align-items:center;justify-content:center;animation:sucPop .45s ease}
+@keyframes sucPop{0%{transform:scale(.5);opacity:0}70%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+.suc-ico svg{width:32px;height:32px;color:var(--green2)}
+.suc-tt{font-size:18px;font-weight:800;color:var(--txt);margin-bottom:6px}
+.suc-desc{font-size:12.5px;color:var(--txt2);line-height:1.55;margin-bottom:16px}
+.suc-trk{background:var(--card);border-radius:var(--rad);padding:12px;border:1px solid var(--brd);margin-bottom:16px;text-align:left}
+.suc-tr{display:flex;justify-content:space-between;align-items:center;padding:5px 0}
+.suc-tl{font-size:10.5px;color:var(--muted);font-weight:550}
+.suc-tv{font-size:11.5px;color:var(--txt);font-weight:650}
+.suc-btn{width:100%;padding:13px;border:none;border-radius:var(--rad);background:var(--card);color:var(--txt);font-size:13.5px;font-weight:650;font-family:inherit;cursor:pointer;border:1px solid var(--brd);transition:transform .12s ease;margin-bottom:6px}
+.suc-btn:active{transform:scale(.98)}
+.suc-btn.sec{background:transparent;color:var(--gold);border-color:var(--goldb)}
+
+/* visitors */
+.vis-sc{padding:14px}
+.vis-tabs{display:flex;gap:3px;margin-bottom:12px;background:var(--card);border-radius:var(--rad);padding:3px;border:1px solid var(--brd)}
+.vis-tab{flex:1;padding:8px;border-radius:7px;border:none;background:transparent;color:var(--muted);font-size:11px;font-weight:650;font-family:inherit;cursor:pointer;transition:all .12s ease}
+.vis-tab.on{background:var(--elev);color:var(--gold2)}
+.vis-tab:active{transform:scale(.96)}
+.vis-card{background:var(--card);border-radius:var(--rad);padding:12px;border:1px solid var(--brd);margin-bottom:7px;transition:transform .12s ease}
+.vis-card:active{transform:scale(.988)}
+.vis-hd{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
+.vis-nm{font-size:13px;font-weight:650;color:var(--txt)}
+.vis-co{font-size:11px;color:var(--muted);margin-top:1px}
+.vis-st{font-size:8.5px;font-weight:800;padding:3px 7px;border-radius:var(--radf);text-transform:uppercase;letter-spacing:.3px}
+.vis-st.pe{background:rgba(201,168,76,.08);color:var(--gold2)}
+.vis-st.au{background:rgba(34,197,94,.07);color:var(--green2)}
+.vis-st.in{background:rgba(59,130,246,.08);color:var(--blue2)}
+.vis-st.ex{background:rgba(220,38,38,.07);color:var(--red2)}
+.vis-st.cp{background:rgba(106,125,100,.1);color:var(--muted)}
+.vis-det{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:8px}
+.vis-d label{font-size:9px;color:var(--muted);display:block;margin-bottom:1px;font-weight:550}
+.vis-d span{font-size:11px;color:var(--txt2);font-weight:600}
+.vis-act{display:flex;gap:5px}
+.va-btn{flex:1;padding:8px;border-radius:7px;border:1px solid var(--brd);background:var(--card);color:var(--txt2);font-size:10.5px;font-weight:650;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;transition:all .12s ease}
+.va-btn:active{transform:scale(.96)}
+.va-btn svg{width:12px;height:12px}
+.va-btn.ap{background:rgba(34,197,94,.05);border-color:rgba(34,197,94,.13);color:var(--green2)}
+.va-btn.rv{background:rgba(220,38,38,.04);border-color:rgba(220,38,38,.1);color:var(--red2)}
+.va-btn.ca{background:rgba(106,125,100,.05);color:var(--muted)}
+
+/* security */
+.sec-sc{padding:14px}
+.sec-em{background:linear-gradient(135deg,rgba(220,38,38,.05),var(--card));border-radius:var(--rad2);padding:14px;border:1px solid rgba(220,38,38,.12);margin-bottom:12px}
+.sec-em-t{font-size:12px;font-weight:750;color:var(--red2);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.sec-em-t svg{width:15px;height:15px}
+.em-cs{display:flex;flex-direction:column;gap:5px}
+.em-c{display:flex;align-items:center;gap:8px;padding:9px;background:rgba(255,255,255,.02);border-radius:8px;border:1px solid var(--brd);cursor:pointer;transition:all .12s ease}
+.em-c:active{transform:scale(.988);background:rgba(255,255,255,.035)}
+.em-ic{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.em-ic.prm{background:rgba(59,130,246,.08);color:var(--blue2)}
+.em-ic.crd{background:rgba(201,168,76,.07);color:var(--gold2)}
+.em-ic.sec{background:rgba(34,197,94,.07);color:var(--green2)}
+.em-ic svg{width:17px;height:17px}
+.em-inf{flex:1}
+.em-nm{font-size:12px;font-weight:650;color:var(--txt)}
+.em-rl{font-size:10px;color:var(--muted);margin-top:1px}
+.em-nb{font-size:13.5px;font-weight:800;color:var(--green2)}
+.sec-ops{background:var(--card);border-radius:var(--rad2);padding:14px;border:1px solid var(--brd);margin-bottom:12px}
+.sec-ops-t{font-size:12px;font-weight:750;color:var(--txt);margin-bottom:10px;display:flex;align-items:center;gap:5px}
+.sec-ops-t svg{width:14px;height:14px;color:var(--gold2)}
+.ops-l{display:flex;flex-direction:column;gap:6px}
+.ops-i{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--brd)}
+.ops-i:last-child{border-bottom:none}
+.ops-il{font-size:11.5px;color:var(--txt2);font-weight:550}
+.ops-iv{font-size:10.5px;font-weight:700;padding:2.5px 7px;border-radius:var(--radf)}
+.ops-iv.g{background:rgba(34,197,94,.07);color:var(--green2)}.ops-iv.a{background:rgba(201,168,76,.07);color:var(--gold2)}.ops-iv.r{background:rgba(220,38,38,.07);color:var(--red2)}.ops-iv.b{background:rgba(59,130,246,.07);color:var(--blue2)}
+.sec-sg{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:12px}
+.sec-sc2{background:var(--card);border-radius:var(--rad);padding:11px 12px;border:1px solid var(--brd)}
+.sec-sc2-t{font-size:9px;font-weight:750;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px}
+.sec-sc2-v{font-size:20px;font-weight:800;color:var(--txt)}
+.sec-sc2-s{font-size:10px;color:var(--txt2);margin-top:2px}
+
+/* alerts */
+.al-sc{padding:14px}
+.al-fil{display:flex;gap:4px;margin-bottom:12px;overflow-x:auto;padding-bottom:3px;-webkit-overflow-scrolling:touch}
+.al-fil::-webkit-scrollbar{display:none}
+.al-f{padding:6.5px 10px;border-radius:var(--radf);border:1px solid var(--brd);background:var(--card);color:var(--muted);font-size:10.5px;font-weight:650;font-family:inherit;cursor:pointer;white-space:nowrap;transition:all .12s ease}
+.al-f.on{background:var(--elev);border-color:var(--goldb);color:var(--gold2)}
+.al-f:active{transform:scale(.95)}
+.al-card{background:var(--card);border-radius:var(--rad);padding:12px;border:1px solid var(--brd);margin-bottom:7px;position:relative;transition:transform .12s ease}
+.al-card:active{transform:scale(.988)}
+.al-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;border-radius:0 3px 3px 0}
+.al-card.cr::before{background:var(--red)}.al-card.wr::before{background:var(--gold)}.al-card.ic::before{background:var(--blue)}.al-card.rs::before{background:var(--muted);opacity:.35}
+.al-card.rs{opacity:.5}
+.al-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
+.al-pri{font-size:8.5px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;padding:2.5px 6px;border-radius:var(--radf)}
+.al-pri.cr{background:rgba(220,38,38,.09);color:var(--red2)}.al-pri.wr{background:rgba(201,168,76,.07);color:var(--gold2)}.al-pri.ic{background:rgba(59,130,246,.07);color:var(--blue2)}.al-pri.rs{background:rgba(106,125,100,.08);color:var(--muted)}
+.al-tm{font-size:10px;color:var(--muted);font-weight:550}
+.al-tt{font-size:13px;font-weight:650;color:var(--txt);margin-bottom:3px}
+.al-desc{font-size:11px;color:var(--txt2);line-height:1.5;margin-bottom:6px}
+.al-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.al-m{display:flex;align-items:center;gap:3px;font-size:9.5px;color:var(--muted);font-weight:550}
+.al-m svg{width:10px;height:10px}
+.al-act{font-size:10.5px;font-weight:600;color:var(--gold);cursor:pointer;display:flex;align-items:center;gap:3px;padding:5px 8px;border-radius:var(--radf);background:rgba(201,168,76,.05);border:1px solid rgba(201,168,76,.1);transition:all .12s ease;font-family:inherit}
+.al-act:active{transform:scale(.95)}
+.al-act svg{width:12px;height:12px}
+.nearby-b{display:inline-flex;align-items:center;gap:2.5px;font-size:8.5px;font-weight:700;padding:2px 5px;border-radius:var(--radf);background:rgba(239,68,68,.08);color:var(--red2)}
+
+/* profile */
+.prof-sc{padding:14px}
+.prof-top{text-align:center;margin-bottom:14px}
+.prof-av{width:72px;height:72px;border-radius:50%;overflow:hidden;border:2.5px solid var(--gold);margin:0 auto 8px;box-shadow:0 0 0 3px rgba(201,168,76,.08),0 2px 10px rgba(0,0,0,.3)}
+.prof-av img{width:100%;height:100%;object-fit:cover}
+.prof-nm{font-size:17.5px;font-weight:800;color:var(--txt)}
+.prof-zn{font-size:12px;color:var(--txt2);margin-top:1px;font-weight:500}
+.prof-vp{display:inline-flex;align-items:center;gap:3px;background:rgba(201,168,76,.09);border:1px solid rgba(201,168,76,.18);padding:3.5px 9px;border-radius:var(--radf);margin-top:6px}
+.prof-vp svg{width:12px;height:12px;color:var(--gold2)}
+.prof-vp span{font-size:10px;font-weight:700;color:var(--gold2)}
+.prof-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:14px}
+.prof-st{text-align:center;padding:10px 6px;background:var(--card);border-radius:var(--rad);border:1px solid var(--brd)}
+.prof-st-v{font-size:20px;font-weight:800;color:var(--txt)}
+.prof-st-l{font-size:9px;color:var(--muted);margin-top:1px;font-weight:600}
+.prof-sec{margin-bottom:14px}
+.prof-sec-t{font-size:12px;font-weight:750;color:var(--txt);margin-bottom:7px;display:flex;align-items:center;gap:5px}
+.prof-sec-t svg{width:14px;height:14px;color:var(--gold2)}
+.pm-item{display:flex;align-items:center;gap:9px;padding:11px 12px;background:var(--card);border-radius:var(--rad);border:1px solid var(--brd);margin-bottom:4px;cursor:pointer;transition:all .12s ease}
+.pm-item:active{transform:scale(.988);background:var(--card2)}
+.pm-ic{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pm-ic svg{width:16px;height:16px}
+.pm-ic.g{background:rgba(34,197,94,.07);color:var(--green2)}.pm-ic.a{background:rgba(201,168,76,.07);color:var(--gold2)}.pm-ic.b{background:rgba(59,130,246,.07);color:var(--blue2)}.pm-ic.r{background:rgba(220,38,38,.07);color:var(--red2)}
+.pm-inf{flex:1}
+.pm-tt{font-size:12px;font-weight:650;color:var(--txt)}
+.pm-st{font-size:10px;color:var(--muted);margin-top:1px;font-weight:500}
+.pm-ar{color:var(--muted)}.pm-ar svg{width:14px;height:14px}
+.veh-item{display:flex;align-items:center;gap:9px;padding:9px 10px;background:var(--card);border-radius:var(--rad);border:1px solid var(--brd);margin-bottom:5px}
+.veh-ic{width:36px;height:36px;border-radius:8px;background:rgba(59,130,246,.07);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.veh-ic svg{width:17px;height:17px;color:var(--blue2)}
+.veh-inf{flex:1}
+.veh-pl{font-size:12.5px;font-weight:750;color:var(--txt)}
+.veh-md{font-size:10px;color:var(--muted);margin-top:1px}
+.veh-st{font-size:8.5px;font-weight:700;padding:2px 6px;border-radius:var(--radf);background:rgba(34,197,94,.07);color:var(--green2)}
+.hh-item{display:flex;align-items:center;gap:9px;padding:9px 10px;background:var(--card);border-radius:var(--rad);border:1px solid var(--brd);margin-bottom:5px}
+.hh-av{width:34px;height:34px;border-radius:50%;background:var(--elev);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;font-weight:650;color:var(--gold2)}
+.hh-inf{flex:1}
+.hh-nm{font-size:12px;font-weight:600;color:var(--txt)}
+.hh-rl{font-size:10px;color:var(--muted);margin-top:1px}
+.doc-item{display:flex;align-items:center;gap:9px;padding:9px 10px;background:var(--card);border-radius:var(--rad);border:1px solid var(--brd);margin-bottom:4px;cursor:pointer;transition:transform .12s ease}
+.doc-item:active{transform:scale(.988)}
+.doc-ic{width:34px;height:34px;border-radius:8px;background:rgba(201,168,76,.07);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.doc-ic svg{width:16px;height:16px;color:var(--gold2)}
+.doc-inf{flex:1}
+.doc-nm{font-size:11.5px;font-weight:650;color:var(--txt)}
+.doc-dt{font-size:9.5px;color:var(--muted);margin-top:1px}
+.acc-item{display:flex;align-items:center;gap:9px;padding:9px 10px;background:var(--card);border-radius:var(--rad);border:1px solid var(--brd);margin-bottom:4px}
+.acc-ic{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.acc-ic.in{background:rgba(34,197,94,.07);color:var(--green2)}.acc-ic.out{background:rgba(59,130,246,.07);color:var(--blue2)}
+.acc-ic svg{width:14px;height:14px}
+.acc-inf{flex:1}
+.acc-tm{font-size:11.5px;font-weight:650;color:var(--txt)}
+.acc-tp{font-size:9.5px;color:var(--muted);margin-top:1px}
+.pref-item{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:var(--card);border-radius:var(--rad);border:1px solid var(--brd);margin-bottom:4px}
+.pref-lb{font-size:12px;font-weight:600;color:var(--txt)}
+.pref-tg{width:38px;height:20px;border-radius:var(--radf);background:rgba(255,255,255,.08);position:relative;cursor:pointer;transition:background .18s ease}
+.pref-tg.on{background:rgba(34,197,94,.2)}
+.pref-tg-d{width:16px;height:16px;border-radius:50%;background:#fff;position:absolute;top:2px;left:2px;transition:transform .18s ease}
+.pref-tg.on .pref-tg-d{transform:translateX(18px)}
+.prof-logout{width:100%;padding:12px;border-radius:var(--rad);border:1px solid rgba(220,38,38,.15);background:rgba(220,38,38,.04);color:var(--red2);font-size:13px;font-weight:700;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;transition:transform .12s ease;margin-top:4px}
+.prof-logout:active{transform:scale(.98)}
+.prof-logout svg{width:16px;height:16px}
+
+/* modal */
+.modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:200;align-items:flex-end;justify-content:center}
+.modal-ov.on{display:flex}
+.modal-ct{width:100%;max-width:430px;background:var(--bg2);border-radius:var(--rad3) var(--rad3) 0 0;padding:20px 14px;padding-bottom:max(20px,env(safe-area-inset-bottom));animation:modUp .28s ease}
+@keyframes modUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.mod-hd{width:32px;height:3.5px;background:var(--muted);border-radius:2px;margin:0 auto 12px;opacity:.45}
+.mod-tt{font-size:16px;font-weight:800;color:var(--txt);margin-bottom:12px;text-align:center}
+.mod-act{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.mod-a{display:flex;flex-direction:column;align-items:center;gap:5px;padding:12px 4px;border-radius:var(--rad);background:var(--card);border:1px solid var(--brd);cursor:pointer;transition:all .12s ease}
+.mod-a:active{transform:scale(.94)}
+.mod-a svg{width:20px;height:20px;color:var(--gold2)}
+.mod-a span{font-size:10px;font-weight:650;color:var(--txt2);text-align:center}
+.mod-cl{width:100%;padding:12px;border-radius:var(--rad);border:1px solid var(--brd);background:var(--card);color:var(--txt2);font-size:13px;font-weight:650;font-family:inherit;cursor:pointer;margin-top:8px;transition:transform .12s ease}
+.mod-cl:active{transform:scale(.98)}
+
+/* sos modal */
+.sos-mc{text-align:center;padding:18px 14px}
+.sos-mi{width:68px;height:68px;border-radius:50%;background:rgba(220,38,38,.1);margin:0 auto 12px;display:flex;align-items:center;justify-content:center;animation:sosMi 1.5s ease infinite}
+@keyframes sosMi{0%{box-shadow:0 0 0 0 rgba(220,38,38,.3)}50%{box-shadow:0 0 0 16px rgba(220,38,38,0)}100%{box-shadow:0 0 0 0 rgba(220,38,38,0)}}
+.sos-mi svg{width:32px;height:32px;color:var(--red2)}
+.sos-mt{font-size:19px;font-weight:800;color:var(--red2);margin-bottom:6px}
+.sos-md{font-size:12.5px;color:var(--txt2);margin-bottom:18px;line-height:1.55}
+.sos-ma{display:flex;flex-direction:column;gap:7px}
+.sos-mb{padding:12px;border-radius:var(--rad);border:none;font-size:13px;font-weight:650;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;transition:transform .12s ease}
+.sos-mb:active{transform:scale(.98)}
+.sos-mb svg{width:16px;height:16px}
+.sos-mb.pr{background:var(--red);color:#fff;box-shadow:0 3px 14px rgba(220,38,38,.22)}
+.sos-mb.sc{background:var(--card);color:var(--txt2);border:1px solid var(--brd)}
+
+/* camera modal */
+.cam-m{position:fixed;inset:0;background:var(--bg);z-index:300;display:none;flex-direction:column}
+.cam-m.on{display:flex}
+.cam-hd{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;padding-top:max(12px,env(safe-area-inset-top));background:rgba(7,15,11,.92);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-bottom:1px solid var(--brd)}
+.cam-hd-t{font-size:14px;font-weight:700;color:var(--txt)}
+.cam-cl{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;background:rgba(255,255,255,.07);transition:transform .12s ease}
+.cam-cl:active{transform:scale(.9)}
+.cam-cl svg{width:19px;height:19px;color:var(--txt)}
+.cam-vp{flex:1;display:flex;align-items:center;justify-content:center;position:relative;background:#000}
+.cam-vp video{width:100%;height:100%;object-fit:cover}
+.cam-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted)}
+.cam-ph svg{width:42px;height:42px;opacity:.25}
+.cam-ph span{font-size:12.5px;font-weight:550}
+.cam-ct{padding:18px 14px;padding-bottom:max(18px,env(safe-area-inset-bottom));display:flex;justify-content:center;align-items:center;gap:18px;background:rgba(7,15,11,.92);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-top:1px solid var(--brd)}
+.sh-btn{width:58px;height:58px;border-radius:50%;border:3px solid #fff;background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .12s ease}
+.sh-btn:active{transform:scale(.9)}
+.sh-btn-i{width:44px;height:44px;border-radius:50%;background:#fff;transition:all .12s ease}
+.sh-btn:active .sh-btn-i{width:40px;height:40px}
+.cam-sb{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .12s ease}
+.cam-sb:active{transform:scale(.9)}
+.cam-sb svg{width:18px;height:18px;color:#fff}
+
+/* toast */
+.toast{position:fixed;top:14px;left:50%;transform:translateX(-50%) translateY(-100px);max-width:400px;width:calc(100% - 28px);padding:11px 13px;border-radius:var(--rad);background:var(--elev);border:1px solid var(--brd);box-shadow:0 4px 20px rgba(0,0,0,.4);z-index:300;display:flex;align-items:center;gap:8px;transition:transform .35s ease}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.toast-ic{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.toast-ic.ok{background:rgba(34,197,94,.1);color:var(--green2)}.toast-ic.er{background:rgba(220,38,38,.1);color:var(--red2)}
+.toast-ic svg{width:12px;height:12px}
+.toast-txt{font-size:12px;font-weight:550;color:var(--txt);flex:1}
+
+/* empty */
+.empty{text-align:center;padding:32px 16px}
+.empty svg{width:40px;height:40px;color:var(--muted);margin-bottom:10px}
+.empty h3{font-size:15px;font-weight:650;color:var(--txt);margin-bottom:4px}
+.empty p{font-size:12px;color:var(--muted);line-height:1.5}
+
+@media(min-width:431px){.app{border-left:1px solid var(--brd);border-right:1px solid var(--brd)}}
+::-webkit-scrollbar{width:0}
+</style>
+</head>
+<body>
+<div class="app" id="app">
+  <div class="toast" id="toast">
+    <div class="toast-ic ok" id="toastIco"><i data-lucide="check"></i></div>
+    <span class="toast-txt" id="toastTxt"></span>
+  </div>
+
+  <!-- HOME -->
+  <div class="sc on" id="s-home">
+    <div class="hero">
+      <div class="hero-bg" id="heroBg"></div>
+      <div class="hero-ov"></div>
+      <div class="hero-c">
+        <div class="hero-top">
+          <div>
+            <div class="h-greet" id="hGreet">Bom dia</div>
+            <div class="h-time" id="hTime">08:30</div>
+            <div class="h-date" id="hDate">Sábado, 14 de Junho</div>
+          </div>
+          <div class="h-brand">
+            <div class="h-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>BH</span></div>
+            <div class="h-bell" onclick="nav('alerts')"><i data-lucide="bell"></i><div class="h-badge"></div></div>
+          </div>
+        </div>
+        <div class="h-bot">
+          <div class="h-weather">
+            <span class="h-wi" id="hWi">☀️</span>
+            <div><div class="h-wt" id="hTemp">28°C</div><div class="h-wd" id="hWd">Ensolarado · BH, Boane</div></div>
+          </div>
+          <div class="h-st">
+            <div class="h-stp"><div class="h-stdot"></div><span class="h-stt">Seguro</span></div>
+            <span class="h-vlab">Comunidade Verificada</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="id-strip">
+      <div class="id-av"><img src="https://image.qwenlm.ai/public_source/99d8fa64-043e-47ba-9f92-ebc4131818d5/1a17b6a02-6193-4862-bfa7-ebd103d930f7.png" alt=""></div>
+      <div class="id-info"><div class="id-name">Carlos Alberto Mondlane</div><div class="id-zone">Quarteirão 4 · Lote 12</div></div>
+      <div class="id-badges"><div class="badge badge-v"><i data-lucide="badge-check"></i>Verificado</div></div>
+    </div>
+
+    <div class="sos-sec">
+      <button class="sos-btn" onclick="showSOS()"><div class="sos-rng"></div><div class="sos-sw"></div><i data-lucide="siren"></i><span>Pânico / Emergência</span></button>
+    </div>
+
+    <div class="sec-h"><span class="sec-t">Ocorrência Activa</span><span class="sec-l" onclick="nav('alerts')">Ver Todas <i data-lucide="chevron-right"></i></span></div>
+    <div class="pcard inc">
+      <div class="c-row"><span class="c-lbl urg">Urgente</span><span class="c-time">Há 25 min</span></div>
+      <div class="c-title">Actividade Suspeita no Portão Principal</div>
+      <div class="c-desc">Indivíduos não identificados observados a tentar aceder ao bairro sem autorização. Segurança já no local.</div>
+      <div class="c-foot"><div class="c-loc"><i data-lucide="map-pin"></i>Portão Principal · Q2</div><button class="c-act">Acompanhar</button></div>
+    </div>
+
+    <div class="pcard not">
+      <div class="c-row"><span class="c-lbl inf">Aviso</span><span class="c-time">Hoje, 07:00</span></div>
+      <div class="c-title">Reunião Geral da AMOBELO</div>
+      <div class="c-desc">Reunião mensal com a Coordenação do Bairro. Tema: Plano de segurança e manutenção. Presença recomendada.</div>
+      <div class="c-foot"><div class="c-loc"><i data-lucide="calendar"></i>18 Jun · 18:00 · Centro Comunitário</div><button class="c-act">Confirmar</button></div>
+    </div>
+
+    <div class="sec-h"><span class="sec-t">Acções Rápidas</span></div>
+    <div class="q-grid">
+      <div class="q-btn hl" onclick="nav('card')"><div class="q-ico g"><i data-lucide="credit-card"></i></div><span class="q-lbl">Cartão</span></div>
+      <div class="q-btn hl" onclick="nav('report')"><div class="q-ico a"><i data-lucide="file-warning"></i></div><span class="q-lbl">Reportar</span></div>
+      <div class="q-btn" onclick="nav('visitors')"><div class="q-ico b"><i data-lucide="users"></i></div><span class="q-lbl">Visitantes</span></div>
+      <div class="q-btn" onclick="nav('security')"><div class="q-ico g"><i data-lucide="shield-check"></i></div><span class="q-lbl">Segurança</span></div>
+      <div class="q-btn" onclick="nav('alerts')"><div class="q-ico r"><i data-lucide="bell-ring"></i></div><span class="q-lbl">Alertas</span></div>
+      <div class="q-btn" onclick="toast('Contactos da coordenação disponíveis')"><div class="q-ico a"><i data-lucide="phone"></i></div><span class="q-lbl">Contactos</span></div>
+    </div>
+
+    <div class="sec-h"><span class="sec-t">Operacional</span></div>
+    <div class="kpi-grid">
+      <div class="kpi g"><div class="kpi-ico g"><i data-lucide="arrow-down-to-line"></i></div><div class="kpi-val" data-count="47">0</div><div class="kpi-lbl">Acessos Hoje</div><div class="kpi-tr up"><i data-lucide="trending-up"></i> +12%</div></div>
+      <div class="kpi r"><div class="kpi-ico r"><i data-lucide="x-circle"></i></div><div class="kpi-val" data-count="3">0</div><div class="kpi-lbl">Acessos Negados</div><div class="kpi-tr dn"><i data-lucide="trending-down"></i> -5%</div></div>
+      <div class="kpi a"><div class="kpi-ico a"><i data-lucide="bell"></i></div><div class="kpi-val" data-count="5">0</div><div class="kpi-lbl">Alertas Activos</div><div class="kpi-tr dn"><i data-lucide="trending-down"></i> -1</div></div>
+      <div class="kpi b"><div class="kpi-ico b"><i data-lucide="clock"></i></div><div class="kpi-val" data-count="8">0</div><div class="kpi-lbl">TMR (min)</div><div class="kpi-tr up"><i data-lucide="trending-up"></i> Óptimo</div></div>
+    </div>
+
+    <div class="sec-h"><span class="sec-t">Presença na Zona</span></div>
+    <div class="prox-sec" style="margin-bottom:14px;">
+      <div class="prox-card">
+        <div class="prox-head"><div class="prox-title"><i data-lucide="map-pin"></i> Moradores Próximos</div><span class="prox-cnt">4 activos</span></div>
+        <div class="prox-list">
+          <div class="prox-mem"><div class="prox-av"><img src="https://image.qwenlm.ai/public_source/99d8fa64-043e-47ba-9f92-ebc4131818d5/1a17b6a02-6193-4862-bfa7-ebd103d930f7.png" alt=""></div><div class="prox-inf"><div class="prox-nm">Ana Paula Matola</div><div class="prox-zn">Quarteirão 3 · Lote 7</div></div><div class="prox-on"><div class="prox-dot"></div><span>Online</span></div></div>
+          <div class="prox-mem"><div class="prox-av" style="background:rgba(201,168,76,.1)">JM</div><div class="prox-inf"><div class="prox-nm">João Marcos Tembe</div><div class="prox-zn">Quarteirão 1 · Lote 3</div></div><div class="prox-on"><div class="prox-dot"></div><span>Online</span></div></div>
+          <div class="prox-mem"><div class="prox-av" style="background:rgba(59,130,246,.1)">FS</div><div class="prox-inf"><div class="prox-nm">Fátima Santos Machava</div><div class="prox-zn">Quarteirão 5 · Lote 19</div></div><div class="prox-on"><div class="prox-dot"></div><span>Online</span></div></div>
+        </div>
+        <div class="prox-alert">
+          <i data-lucide="alert-triangle"></i>
+          <div><div class="pa-lbl">Alerta nas Proximidades</div><div class="pa-desc">Actividade suspeita reportada a ~150m (Q2)</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-h"><span class="sec-t">Ocorrências Recentes</span><span class="sec-l" onclick="nav('alerts')">Ver <i data-lucide="chevron-right"></i></span></div>
+    <div class="inc-list" style="margin-bottom:14px;">
+      <div class="inc-item"><div class="inc-ico r"><i data-lucide="user-x"></i></div><div class="inc-inf"><div class="inc-ttl">Intrusão no Quarteirão 3</div><div class="inc-meta"><span class="inc-tm">Há 2h</span><span class="inc-zt">Q3</span></div></div><span class="inc-st pg">Em curso</span></div>
+      <div class="inc-item"><div class="inc-ico a"><i data-lucide="volume-x"></i></div><div class="inc-inf"><div class="inc-ttl">Ruído Excessivo - Festa</div><div class="inc-meta"><span class="inc-tm">Há 4h</span><span class="inc-zt">Q1</span></div></div><span class="inc-st rs">Resolvido</span></div>
+      <div class="inc-item"><div class="inc-ico b"><i data-lucide="lightbulb-off"></i></div><div class="inc-inf"><div class="inc-ttl">Iluminação Pública Q5</div><div class="inc-meta"><span class="inc-tm">Há 6h</span><span class="inc-zt">Q5</span></div></div><span class="inc-st pd">Pendente</span></div>
+    </div>
+  </div>
+
+  <!-- CARD -->
+  <div class="sc" id="s-card">
+    <div class="scr-h"><div class="scr-b" onclick="nav('home')"><i data-lucide="arrow-left"></i></div><span class="scr-t">Cartão do Morador</span><div class="scr-a"><i data-lucide="more-vertical"></i></div></div>
+    <div class="card-sc">
+      <div class="r-card">
+        <div class="rc-top"><span class="rc-brand">BH Segurança</span><div class="rc-chip"></div></div>
+        <div class="rc-pro">
+          <div class="rc-ph"><img src="https://image.qwenlm.ai/public_source/99d8fa64-043e-47ba-9f92-ebc4131818d5/1a17b6a02-6193-4862-bfa7-ebd103d930f7.png" alt=""></div>
+          <div class="rc-det"><h3>Carlos A. Mondlane</h3><p>Q4 · Lote 12 · Belo Horizonte</p><div class="rc-vp"><i data-lucide="badge-check"></i><span>Morador Verificado</span></div></div>
+        </div>
+        <div class="rc-ir">
+          <div class="rc-ii"><label>ID Residente</label><span>BH-2024-0412</span></div>
+          <div class="rc-ii"><label>Contacto</label><span>+258 84 123 4567</span></div>
+          <div class="rc-ii"><label>Emergência</label><span>+258 87 765 4321</span></div>
+          <div class="rc-ii"><label>Quarteirão</label><span>Q4 · Belo Horizonte</span></div>
+        </div>
+        <div class="rc-qr">
+          <svg width="90" height="90" viewBox="0 0 100 100"><rect x="5" y="5" width="90" height="90" fill="none" stroke="#0c2014" stroke-width="1"/><rect x="10" y="10" width="25" height="25" fill="#0c2014"/><rect x="65" y="10" width="25" height="25" fill="#0c2014"/><rect x="10" y="65" width="25" height="25" fill="#0c2014"/><rect x="13" y="13" width="19" height="19" fill="#fff"/><rect x="68" y="13" width="19" height="19" fill="#fff"/><rect x="13" y="68" width="19" height="19" fill="#fff"/><rect x="16" y="16" width="13" height="13" fill="#0c2014"/><rect x="71" y="16" width="13" height="13" fill="#0c2014"/><rect x="16" y="71" width="13" height="13" fill="#0c2014"/><rect x="40" y="10" width="6" height="6" fill="#0c2014"/><rect x="50" y="10" width="6" height="6" fill="#0c2014"/><rect x="40" y="20" width="6" height="6" fill="#0c2014"/><rect x="45" y="25" width="6" height="6" fill="#0c2014"/><rect x="10" y="40" width="6" height="6" fill="#0c2014"/><rect x="20" y="40" width="6" height="6" fill="#0c2014"/><rect x="30" y="45" width="6" height="6" fill="#0c2014"/><rect x="40" y="40" width="6" height="6" fill="#0c2014"/><rect x="55" y="40" width="6" height="6" fill="#0c2014"/><rect x="70" y="45" width="6" height="6" fill="#0c2014"/><rect x="80" y="40" width="6" height="6" fill="#0c2014"/><rect x="40" y="55" width="6" height="6" fill="#0c2014"/><rect x="50" y="60" width="6" height="6" fill="#0c2014"/><rect x="60" y="55" width="6" height="6" fill="#0c2014"/><rect x="40" y="70" width="6" height="6" fill="#0c2014"/><rect x="50" y="75" width="6" height="6" fill="#0c2014"/><rect x="60" y="70" width="6" height="6" fill="#0c2014"/><rect x="70" y="65" width="6" height="6" fill="#0c2014"/><rect x="80" y="70" width="6" height="6" fill="#0c2014"/><rect x="70" y="80" width="6" height="6" fill="#0c2014"/><rect x="80" y="80" width="6" height="6" fill="#0c2014"/></svg>
+        </div>
+        <div class="rc-prm"><span class="rc-pr">Acesso Residencial</span><span class="rc-pr">Estacionamento</span><span class="rc-pr">Áreas Comuns</span><span class="rc-pr">Área Recreativa</span></div>
+        <div class="rc-val"><span class="rc-val-l">Validade do Cartão</span><span class="rc-val-v">Válido até Dez 2025</span></div>
+      </div>
+      <div class="ben-sec">
+        <div class="ben-t"><i data-lucide="star"></i>Benefícios Exclusivos</div>
+        <div class="ben-grid">
+          <div class="ben-card"><div class="ben-ico"><i data-lucide="wifi"></i></div><div class="ben-inf"><h4>Wi-Fi Comunitário</h4><p>Acesso gratuito</p></div></div>
+          <div class="ben-card"><div class="ben-ico"><i data-lucide="dumbbell"></i></div><div class="ben-inf"><h4>Ginásio do Bairro</h4><p>Horário estendido</p></div></div>
+          <div class="ben-card"><div class="ben-ico"><i data-lucide="trees"></i></div><div class="ben-inf"><h4>Parque Comunitário</h4><p>Acesso prioritário</p></div></div>
+          <div class="ben-card"><div class="ben-ico"><i data-lucide="book-open"></i></div><div class="ben-inf"><h4>Biblioteca</h4><p>Empréstimo gratuito</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REPORT -->
+  <div class="sc" id="s-report">
+    <div class="scr-h"><div class="scr-b" onclick="nav('home')"><i data-lucide="arrow-left"></i></div><span class="scr-t">Reportar Ocorrência</span><div style="width:34px"></div></div>
+    <div class="rep-sc" id="repForm">
+      <div class="rep-hd"><h2>Nova Ocorrência</h2><p>Preencha os dados para reportar uma situação ao bairro</p></div>
+      <form onsubmit="submitRep(event)">
+        <div class="fg"><label class="fl">Nome Completo</label><input class="fi" value="Carlos Alberto Mondlane"></div>
+        <div class="fg"><label class="fl">Contacto</label><input class="fi" value="+258 84 123 4567"></div>
+        <div class="fg"><label class="fl">Localização</label><select class="fs"><option>Quarteirão 4 · Lote 12</option><option>Quarteirão 1 · Lote 3</option><option>Quarteirão 2 · Lote 8</option><option>Quarteirão 3 · Lote 7</option><option>Quarteirão 5 · Lote 19</option><option>Área Comum</option><option>Portão Principal</option><option>Outro</option></select></div>
+        <div class="fg"><label class="fl">Tipo de Ocorrência</label><select class="fs"><option value="">Seleccione o tipo</option><option>Intrusão</option><option>Actividade Suspeita</option><option>Roubo</option><option>Ruído</option><option>Iluminação</option><option>Lixo</option><option>Outro</option></select></div>
+        <div class="fg"><label class="fl">Gravidade</label><div class="sev-row"><button type="button" class="sv-btn lo" onclick="selSev(this)">Baixa</button><button type="button" class="sv-btn sel" onclick="selSev(this)">Média</button><button type="button" class="sv-btn hi" onclick="selSev(this)">Alta</button></div></div>
+        <div class="fg"><label class="fl">Descrição</label><textarea class="fi" placeholder="Descreva a ocorrência com o máximo detalhe..."></textarea></div>
+        <div class="anon-tg" onclick="this.classList.toggle('on')"><div class="anon-sw"><div class="anon-sw-d"></div></div><span class="anon-txt">Enviar como anónimo</span></div>
+        <div class="fg"><label class="fl">Evidência Fotográfica (opcional)</label>
+          <div class="cam-up" onclick="openCam()"><div class="cam-prev" id="camPrev"><div class="cam-rm" onclick="rmPhoto(event)"><i data-lucide="x"></i></div></div><i data-lucide="camera"></i><span>Toque para capturar foto</span><span class="cam-up-sub">Câmara integrada</span></div>
+        </div>
+        <button type="submit" class="sub-btn">Enviar Ocorrência</button>
+      </form>
+    </div>
+    <div class="rep-sc" id="repSucc" style="display:none">
+      <div class="suc-st">
+        <div class="suc-ico"><i data-lucide="check-circle"></i></div>
+        <div class="suc-tt">Ocorrência Enviada</div>
+        <div class="suc-desc">A sua ocorrência foi registada com sucesso. A coordenação do bairro e a equipa de segurança foram notificados.</div>
+        <div class="suc-trk">
+          <div class="suc-tr"><span class="suc-tl">ID da Ocorrência</span><span class="suc-tv">OCC-2025-0847</span></div>
+          <div class="suc-tr"><span class="suc-tl">Estado</span><span class="suc-tv" style="color:var(--gold2)">Em análise</span></div>
+          <div class="suc-tr"><span class="suc-tl">Previsão de Resposta</span><span class="suc-tv">~8 minutos</span></div>
+          <div class="suc-tr"><span class="suc-tl">Notificado</span><span class="suc-tv">Segurança + AMOBELO</span></div>
+        </div>
+        <button class="suc-btn" onclick="resetRep()">Voltar ao Início</button>
+        <button class="suc-btn sec" onclick="nav('home')">Acompanhar Ocorrência</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- VISITORS -->
+  <div class="sc" id="s-visitors">
+    <div class="scr-h"><div class="scr-b" onclick="nav('home')"><i data-lucide="arrow-left"></i></div><span class="scr-t">Gestão de Visitantes</span><div class="scr-a" onclick="toast('Novo visitante adicionado')"><i data-lucide="plus"></i></div></div>
+    <div class="vis-sc">
+      <div class="vis-tabs">
+        <button class="vis-tab on" onclick="swVis(this,'pe')">Pendentes</button>
+        <button class="vis-tab" onclick="swVis(this,'ac')">Activos</button>
+        <button class="vis-tab" onclick="swVis(this,'hi')">Histórico</button>
+      </div>
+      <div id="v-pe">
+        <div class="vis-card"><div class="vis-hd"><div><div class="vis-nm">Manuel José Cossa</div><div class="vis-co">Técnico EDM · Electricidade</div></div><span class="vis-st pe">Pendente</span></div><div class="vis-det"><div class="vis-d"><label>Visitante de</label><span>Q4 · Lote 12</span></div><div class="vis-d"><label>Validade</label><span>14/06 · 08:00 - 17:00</span></div></div><div class="vis-act"><button class="va-btn ap" onclick="toast('Visitante aprovado')"><i data-lucide="check"></i>Aprovar</button><button class="va-btn ca" onclick="toast('Visita cancelada')"><i data-lucide="x"></i>Cancelar</button></div></div>
+        <div class="vis-card"><div class="vis-hd"><div><div class="vis-nm">Sofia Nhantumbo</div><div class="vis-co">Visita Familiar</div></div><span class="vis-st pe">Pendente</span></div><div class="vis-det"><div class="vis-d"><label>Visitante de</label><span>Q2 · Lote 5</span></div><div class="vis-d"><label>Validade</label><span>14/06 · 10:00 - 22:00</span></div></div><div class="vis-act"><button class="va-btn ap" onclick="toast('Visitante aprovado')"><i data-lucide="check"></i>Aprovar</button><button class="va-btn ca" onclick="toast('Visita cancelada')"><i data-lucide="x"></i>Cancelar</button></div></div>
+      </div>
+      <div id="v-ac" style="display:none">
+        <div class="vis-card"><div class="vis-hd"><div><div class="vis-nm">Dr. Paulo Machango</div><div class="vis-co">Consulta Médica</div></div><span class="vis-st in">Dentro</span></div><div class="vis-det"><div class="vis-d"><label>Visitante de</label><span>Q3 · Lote 9</span></div><div class="vis-d"><label>Entrada</label><span>14/06 · 09:15</span></div></div><div class="vis-act"><button class="va-btn rv" onclick="toast('Acesso revogado')"><i data-lucide="shield-off"></i>Revogar</button></div></div>
+        <div class="vis-card"><div class="vis-hd"><div><div class="vis-nm">Teresa Langa</div><div class="vis-co">Entrega de Encomenda</div></div><span class="vis-st in">Dentro</span></div><div class="vis-det"><div class="vis-d"><label>Visitante de</label><span>Q1 · Lote 2</span></div><div class="vis-d"><label>Entrada</label><span>14/06 · 11:30</span></div></div><div class="vis-act"><button class="va-btn rv" onclick="toast('Acesso revogado')"><i data-lucide="shield-off"></i>Revogar</button></div></div>
+      </div>
+      <div id="v-hi" style="display:none">
+        <div class="vis-card" style="opacity:.5"><div class="vis-hd"><div><div class="vis-nm">Eng. Domingos Matsinhe</div><div class="vis-co">Inspeção de Obras</div></div><span class="vis-st cp">Concluído</span></div><div class="vis-det"><div class="vis-d"><label>Visitante de</label><span>Q5 · Lote 15</span></div><div class="vis-d"><label>Período</label><span>13/06 · 08:00 - 16:00</span></div></div></div>
+        <div class="vis-card" style="opacity:.5"><div class="vis-hd"><div><div class="vis-nm">Miguel Tembe</div><div class="vis-co">Visita Social</div></div><span class="vis-st ex">Expirado</span></div><div class="vis-det"><div class="vis-d"><label>Visitante de</label><span>Q4 · Lote 8</span></div><div class="vis-d"><label>Período</label><span>12/06 · 14:00 - 18:00</span></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECURITY -->
+  <div class="sc" id="s-security">
+    <div class="scr-h"><div class="scr-b" onclick="nav('home')"><i data-lucide="arrow-left"></i></div><span class="scr-t">Centro de Segurança</span><div class="scr-a"><i data-lucide="settings"></i></div></div>
+    <div class="sec-sc">
+      <div class="sec-em">
+        <div class="sec-em-t"><i data-lucide="alert-triangle"></i>Contactos de Emergência</div>
+        <div class="em-cs">
+          <div class="em-c" onclick="toast('A ligar PRM Boane...')"><div class="em-ic prm"><i data-lucide="shield"></i></div><div class="em-inf"><div class="em-nm">PRM - Esquadra de Boane</div><div class="em-rl">Polícia da República de Moçambique</div></div><div class="em-nb">113</div></div>
+          <div class="em-c" onclick="toast('A ligar coordenação...')"><div class="em-ic crd"><i data-lucide="map-pin"></i></div><div class="em-inf"><div class="em-nm">Coordenação do Bairro</div><div class="em-rl">AMOBELO · Belo Horizonte</div></div><div class="em-nb">84 555 0001</div></div>
+          <div class="em-c" onclick="toast('A ligar segurança privada...')"><div class="em-ic sec"><i data-lucide="lock"></i></div><div class="em-inf"><div class="em-nm">Segurança Privada</div><div class="em-rl">Posto de Controlo Principal</div></div><div class="em-nb">84 555 0002</div></div>
+          <div class="em-c" onclick="toast('A ligar Conselho Municipal...')"><div class="em-ic prm"><i data-lucide="building-2"></i></div><div class="em-inf"><div class="em-nm">Conselho Municipal de Boane</div><div class="em-rl">Serviços de Emergência</div></div><div class="em-nb">84 222 0010</div></div>
+        </div>
+      </div>
+      <div class="sec-ops">
+        <div class="sec-ops-t"><i data-lucide="activity"></i>Operações em Tempo Real</div>
+        <div class="ops-l">
+          <div class="ops-i"><span class="ops-il">Nível de Risco</span><span class="ops-iv a">Moderado</span></div>
+          <div class="ops-i"><span class="ops-il">Zona sob Observação</span><span class="ops-iv r">Q2 · Q3</span></div>
+          <div class="ops-i"><span class="ops-il">Segurança em Resposta</span><span class="ops-iv b">2 equipas</span></div>
+          <div class="ops-i"><span class="ops-il">Câmaras Online</span><span class="ops-iv g">18/20</span></div>
+          <div class="ops-i"><span class="ops-il">Modo Operacional</span><span class="ops-iv g">Padrão</span></div>
+          <div class="ops-i"><span class="ops-il">Alerta Próximo</span><span class="ops-iv r">~150m</span></div>
+        </div>
+      </div>
+      <div class="sec-sg">
+        <div class="sec-sc2"><div class="sec-sc2-t">Pendentes</div><div class="sec-sc2-v">5</div><div class="sec-sc2-s">2 urgentes</div></div>
+        <div class="sec-sc2"><div class="sec-sc2-t">Alertas Activos</div><div class="sec-sc2-v">3</div><div class="sec-sc2-s">1 crítico</div></div>
+        <div class="sec-sc2"><div class="sec-sc2-t">Última Ronda</div><div class="sec-sc2-v">22:15</div><div class="sec-sc2-s">Completa · Q1-Q5</div></div>
+        <div class="sec-sc2"><div class="sec-sc2-t">Acessos Hoje</div><div class="sec-sc2-v">47</div><div class="sec-sc2-s">3 negados</div></div>
+      </div>
+      <div class="sec-h" style="padding-left:0;padding-right:0;padding-top:6px"><span class="sec-t" style="font-size:13px">Acções Rápidas</span></div>
+      <div class="q-grid" style="padding:0">
+        <div class="q-btn" onclick="showSOS()"><div class="q-ico r"><i data-lucide="siren"></i></div><span class="q-lbl">Pânico</span></div>
+        <div class="q-btn" onclick="nav('report')"><div class="q-ico a"><i data-lucide="file-warning"></i></div><span class="q-lbl">Reportar</span></div>
+        <div class="q-btn" onclick="nav('alerts')"><div class="q-ico b"><i data-lucide="bell-ring"></i></div><span class="q-lbl">Alertas</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALERTS -->
+  <div class="sc" id="s-alerts">
+    <div class="scr-h"><div class="scr-b" onclick="nav('home')"><i data-lucide="arrow-left"></i></div><span class="scr-t">Alertas</span><div class="scr-a"><i data-lucide="filter"></i></div></div>
+    <div class="al-sc">
+      <div class="al-fil">
+        <button class="al-f on" onclick="filtAl(this,'all')">Todos</button>
+        <button class="al-f" onclick="filtAl(this,'cr')">Críticos</button>
+        <button class="al-f" onclick="filtAl(this,'wr')">Avisos</button>
+        <button class="al-f" onclick="filtAl(this,'ic')">Informação</button>
+        <button class="al-f" onclick="filtAl(this,'rs')">Resolvidos</button>
+      </div>
+      <div class="al-card cr" data-t="cr"><div class="al-top"><span class="al-pri cr">Crítico</span><span class="nearby-b"><i data-lucide="map-pin" style="width:9px;height:9px"></i> Perto de si</span></div><div class="al-tm">Há 25 min</div><div class="al-tt">Actividade Suspeita no Portão Principal</div><div class="al-desc">Indivíduos não identificados a tentar aceder ao bairro sem autorização. Equipa de segurança despachada.</div><div class="al-meta"><div class="al-m"><i data-lucide="map-pin"></i>Portão Principal</div><div class="al-m"><i data-lucide="user"></i>Segurança BH</div><div class="al-m"><i data-lucide="eye"></i>Em resposta</div></div><button class="al-act" onclick="toast('A acompanhar...')">Acompanhar <i data-lucide="arrow-right"></i></button></div>
+      <div class="al-card wr" data-t="wr"><div class="al-top"><span class="al-pri wr">Urgente</span><span class="al-tm">Há 2h</span></div><div class="al-tt">Intrusão Reportada no Quarteirão 3</div><div class="al-desc">Morador reportou presença de pessoa estranha no perímetro. Equipa no local a investigar.</div><div class="al-meta"><div class="al-m"><i data-lucide="map-pin"></i>Q3 · Lote 14</div><div class="al-m"><i data-lucide="user"></i>Morador</div><div class="al-m"><i data-lucide="shield-check"></i>Reconhecido</div></div><button class="al-act" onclick="toast('A acompanhar...')">Acompanhar <i data-lucide="arrow-right"></i></button></div>
+      <div class="al-card ic" data-t="ic"><div class="al-top"><span class="al-pri ic">Informação</span><span class="al-tm">Hoje, 07:00</span></div><div class="al-tt">Reunião Geral da AMOBELO</div><div class="al-desc">Reunião mensal com a Coordenação do Bairro. Tema: Plano de segurança e manutenção.</div><div class="al-meta"><div class="al-m"><i data-lucide="calendar"></i>18 Jun · 18:00</div><div class="al-m"><i data-lucide="map-pin"></i>Centro Comunitário</div></div></div>
+      <div class="al-card wr" data-t="wr"><div class="al-top"><span class="al-pri wr">Aviso</span><span class="al-tm">Há 6h</span></div><div class="al-tt">Falha de Iluminação no Quarteirão 5</div><div class="al-desc">Postes de iluminação entre os lotes 15 e 22 não funcionam. Notificação enviada à EDM.</div><div class="al-meta"><div class="al-m"><i data-lucide="map-pin"></i>Q5 · Rua Central</div><div class="al-m"><i data-lucide="user"></i>Morador</div></div><button class="al-act" onclick="toast('A acompanhar...')">Acompanhar <i data-lucide="arrow-right"></i></button></div>
+      <div class="al-card rs" data-t="rs"><div class="al-top"><span class="al-pri rs">Resolvido</span><span class="al-tm">Ontem, 22:30</span></div><div class="al-tt">Ruído Excessivo - Festa no Q1</div><div class="al-desc">Festa com som alto após as 22h. Coordenação contactou moradores. Situação normalizada.</div><div class="al-meta"><div class="al-m"><i data-lucide="map-pin"></i>Q1 · Lote 6</div><div class="al-m"><i data-lucide="check-circle"></i>Resolvido</div></div></div>
+    </div>
+  </div>
+
+  <!-- PROFILE -->
+  <div class="sc" id="s-profile">
+    <div class="scr-h"><div style="width:34px"></div><span class="scr-t">Perfil</span><div class="scr-a"><i data-lucide="settings"></i></div></div>
+    <div class="prof-sc">
+      <div class="prof-top">
+        <div class="prof-av"><img src="https://image.qwenlm.ai/public_source/99d8fa64-043e-47ba-9f92-ebc4131818d5/1a17b6a02-6193-4862-bfa7-ebd103d930f7.png" alt=""></div>
+        <div class="prof-nm">Carlos Alberto Mondlane</div>
+        <div class="prof-zn">Quarteirão 4 · Lote 12 · Belo Horizonte</div>
+        <div class="prof-vp"><i data-lucide="badge-check"></i><span>Morador Verificado · Residente Activo</span></div>
+      </div>
+      <div class="prof-stats"><div class="prof-st"><div class="prof-st-v">47</div><div class="prof-st-l">Acessos</div></div><div class="prof-st"><div class="prof-st-v">8</div><div class="prof-st-l">Reportes</div></div><div class="prof-st"><div class="prof-st-v">12</div><div class="prof-st-l">Meses</div></div></div>
+
+      <div class="prof-sec"><div class="prof-sec-t"><i data-lucide="credit-card"></i>Cartão do Morador</div><div class="pm-item" onclick="nav('card')"><div class="pm-ic a"><i data-lucide="eye"></i></div><div class="pm-inf"><div class="pm-tt">Ver Cartão Digital</div><div class="pm-st">ID: BH-2024-0412 · Válido até Dez 2025</div></div><div class="pm-ar"><i data-lucide="chevron-right"></i></div></div></div>
+
+      <div class="prof-sec"><div class="prof-sec-t"><i data-lucide="users"></i>Agregado Familiar</div>
+        <div class="hh-item"><div class="hh-av" style="background:rgba(34,197,94,.08);color:var(--green2)">AM</div><div class="hh-inf"><div class="hh-nm">Ana Maria Mondlane</div><div class="hh-rl">Cônjuge · Morador Principal</div></div><span class="veh-st">Verificado</span></div>
+        <div class="hh-item"><div class="hh-av" style="background:rgba(59,130,246,.08);color:var(--blue2)">DM</div><div class="hh-inf"><div class="hh-nm">Daniel Mondlane</div><div class="hh-rl">Filho · Dependente</div></div><span class="veh-st">Verificado</span></div>
+      </div>
+
+      <div class="prof-sec"><div class="prof-sec-t"><i data-lucide="car"></i>Veículos Associados</div>
+        <div class="veh-item"><div class="veh-ic"><i data-lucide="car"></i></div><div class="veh-inf"><div class="veh-pl">AA-123-MZ</div><div class="veh-md">Toyota Hilux · 2022</div></div><span class="veh-st">Registado</span></div>
+        <div class="veh-item"><div class="veh-ic"><i data-lucide="car"></i></div><div class="veh-inf"><div class="veh-pl">BB-456-MZ</div><div class="veh-md">Toyota Corolla · 2020</div></div><span class="veh-st">Registado</span></div>
+      </div>
+
+      <div class="prof-sec"><div class="prof-sec-t"><i data-lucide="file-text"></i>Documentos Úteis</div>
+        <div class="doc-item"><div class="doc-ic"><i data-lucide="file-text"></i></div><div class="doc-inf"><div class="doc-nm">Regulamento do Bairro</div><div class="doc-dt">Actualizado em Jan 2025</div></div></div>
+        <div class="doc-item"><div class="doc-ic"><i data-lucide="file-text"></i></div><div class="doc-inf"><div class="doc-nm">Plano de Segurança</div><div class="doc-dt">Revisão de Mar 2025</div></div></div>
+        <div class="doc-item"><div class="doc-ic"><i data-lucide="file-text"></i></div><div class="doc-inf"><div class="doc-nm">Mapa do Bairro</div><div class="doc-dt">Versão actualizada</div></div></div>
+      </div>
+
+      <div class="prof-sec"><div class="prof-sec-t"><i data-lucide="history"></i>Histórico de Acessos</div>
+        <div class="acc-item"><div class="acc-ic in"><i data-lucide="log-in"></i></div><div class="acc-inf"><div class="acc-tm">Entrada · 14/06 · 07:45</div><div class="acc-tp">Portão Principal · Veículo</div></div></div>
+        <div class="acc-item"><div class="acc-ic out"><i data-lucide="log-out"></i></div><div class="acc-inf"><div class="acc-tm">Saída · 13/06 · 22:10</div><div class="acc-tp">Portão Principal · Veículo</div></div></div>
+        <div class="acc-item"><div class="acc-ic in"><i data-lucide="log-in"></i></div><div class="acc-inf"><div class="acc-tm">Entrada · 13/06 · 06:30</div><div class="acc-tp">Portão Principal · Veículo</div></div></div>
+      </div>
+
+      <div class="prof-sec"><div class="prof-sec-t"><i data-lucide="bell"></i>Preferências de Notificação</div>
+        <div class="pref-item"><span class="pref-lb">Alertas Críticos</span><div class="pref-tg on" onclick="this.classList.toggle('on')"><div class="pref-tg-d"></div></div></div>
+        <div class="pref-item"><span class="pref-lb">Avisos Gerais</span><div class="pref-tg on" onclick="this.classList.toggle('on')"><div class="pref-tg-d"></div></div></div>
+        <div class="pref-item"><span class="pref-lb">Actualizações de Segurança</span><div class="pref-tg on" onclick="this.classList.toggle('on')"><div class="pref-tg-d"></div></div></div>
+        <div class="pref-item"><span class="pref-lb">Reuniões e Eventos</span><div class="pref-tg" onclick="this.classList.toggle('on')"><div class="pref-tg-d"></div></div></div>
+      </div>
+
+      <div class="prof-sec"><div class="prof-sec-t"><i data-lucide="settings-2"></i>Definições da Conta</div>
+        <div class="pm-item"><div class="pm-ic b"><i data-lucide="shield-check"></i></div><div class="pm-inf"><div class="pm-tt">Segurança da Conta</div><div class="pm-st">Senha, autenticação, privacidade</div></div><div class="pm-ar"><i data-lucide="chevron-right"></i></div></div>
+        <div class="pm-item"><div class="pm-ic a"><i data-lucide="user-cog"></i></div><div class="pm-inf"><div class="pm-tt">Dados Pessoais</div><div class="pm-st">Editar informações do perfil</div></div><div class="pm-ar"><i data-lucide="chevron-right"></i></div></div>
+        <div class="pm-item"><div class="pm-ic g"><i data-lucide="info"></i></div><div class="pm-inf"><div class="pm-tt">Sobre a App</div><div class="pm-st">Versão 2.4.1 · BH Segurança</div></div><div class="pm-ar"><i data-lucide="chevron-right"></i></div></div>
+      </div>
+
+      <button class="prof-logout" onclick="toast('Sessão terminada')"><i data-lucide="log-out"></i>Terminar Sessão</button>
+      <div style="text-align:center;margin-top:12px;margin-bottom:4px"><span style="font-size:9.5px;color:var(--muted)">BH Segurança & Comunidade · Belo Horizonte · Boane · Moçambique</span></div>
+    </div>
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <nav class="bnav" id="bnav">
+    <div class="ni on" data-s="home" onclick="nav('home')"><i data-lucide="home"></i><span>Início</span></div>
+    <div class="ni" data-s="card" onclick="nav('card')"><i data-lucide="credit-card"></i><span>Cartão</span></div>
+    <div class="nc" onclick="toggleMod()"><i data-lucide="plus"></i></div>
+    <div class="ni" data-s="alerts" onclick="nav('alerts')"><i data-lucide="bell-ring"></i><span>Alertas</span></div>
+    <div class="ni" data-s="profile" onclick="nav('profile')"><i data-lucide="user"></i><span>Perfil</span></div>
+  </nav>
+
+  <!-- QUICK ACTIONS MODAL -->
+  <div class="modal-ov" id="modQa" onclick="clMod(event)">
+    <div class="modal-ct" onclick="event.stopPropagation()">
+      <div class="mod-hd"></div>
+      <div class="mod-tt">Acções Rápidas</div>
+      <div class="mod-act">
+        <div class="mod-a" onclick="nav('report');clModD()"><i data-lucide="file-warning"></i><span>Reportar</span></div>
+        <div class="mod-a" onclick="nav('visitors');clModD()"><i data-lucide="users"></i><span>Visitantes</span></div>
+        <div class="mod-a" onclick="nav('security');clModD()"><i data-lucide="shield-check"></i><span>Segurança</span></div>
+        <div class="mod-a" onclick="showSOS();clModD()"><i data-lucide="siren"></i><span>Pânico</span></div>
+        <div class="mod-a" onclick="toast('Contactos da coordenação');clModD()"><i data-lucide="phone"></i><span>Contactos</span></div>
+        <div class="mod-a" onclick="toast('Mapa a abrir...');clModD()"><i data-lucide="map"></i><span>Mapa</span></div>
+      </div>
+      <button class="mod-cl" onclick="clModD()">Fechar</button>
+    </div>
+  </div>
+
+  <!-- SOS MODAL -->
+  <div class="modal-ov" id="modSOS" onclick="clSOS(event)">
+    <div class="modal-ct" onclick="event.stopPropagation()">
+      <div class="sos-mc">
+        <div class="sos-mi"><i data-lucide="siren"></i></div>
+        <div class="sos-mt">Botão de Pânico</div>
+        <div class="sos-md">Ao activar o botão de pânico, a coordenação do bairro e a segurança privada serão imediatamente notificados da sua localização.</div>
+        <div class="sos-ma">
+          <button class="sos-mb pr" onclick="actSOS()"><i data-lucide="siren"></i>Activar Pânico</button>
+          <button class="sos-mb sc" onclick="clSOSD()"><i data-lucide="phone"></i>Ligar PRM (113)</button>
+          <button class="sos-mb sc" onclick="clSOSD()">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CAMERA MODAL -->
+  <div class="cam-m" id="camM">
+    <div class="cam-hd"><div class="cam-cl" onclick="clCam()"><i data-lucide="x"></i></div><span class="cam-hd-t">Capturar Evidência</span><div style="width:34px"></div></div>
+    <div class="cam-vp" id="camVP">
+      <div class="cam-ph"><i data-lucide="camera"></i><span>Câmara a preparar...</span></div>
+    </div>
+    <div class="cam-ct">
+      <div class="cam-sb" onclick="toast('Galeria seleccionada')"><i data-lucide="image"></i></div>
+      <button class="sh-btn" onclick="capPhoto()"><div class="sh-btn-i"></div></button>
+      <div class="cam-sb" onclick="toast('Flash activado')"><i data-lucide="zap"></i></div>
+    </div>
+  </div>
+</div>
+
+<script>
+lucide.createIcons();
+
+/* hero time */
+function updHero(){
+  const h=new Date().getHours(),bg=document.getElementById('heroBg'),g=document.getElementById('hGreet'),t=document.getElementById('hTime'),d=document.getElementById('hDate'),tmp=document.getElementById('hTemp'),wd=document.getElementById('hWd'),wi=document.getElementById('hWi');
+  const n=new Date();
+  t.textContent=`${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}`;
+  const days=['Domingo','Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado'],months=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+  d.textContent=`${days[n.getDay()]}, ${n.getDate()} de ${months[n.getMonth()]}`;
+  if(h>=5&&h<12){g.textContent='Bom dia';wi.textContent='🌤️';tmp.textContent='26°C';wd.textContent='Parcialmente nublado · BH, Boane'}
+  else if(h>=12&&h<17){g.textContent='Boa tarde';wi.textContent='☀️';tmp.textContent='32°C';wd.textContent='Ensolarado · BH, Boane'}
+  else if(h>=17&&h<20){g.textContent='Boa tarde';wi.textContent='';tmp.textContent='28°C';wd.textContent='Pôr do sol · BH, Boane'}
+  else{g.textContent='Boa noite';wi.textContent='🌙';tmp.textContent='22°C';wd.textContent='Céu limpo · BH, Boane'}
+}
+updHero();setInterval(updHero,30000);
+
+/* nav */
+function nav(s){
+  document.querySelectorAll('.sc').forEach(x=>x.classList.remove('on'));
+  document.getElementById('s-'+s).classList.add('on');
+  document.querySelectorAll('.ni').forEach(x=>x.classList.remove('on'));
+  const ni=document.querySelector(`.ni[data-s="${s}"]`);
+  if(ni)ni.classList.add('on');
+  window.scrollTo({top:0,behavior:'smooth'});
+  lucide.createIcons();
+  animKPI();
+}
+
+/* modals */
+function toggleMod(){document.getElementById('modQa').classList.add('on')}
+function clMod(e){if(e.target===e.currentTarget)e.currentTarget.classList.remove('on')}
+function clModD(){document.getElementById('modQa').classList.remove('on')}
+function showSOS(){document.getElementById('modSOS').classList.add('on')}
+function clSOS(e){if(e.target===e.currentTarget)e.currentTarget.classList.remove('on')}
+function clSOSD(){document.getElementById('modSOS').classList.remove('on')}
+function actSOS(){clSOSD();toast('Pânico activado! Segurança e coordenação notificados.')}
+
+/* toast */
+function toast(m){
+  const t=document.getElementById('toast'),tx=document.getElementById('toastTxt'),ic=document.getElementById('toastIco');
+  tx.textContent=m;ic.className='toast-ic ok';ic.innerHTML='<i data-lucide="check"></i>';
+  t.classList.add('show');lucide.createIcons();
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+/* severity */
+function selSev(b){document.querySelectorAll('.sv-btn').forEach(x=>x.classList.remove('sel'));b.classList.add('sel')}
+
+/* report */
+function submitRep(e){
+  e.preventDefault();
+  document.getElementById('repForm').style.display='none';
+  document.getElementById('repSucc').style.display='block';
+  toast('Ocorrência enviada com sucesso!');
+}
+function resetRep(){
+  document.getElementById('repForm').style.display='block';
+  document.getElementById('repSucc').style.display='none';
+  nav('home');
+}
+
+/* visitor tabs */
+function swVis(b,t){
+  document.querySelectorAll('.vis-tab').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');
+  document.getElementById('v-pe').style.display=t==='pe'?'block':'none';
+  document.getElementById('v-ac').style.display=t==='ac'?'block':'none';
+  document.getElementById('v-hi').style.display=t==='hi'?'block':'none';
+}
+
+/* alerts filter */
+function filtAl(b,t){
+  document.querySelectorAll('.al-f').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');
+  document.querySelectorAll('.al-card').forEach(c=>{
+    if(t==='all')c.style.display='block';
+    else if(t==='rs')c.style.display=c.classList.contains('rs')?'block':'none';
+    else c.style.display=c.dataset.t===t?'block':'none';
+  });
+}
+
+/* kpi animate */
+function animKPI(){
+  document.querySelectorAll('.kpi-val[data-count]').forEach(el=>{
+    const tgt=parseInt(el.dataset.count);let cur=0;const step=tgt/40;
+    function u(){cur+=step;if(cur>=tgt){el.textContent=tgt;return}el.textContent=Math.floor(cur);requestAnimationFrame(u)}
+    el.textContent='0';requestAnimationFrame(u);
+  });
+}
+setTimeout(animKPI,250);
+
+/* camera */
+let camStream=null;
+function openCam(){
+  const m=document.getElementById('camM');m.classList.add('on');
+  const vp=document.getElementById('camVP');
+  if(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia){
+    navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}}).then(s=>{
+      camStream=s;vp.innerHTML='';const v=document.createElement('video');
+      v.srcObject=s;v.autoplay=true;v.playsInline=true;v.style.cssText='width:100%;height:100%;object-fit:cover';
+      vp.appendChild(v);
+    }).catch(()=>{vp.innerHTML='<div class="cam-ph"><i data-lucide="camera-off"></i><span>Câmara não disponível</span></div>';lucide.createIcons()});
+  }else{vp.innerHTML='<div class="cam-ph"><i data-lucide="camera-off"></i><span>Câmara não disponível</span></div>';lucide.createIcons()}
+}
+function clCam(){
+  document.getElementById('camM').classList.remove('on');
+  if(camStream){camStream.getTracks().forEach(t=>t.stop());camStream=null}
+  const vp=document.getElementById('camVP');vp.innerHTML='<div class="cam-ph"><i data-lucide="camera"></i><span>Câmara a preparar...</span></div>';lucide.createIcons();
+}
+function capPhoto(){
+  const v=document.querySelector('#camVP video');
+  if(v){const c=document.createElement('canvas');c.width=v.videoWidth;c.height=v.videoHeight;c.getContext('2d').drawImage(v,0,0);const du=c.toDataURL('image/jpeg',.8);const p=document.getElementById('camPrev');p.style.backgroundImage=`url(${du})`;p.classList.add('on');clCam();toast('Foto capturada com sucesso')}
+}
+function rmPhoto(e){e.stopPropagation();const p=document.getElementById('camPrev');p.style.backgroundImage='';p.classList.remove('on')}
+</script>
+</body>
+</html>
+
