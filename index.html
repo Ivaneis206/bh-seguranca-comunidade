@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>BH Segurança & Comunidade</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        'premium': {
+          900: '#0a1a0f',
+          800: '#0f2618',
+          700: '#143320',
+          600: '#1a4428',
+          500: '#1f5232',
+          400: '#2d6b42',
+          300: '#3d8b5a',
+          200: '#5aad7a',
+          100: '#8cc9a0',
+          50: '#d4eddf',
+        },
+        'gold': {
+          500: '#c4a24e',
+          400: '#d4b45e',
+          300: '#e2c878',
+          200: '#edd89a',
+          100: '#f5e8c0',
+        },
+        'dark': {
+          900: '#050d08',
+          800: '#0a1510',
+          700: '#0f1c15',
+          600: '#15251c',
+          500: '#1a2f23',
+        }
+      },
+      fontFamily: {
+        'sans': ['Inter', 'system-ui', 'sans-serif'],
+      },
+      boxShadow: {
+        'premium': '0 8px 32px rgba(0,0,0,0.4)',
+        'card': '0 4px 20px rgba(0,0,0,0.25)',
+        'card-light': '0 2px 12px rgba(0,0,0,0.15)',
+        'glow-green': '0 0 20px rgba(31,82,50,0.5)',
+        'glow-gold': '0 0 20px rgba(196,162,78,0.3)',
+      }
+    }
+  }
+}
+</script>
+<style>
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.18/latin.css');
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.18/latin-700.css');
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.18/latin-800.css');
+
+* { -webkit-tap-highlight-color: transparent; }
+body { font-family: 'Inter', system-ui, sans-serif; background: #050d08; overflow-x: hidden; }
+html { scroll-behavior: smooth; }
+
+::-webkit-scrollbar { width: 0; }
+
+.screen { display: none; min-height: 100vh; padding-bottom: 100px; }
+.screen.active { display: block; }
+
+.hero-overlay-morning { background: linear-gradient(180deg, rgba(10,26,15,0.3) 0%, rgba(10,26,15,0.7) 50%, #050d08 100%); }
+.hero-overlay-afternoon { background: linear-gradient(180deg, rgba(10,26,15,0.4) 0%, rgba(10,26,15,0.8) 50%, #050d08 100%); }
+.hero-overlay-evening { background: linear-gradient(180deg, rgba(20,20,15,0.3) 0%, rgba(10,15,8,0.85) 50%, #050d08 100%); }
+.hero-overlay-night { background: linear-gradient(180deg, rgba(5,10,8,0.6) 0%, rgba(5,10,8,0.9) 50%, #050d08 100%); }
+
+.pulse-sos { animation: pulseSOS 2s ease-in-out infinite; }
+@keyframes pulseSOS {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(220,38,38,0.6); }
+  50% { box-shadow: 0 0 0 12px rgba(220,38,38,0); }
+}
+
+.pulse-bell { animation: pulseBell 3s ease-in-out infinite; }
+@keyframes pulseBell {
+  0%, 90%, 100% { opacity: 1; }
+  95% { opacity: 0.6; }
+}
+
+.fade-in { animation: fadeIn 0.4s ease-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+.slide-up { animation: slideUp 0.3s ease-out; }
+@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+
+.card-press { transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.card-press:active { transform: scale(0.97); }
+
+.shimmer { background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.04) 50%, transparent 100%); background-size: 200% 100%; animation: shimmer 3s infinite; }
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+
+.glass { background: rgba(15,38,24,0.6); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(45,107,66,0.2); }
+.glass-light { background: rgba(20,51,32,0.35); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(45,107,66,0.12); }
+
+.nav-item { transition: all 0.2s ease; }
+.nav-item.active { color: #c4a24e; }
+.nav-item.active .nav-icon { transform: scale(1.1); }
+
+.badge-glow { box-shadow: 0 0 8px rgba(196,162,78,0.4); }
+
+input, textarea, select {
+  background: rgba(15,38,24,0.5) !important;
+  border: 1px solid rgba(45,107,66,0.25) !important;
+  color: #e8f0ea !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #c4a24e !important;
+  box-shadow: 0 0 0 3px rgba(196,162,78,0.15);
+}
+
+.visitor-pending { border-left: 3px solid #d4b45e; }
+.visitor-authorized { border-left: 3px solid #3d8b5a; }
+.visitor-inside { border-left: 3px solid #5aad7a; }
+.visitor-expired { border-left: 3px solid #dc2626; }
+.visitor-completed { border-left: 3px solid #4b5563; }
+
+.qr-container canvas, .qr-container img { border-radius: 8px; }
+
+.proximity-ring {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: #3d8b5a; position: relative;
+}
+.proximity-ring::after {
+  content: ''; position: absolute; inset: -4px;
+  border-radius: 50%; border: 2px solid #3d8b5a;
+  animation: proximityPulse 2s ease-in-out infinite;
+}
+@keyframes proximityPulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0; transform: scale(1.8); }
+}
+
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(5,13,8,0.85);
+  backdrop-filter: blur(8px); z-index: 100;
+  display: flex; align-items: flex-end; justify-content: center;
+}
+
+.stat-number {
+  background: linear-gradient(135deg, #c4a24e, #e2c878);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gold { color: #c4a24e; }
+.text-gold-light { color: #d4b45e; }
+.bg-premium-gradient { background: linear-gradient(135deg, #0f2618, #1a4428); }
+</style>
+</head>
+<body class="text-gray-100">
+
+<!-- APP CONTAINER -->
+<div id="app" class="max-w-md mx-auto relative min-h-screen">
+
+  <!-- ============ HOME SCREEN ============ -->
+  <div id="screen-home" class="screen active">
+    <!-- HERO -->
+    <div class="relative h-[420px] overflow-hidden">
+      <img src="https://image.qwenlm.ai/public_source/60952b11-d68a-4635-aaf4-8771cc4b1037/1cae533b8-8b26-47ab-9343-5d48e086bfa3.png" 
+           alt="Belo Horizonte Boane" class="absolute inset-0 w-full h-full object-cover" id="hero-img">
+      <div class="absolute inset-0 hero-overlay-afternoon" id="hero-overlay"></div>
+      
+      <!-- Top Bar -->
+      <div class="relative z-10 px-5 pt-12 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-premium-700 border border-gold-500/30 flex items-center justify-center">
+            <i data-lucide="user" class="w-5 h-5 text-gold-400"></i>
+          </div>
+          <div>
+            <p class="text-xs text-gray-400 font-medium" id="greeting">Boa tarde</p>
+            <p class="text-sm font-bold text-white">João M. Chissano</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <button onclick="navigate('alerts')" class="relative w-10 h-10 rounded-full glass flex items-center justify-center card-press">
+            <i data-lucide="bell" class="w-5 h-5 text-gray-300 pulse-bell"></i>
+            <span class="absolute -top-1 -right-1 w-5 h-5 bg-red-600 rounded-full text-[10px] font-bold flex items-center justify-center">3</span>
+          </button>
+          <button class="w-10 h-10 rounded-full glass flex items-center justify-center card-press">
+            <i data-lucide="settings" class="w-5 h-5 text-gray-300"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Hero Content -->
+      <div class="relative z-10 px-5 mt-6">
+        <div class="flex items-center gap-2 mb-2">
+          <div class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+          <span class="text-xs font-semibold text-green-300 tracking-wider uppercase">Comunidade Verificada</span>
+        </div>
+        <h1 class="text-3xl font-extrabold text-white leading-tight mb-1">Belo Horizonte</h1>
+        <p class="text-sm text-gray-300 font-medium">Boane · Moçambique</p>
+        
+        <div class="flex items-center gap-4 mt-5 mb-6">
+          <div class="flex items-center gap-2 glass rounded-lg px-3 py-2">
+            <i data-lucide="thermometer" class="w-4 h-4 text-gold-400"></i>
+            <span class="text-lg font-bold text-white" id="weather-temp">28°C</span>
+          </div>
+          <div class="flex items-center gap-2 glass rounded-lg px-3 py-2">
+            <i data-lucide="cloud-sun" class="w-4 h-4 text-gold-400"></i>
+            <span class="text-sm text-gray-200" id="weather-desc">Parcialmente nublado</span>
+          </div>
+          <div class="flex items-center gap-2 glass rounded-lg px-3 py-2">
+            <i data-lucide="clock" class="w-4 h-4 text-gold-400"></i>
+            <span class="text-sm font-semibold text-white" id="clock-time">14:32</span>
+          </div>
+        </div>
+
+        <!-- SOS Button -->
+        <button onclick="triggerSOS()" class="w-full py-3.5 bg-gradient-to-r from-red-700 to-red-600 rounded-xl font-bold text-white text-base shadow-lg pulse-sos flex items-center justify-center gap-3 card-press">
+          <i data-lucide="shield-alert" class="w-5 h-5"></i>
+          SOS / PÂNICO
+        </button>
+      </div>
+    </div>
+
+    <!-- Dashboard Content -->
+    <div class="px-4 -mt-2 relative z-20 space-y-4">
+      
+      <!-- Neighborhood Status Card -->
+      <div class="glass rounded-2xl p-5 card-press fade-in">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-xl bg-premium-600 flex items-center justify-center">
+              <i data-lucide="shield-check" class="w-6 h-6 text-green-300"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-base">Estado do Bairro</h3>
+              <p class="text-xs text-gray-400">Atualizado há 3 min</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 bg-green-500/20 text-green-300 text-xs font-bold rounded-full border border-green-500/30">NORMAL</span>
+        </div>
+        <div class="grid grid-cols-3 gap-3">
+          <div class="text-center p-3 rounded-xl bg-premium-800/60">
+            <p class="stat-number text-xl font-extrabold">12</p>
+            <p class="text-[10px] text-gray-400 mt-0.5 uppercase tracking-wide font-semibold">Patrulhas</p>
+          </div>
+          <div class="text-center p-3 rounded-xl bg-premium-800/60">
+            <p class="stat-number text-xl font-extrabold">5</p>
+            <p class="text-[10px] text-gray-400 mt-0.5 uppercase tracking-wide font-semibold">Acessos</p>
+          </div>
+          <div class="text-center p-3 rounded-xl bg-premium-800/60">
+            <p class="stat-number text-xl font-extrabold">0</p>
+            <p class="text-[10px] text-gray-400 mt-0.5 uppercase tracking-wide font-semibold">Incidentes</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Incident Card -->
+      <div class="glass rounded-2xl p-4 card-press fade-in border-l-4 border-l-gold-400">
+        <div class="flex items-start justify-between">
+          <div class="flex items-start gap-3">
+            <div class="w-9 h-9 rounded-lg bg-gold-500/15 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="alert-triangle" class="w-5 h-5 text-gold-400"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white text-sm">Ocorrência Activa</h4>
+              <p class="text-xs text-gray-400 mt-0.5">Ruas laterais do Quarteirão 7</p>
+              <p class="text-xs text-gold-300 mt-1 font-medium">Actividade suspeita reportada às 13:45</p>
+            </div>
+          </div>
+          <button class="text-xs text-gold-400 font-semibold card-press">Ver →</button>
+        </div>
+      </div>
+
+      <!-- Important Notice -->
+      <div class="glass rounded-2xl p-4 card-press fade-in border-l-4 border-l-blue-400">
+        <div class="flex items-start gap-3">
+          <div class="w-9 h-9 rounded-lg bg-blue-500/15 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="megaphone" class="w-5 h-5 text-blue-300"></i>
+          </div>
+          <div class="flex-1">
+            <h4 class="font-bold text-white text-sm">Reunião Comunitária</h4>
+            <p class="text-xs text-gray-400 mt-0.5">Sábado 15 de Janeiro · 10h00</p>
+            <p class="text-xs text-blue-300 mt-1 font-medium">Ponto de situação sobre segurança e EDM</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Shortcuts -->
+      <div class="fade-in">
+        <h3 class="text-sm font-bold text-gray-300 mb-3 px-1 uppercase tracking-wide">Atalhos Rápidos</h3>
+        <div class="grid grid-cols-3 gap-3">
+          <button onclick="navigate('card')" class="glass rounded-2xl p-4 flex flex-col items-center gap-2 card-press">
+            <div class="w-11 h-11 rounded-xl bg-premium-600 flex items-center justify-center">
+              <i data-lucide="credit-card" class="w-5 h-5 text-green-300"></i>
+            </div>
+            <span class="text-xs font-semibold text-gray-200">Cartão</span>
+          </button>
+          <button onclick="navigate('report')" class="glass rounded-2xl p-4 flex flex-col items-center gap-2 card-press">
+            <div class="w-11 h-11 rounded-xl bg-premium-600 flex items-center justify-center">
+              <i data-lucide="flag" class="w-5 h-5 text-green-300"></i>
+            </div>
+            <span class="text-xs font-semibold text-gray-200">Reportar</span>
+          </button>
+          <button onclick="navigate('visitors')" class="glass rounded-2xl p-4 flex flex-col items-center gap-2 card-press">
+            <div class="w-11 h-11 rounded-xl bg-premium-600 flex items-center justify-center">
+              <i data-lucide="users" class="w-5 h-5 text-green-300"></i>
+            </div>
+            <span class="text-xs font-semibold text-gray-200">Visitantes</span>
+          </button>
+          <button onclick="navigate('security')" class="glass rounded-2xl p-4 flex flex-col items-center gap-2 card-press">
+            <div class="w-11 h-11 rounded-xl bg-premium-600 flex items-center justify-center">
+              <i data-lucide="shield" class="w-5 h-5 text-green-300"></i>
+            </div>
+            <span class="text-xs font-semibold text-gray-200">Segurança</span>
+          </button>
+          <button onclick="navigate('alerts')" class="glass rounded-2xl p-4 flex flex-col items-center gap-2 card-press">
+            <div class="w-11 h-11 rounded-xl bg-premium-600 flex items-center justify-center">
+              <i data-lucide="alert-circle" class="w-5 h-5 text-green-300"></i>
+            </div>
+            <span class="text-xs font-semibold text-gray-200">Alertas</span>
+          </button>
+          <button class="glass rounded-2xl p-4 flex flex-col items-center gap-2 card-press">
+            <div class="w-11 h-11 rounded-xl bg-premium-600 flex items-center justify-center">
+              <i data-lucide="phone" class="w-5 h-5 text-green-300"></i>
+            </div>
+            <span class="text-xs font-semibold text-gray-200">Contactos</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Proximity Widget -->
+      <div class="glass rounded-2xl p-5 card-press fade-in">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-sm font-bold text-white flex items-center gap-2">
+            <div class="proximity-ring"></div>
+            Comunidade Online
+          </h3>
+          <span class="text-xs text-green-300 font-semibold">18 activos</span>
+        </div>
+        <div class="flex items-center gap-3 overflow-x-auto pb-1">
+          <div class="flex-shrink-0 text-center">
+            <div class="w-10 h-10 rounded-full bg-premium-600 border-2 border-green-400 flex items-center justify-center text-sm font-bold text-green-200">JM</div>
+            <p class="text-[9px] text-gray-400 mt-1">Tu</p>
+          </div>
+          <div class="flex-shrink-0 text-center">
+            <div class="w-10 h-10 rounded-full bg-premium-700 border-2 border-green-400 flex items-center justify-center text-[10px] font-bold text-green-200">AN</div>
+            <p class="text-[9px] text-gray-400 mt-1">Ana N.</p>
+          </div>
+          <div class="flex-shrink-0 text-center">
+            <div class="w-10 h-10 rounded-full bg-premium-700 border-2 border-green-400 flex items-center justify-center text-[10px] font-bold text-green-200">CM</div>
+            <p class="text-[9px] text-gray-400 mt-1">Carlos M.</p>
+          </div>
+          <div class="flex-shrink-0 text-center">
+            <div class="w-10 h-10 rounded-full bg-premium-700 border-2 border-green-400 flex items-center justify-center text-[10px] font-bold text-green-200">FS</div>
+            <p class="text-[9px] text-gray-400 mt-1">Fatima S.</p>
+          </div>
+          <div class="flex-shrink-0 text-center">
+            <div class="w-10 h-10 rounded-full bg-premium-700 border-2 border-green-400 flex items-center justify-center text-[10px] font-bold text-green-200">RM</div>
+            <p class="text-[9px] text-gray-400 mt-1">Ricardo M.</p>
+          </div>
+          <div class="flex-shrink-0 text-center">
+            <div class="w-10 h-10 rounded-full bg-premium-700 border-2 border-green-400 flex items-center justify-center text-[10px] font-bold text-green-200">LM</div>
+            <p class="text-[9px] text-gray-400 mt-1">Luis M.</p>
+          </div>
+          <div class="flex-shrink-0 text-center">
+            <div class="w-10 h-10 rounded-full bg-premium-700 border-2 border-gold-500 flex items-center justify-center text-[10px] font-bold text-gold-300">+12</div>
+            <p class="text-[9px] text-gray-400 mt-1">Mais</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPI Widgets -->
+      <div class="fade-in">
+        <h3 class="text-sm font-bold text-gray-300 mb-3 px-1 uppercase tracking-wide">Visão Operacional</h3>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="glass rounded-xl p-4 card-press">
+            <div class="flex items-center gap-2 mb-2">
+              <i data-lucide="log-in" class="w-4 h-4 text-green-300"></i>
+              <span class="text-[10px] text-gray-400 font-semibold uppercase">Acessos Hoje</span>
+            </div>
+            <p class="stat-number text-2xl font-extrabold">47</p>
+            <p class="text-[10px] text-green-400 mt-1">▲ 12% vs ontem</p>
+          </div>
+          <div class="glass rounded-xl p-4 card-press">
+            <div class="flex items-center gap-2 mb-2">
+              <i data-lucide="log-out" class="w-4 h-4 text-red-400"></i>
+              <span class="text-[10px] text-gray-400 font-semibold uppercase">Negados</span>
+            </div>
+            <p class="text-2xl font-extrabold text-red-400">3</p>
+            <p class="text-[10px] text-gray-500 mt-1">Motivo: sem registo</p>
+          </div>
+          <div class="glass rounded-xl p-4 card-press">
+            <div class="flex items-center gap-2 mb-2">
+              <i data-lucide="user-check" class="w-4 h-4 text-blue-300"></i>
+              <span class="text-[10px] text-gray-400 font-semibold uppercase">Visitantes</span>
+            </div>
+            <p class="stat-number text-2xl font-extrabold">8</p>
+            <p class="text-[10px] text-blue-400 mt-1">5 pendentes</p>
+          </div>
+          <div class="glass rounded-xl p-4 card-press">
+            <div class="flex items-center gap-2 mb-2">
+              <i data-lucide="alert-triangle" class="w-4 h-4 text-gold-400"></i>
+              <span class="text-[10px] text-gray-400 font-semibold uppercase">Alertas</span>
+            </div>
+            <p class="text-2xl font-extrabold text-gold-400">2</p>
+            <p class="text-[10px] text-gold-400/60 mt-1">1 crítico</p>
+          </div>
+          <div class="glass rounded-xl p-4 card-press">
+            <div class="flex items-center gap-2 mb-2">
+              <i data-lucide="check-circle" class="w-4 h-4 text-green-300"></i>
+              <span class="text-[10px] text-gray-400 font-semibold uppercase">Resolvidos Hoje</span>
+            </div>
+            <p class="stat-number text-2xl font-extrabold">14</p>
+            <p class="text-[10px] text-green-400 mt-1">92% taxa resolução</p>
+          </div>
+          <div class="glass rounded-xl p-4 card-press">
+            <div class="flex items-center gap-2 mb-2">
+              <i data-lucide="timer" class="w-4 h-4 text-blue-300"></i>
+              <span class="text-[10px] text-gray-400 font-semibold uppercase">Tempo Resp.</span>
+            </div>
+            <p class="stat-number text-2xl font-extrabold">4min</p>
+            <p class="text-[10px] text-blue-400 mt-1">Média actual</p>
+          </div>
+          <div class="glass rounded-xl p-4 card-press">
+            <div class="flex items-center gap-2 mb-2">
+              <i data-lucide="navigation" class="w-4 h-4 text-green-300"></i>
+              <span class="text-[10px] text-gray-400 font-semibold uppercase">Última Ronda</span>
+            </div>
+            <p class="text-xl font-extrabold text-green-300">14:15</p>
+            <p class="text-[10px] text-gray-500 mt-1">Quarteirão 7-12</p>
+          </div>
+          <div class="glass rounded-xl p-4 card-press">
+            <div class="flex items-center gap-2 mb-2">
+              <i data-lucide="calendar" class="w-4 h-4 text-gold-400"></i>
+              <span class="text-[10px] text-gray-400 font-semibold uppercase">Próx. Reunião</span>
+            </div>
+            <p class="text-xl font-extrabold text-gold-300">15 Jan</p>
+            <p class="text-[10px] text-gray-500 mt-1">10h00 · Salão comunitário</p>
+          </div>
+          <div class="glass rounded-xl p-4 card-press">
+            <div class="flex items-center gap-2 mb-2">
+              <i data-lucide="clipboard-check" class="w-4 h-4 text-gold-400"></i>
+              <span class="text-[10px] text-gray-400 font-semibold uppercase">Aprovações</span>
+            </div>
+            <p class="text-2xl font-extrabold text-gold-400">5</p>
+            <p class="text-[10px] text-gold-400/60 mt-1">Pendentes</p>
+          </div>
+          <div class="glass rounded-xl p-4 card-press">
+            <div class="flex items-center gap-2 mb-2">
+              <i data-lucide="refresh-cw" class="w-4 h-4 text-blue-300"></i>
+              <span class="text-[10px] text-gray-400 font-semibold uppercase">Últ. Actualiz.</span>
+            </div>
+            <p class="text-xl font-extrabold text-blue-300">14:28</p>
+            <p class="text-[10px] text-gray-500 mt-1">Dados sincronizados</p>
+          </div>
+          <div class="glass rounded-xl p-4 card-press">
+            <div class="flex items-center gap-2 mb-2">
+              <i data-lucide="activity" class="w-4 h-4 text-green-300"></i>
+              <span class="text-[10px] text-gray-400 font-semibold uppercase">Estado Acessos</span>
+            </div>
+            <p class="text-xl font-extrabold text-green-300">Abertos</p>
+            <p class="text-[10px] text-green-400/60 mt-1">2 portões activos</p>
+          </div>
+          <div class="glass rounded-xl p-4 card-press">
+            <div class="flex items-center gap-2 mb-2">
+              <i data-lucide="cpu" class="w-4 h-4 text-blue-300"></i>
+              <span class="text-[10px] text-gray-400 font-semibold uppercase">Sistema</span>
+            </div>
+            <p class="text-xl font-extrabold text-green-300">Online</p>
+            <p class="text-[10px] text-gray-500 mt-1">Todas as funções ativas</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Incidents -->
+      <div class="fade-in pb-4">
+        <h3 class="text-sm font-bold text-gray-300 mb-3 px-1 uppercase tracking-wide">Incidentes Recentes</h3>
+        <div class="space-y-3">
+          <div class="glass rounded-xl p-4 card-press">
+            <div class="flex items-start justify-between">
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-gold-500/15 flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="eye" class="w-4 h-4 text-gold-400"></i>
+                </div>
+                <div>
+                  <p class="text-sm font-semibold text-white">Actividade Suspeita</p>
+                  <p class="text-xs text-gray-400 mt-0.5">Q7, Rua das Acácias · 13:45</p>
+                </div>
+              </div>
+              <span class="px-2 py-0.5 bg-gold-500/15 text-gold-400 text-[10px] font-bold rounded-full">Em curso</span>
+            </div>
+          </div>
+          <div class="glass rounded-xl p-4 card-press">
+            <div class="flex items-start justify-between">
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-green-500/15 flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="check-circle" class="w-4 h-4 text-green-400"></i>
+                </div>
+                <div>
+                  <p class="text-sm font-semibold text-white">Falha de Iluminação</p>
+                  <p class="text-xs text-gray-400 mt-0.5">Q3, Rua da Paz · Resolvido 12:30</p>
+                </div>
+              </div>
+              <span class="px-2 py-0.5 bg-green-500/15 text-green-400 text-[10px] font-bold rounded-full">Resolvido</span>
+            </div>
+          </div>
+          <div class="glass rounded-xl p-4 card-press">
+            <div class="flex items-start justify-between">
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-blue-500/15 flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="volume-x" class="w-4 h-4 text-blue-400"></i>
+                </div>
+                <div>
+                  <p class="text-sm font-semibold text-white">Ruído Excessivo</p>
+                  <p class="text-xs text-gray-400 mt-0.5">Q9, Rua do Comércio · Resolvido 11:15</p>
+                </div>
+              </div>
+              <span class="px-2 py-0.5 bg-green-500/15 text-green-400 text-[10px] font-bold rounded-full">Resolvido</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CARD SCREEN ============ -->
+  <div id="screen-card" class="screen">
+    <div class="px-5 pt-12 pb-4">
+      <div class="flex items-center gap-4 mb-6">
+        <button onclick="navigate('home')" class="w-10 h-10 rounded-xl glass flex items-center justify-center card-press">
+          <i data-lucide="arrow-left" class="w-5 h-5 text-gray-300"></i>
+        </button>
+        <div>
+          <h1 class="text-xl font-extrabold text-white">Cartão do Morador</h1>
+          <p class="text-xs text-gray-400">Identificação digital verificada</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="px-5 space-y-5 pb-4">
+      <!-- Premium Digital Card -->
+      <div class="relative rounded-2xl overflow-hidden card-press">
+        <div class="bg-gradient-to-br from-premium-700 via-premium-600 to-premium-800 p-6 rounded-2xl relative">
+          <!-- Decorative elements -->
+          <div class="absolute top-0 right-0 w-32 h-32 bg-gold-500/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+          <div class="absolute bottom-0 left-0 w-24 h-24 bg-gold-500/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+          
+          <!-- Card Header -->
+          <div class="flex items-center justify-between mb-6 relative z-10">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-lg bg-gold-500/20 flex items-center justify-center">
+                <i data-lucide="shield" class="w-4 h-4 text-gold-400"></i>
+              </div>
+              <span class="text-xs font-bold text-gold-300 tracking-wider">BH SEGURANÇA</span>
+            </div>
+            <div class="flex items-center gap-1">
+              <div class="w-1.5 h-1.5 rounded-full bg-green-400"></div>
+              <span class="text-[10px] text-green-300 font-semibold">VERIFICADO</span>
+            </div>
+          </div>
+
+          <!-- Avatar and Name -->
+          <div class="flex items-center gap-4 mb-5 relative z-10">
+            <div class="w-16 h-16 rounded-full bg-premium-800 border-2 border-gold-500/40 flex items-center justify-center">
+              <span class="text-2xl font-extrabold text-gold-300">JC</span>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-white">João Manuel Chissano</h3>
+              <p class="text-xs text-gray-300">Morador Verificado · Residente Activo</p>
+            </div>
+          </div>
+
+          <!-- Card Details -->
+          <div class="grid grid-cols-2 gap-3 mb-5 relative z-10">
+            <div class="glass rounded-lg p-3">
+              <p class="text-[9px] text-gray-400 uppercase tracking-wider font-semibold">Quarteirão</p>
+              <p class="text-sm font-bold text-white mt-0.5">Q7 · Lote 14</p>
+            </div>
+            <div class="glass rounded-lg p-3">
+              <p class="text-[9px] text-gray-400 uppercase tracking-wider font-semibold">Contacto</p>
+              <p class="text-sm font-bold text-white mt-0.5">+258 84 765 4321</p>
+            </div>
+            <div class="glass rounded-lg p-3">
+              <p class="text-[9px] text-gray-400 uppercase tracking-wider font-semibold">ID Morador</p>
+              <p class="text-sm font-bold text-white mt-0.5">BH-2024-0847</p>
+            </div>
+            <div class="glass rounded-lg p-3">
+              <p class="text-[9px] text-gray-400 uppercase tracking-wider font-semibold">Validade</p>
+              <p class="text-sm font-bold text-white mt-0.5">31/12/2025</p>
+            </div>
+          </div>
+
+          <!-- QR Code -->
+          <div class="flex items-center justify-center relative z-10">
+            <div class="bg-white rounded-xl p-3">
+              <div id="qrcode" class="qr-container"></div>
+            </div>
+          </div>
+
+          <!-- Benefits -->
+          <div class="mt-4 flex items-center gap-2 justify-center relative z-10">
+            <i data-lucide="star" class="w-3 h-3 text-gold-400"></i>
+            <span class="text-[10px] text-gold-300 font-medium">Acesso prioritário · Eventos exclusivos · Descontos parceiros</span>
+            <i data-lucide="star" class="w-3 h-3 text-gold-400"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card Actions -->
+      <div class="grid grid-cols-2 gap-3">
+        <button class="glass rounded-xl p-4 flex items-center justify-center gap-2 card-press">
+          <i data-lucide="share-2" class="w-4 h-4 text-green-300"></i>
+          <span class="text-sm font-semibold text-gray-200">Partilhar</span>
+        </button>
+        <button class="glass rounded-xl p-4 flex items-center justify-center gap-2 card-press">
+          <i data-lucide="download" class="w-4 h-4 text-green-300"></i>
+          <span class="text-sm font-semibold text-gray-200">Guardar</span>
+        </button>
+      </div>
+
+      <!-- Resident Badges -->
+      <div class="glass rounded-2xl p-5">
+        <h3 class="text-sm font-bold text-white mb-4">Credenciais & Badges</h3>
+        <div class="space-y-3">
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-premium-800/50">
+            <div class="w-10 h-10 rounded-full bg-green-500/15 flex items-center justify-center">
+              <i data-lucide="shield-check" class="w-5 h-5 text-green-400"></i>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-bold text-white">Morador Verificado</p>
+              <p class="text-xs text-gray-400">Identidade confirmada pela AMOBELO</p>
+            </div>
+            <i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-premium-800/50">
+            <div class="w-10 h-10 rounded-full bg-gold-500/15 flex items-center justify-center">
+              <i data-lucide="award" class="w-5 h-5 text-gold-400"></i>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-bold text-white">Residente Activo</p>
+              <p class="text-xs text-gray-400">Participação regular na comunidade</p>
+            </div>
+            <i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-premium-800/50">
+            <div class="w-10 h-10 rounded-full bg-blue-500/15 flex items-center justify-center">
+              <i data-lucide="building-2" class="w-5 h-5 text-blue-400"></i>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-bold text-white">Comunidade Verificada</p>
+              <p class="text-xs text-gray-400">Belo Horizonte aprovado pelo Conselho Municipal</p>
+            </div>
+            <i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ REPORT SCREEN ============ -->
+  <div id="screen-report" class="screen">
+    <div class="px-5 pt-12 pb-4">
+      <div class="flex items-center gap-4 mb-6">
+        <button onclick="navigate('home')" class="w-10 h-10 rounded-xl glass flex items-center justify-center card-press">
+          <i data-lucide="arrow-left" class="w-5 h-5 text-gray-300"></i>
+        </button>
+        <div>
+          <h1 class="text-xl font-extrabold text-white">Reportar Ocorrência</h1>
+          <p class="text-xs text-gray-400">Formulário rápido e confidencial</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="px-5 space-y-4 pb-4">
+      <!-- Incident Type -->
+      <div class="glass rounded-2xl p-5">
+        <h3 class="text-sm font-bold text-white mb-3">Tipo de Ocorrência</h3>
+        <div class="grid grid-cols-2 gap-2">
+          <button onclick="selectCategory(this, 'intrusao')" class="cat-btn glass rounded-xl p-3 flex items-center gap-2 card-press text-left">
+            <i data-lucide="eye" class="w-4 h-4 text-gold-400"></i>
+            <span class="text-xs font-semibold text-gray-200">Intrusão</span>
+          </button>
+          <button onclick="selectCategory(this, 'suspeita')" class="cat-btn glass rounded-xl p-3 flex items-center gap-2 card-press text-left">
+            <i data-lucide="user-x" class="w-4 h-4 text-gold-400"></i>
+            <span class="text-xs font-semibold text-gray-200">Actividade Suspeita</span>
+          </button>
+          <button onclick="selectCategory(this, 'roubo')" class="cat-btn glass rounded-xl p-3 flex items-center gap-2 card-press text-left">
+            <i data-lucide="lock" class="w-4 h-4 text-red-400"></i>
+            <span class="text-xs font-semibold text-gray-200">Roubo</span>
+          </button>
+          <button onclick="selectCategory(this, 'ruido')" class="cat-btn glass rounded-xl p-3 flex items-center gap-2 card-press text-left">
+            <i data-lucide="volume-2" class="w-4 h-4 text-blue-400"></i>
+            <span class="text-xs font-semibold text-gray-200">Ruído</span>
+          </button>
+          <button onclick="selectCategory(this, 'iluminacao')" class="cat-btn glass rounded-xl p-3 flex items-center gap-2 card-press text-left">
+            <i data-lucide="lightbulb" class="w-4 h-4 text-gold-400"></i>
+            <span class="text-xs font-semibold text-gray-200">Iluminação</span>
+          </button>
+          <button onclick="selectCategory(this, 'lixo')" class="cat-btn glass rounded-xl p-3 flex items-center gap-2 card-press text-left">
+            <i data-lucide="trash-2" class="w-4 h-4 text-gray-400"></i>
+            <span class="text-xs font-semibold text-gray-200">Lixo</span>
+          </button>
+          <button onclick="selectCategory(this, 'outro')" class="cat-btn glass rounded-xl p-3 flex items-center gap-2 card-press text-left col-span-2">
+            <i data-lucide="more-horizontal" class="w-4 h-4 text-gray-400"></i>
+            <span class="text-xs font-semibold text-gray-200">Outro</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Severity -->
+      <div class="glass rounded-2xl p-5">
+        <h3 class="text-sm font-bold text-white mb-3">Gravidade</h3>
+        <div class="grid grid-cols-4 gap-2">
+          <button onclick="selectSeverity(this, 'baixa')" class="sev-btn rounded-xl py-3 text-center card-press">
+            <span class="text-xs font-bold text-green-400">Baixa</span>
+          </button>
+          <button onclick="selectSeverity(this, 'media')" class="sev-btn rounded-xl py-3 text-center card-press">
+            <span class="text-xs font-bold text-gold-400">Média</span>
+          </button>
+          <button onclick="selectSeverity(this, 'alta')" class="sev-btn rounded-xl py-3 text-center card-press">
+            <span class="text-xs font-bold text-orange-400">Alta</span>
+          </button>
+          <button onclick="selectSeverity(this, 'critica')" class="sev-btn rounded-xl py-3 text-center card-press">
+            <span class="text-xs font-bold text-red-400">Crítica</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Form Fields -->
+      <div class="glass rounded-2xl p-5 space-y-4">
+        <div>
+          <label class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1.5 block">Nome</label>
+          <input type="text" value="João Manuel Chissano" class="w-full rounded-xl px-4 py-3 text-sm">
+        </div>
+        <div>
+          <label class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1.5 block">Contacto</label>
+          <input type="tel" value="+258 84 765 4321" class="w-full rounded-xl px-4 py-3 text-sm">
+        </div>
+        <div>
+          <label class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1.5 block">Localização</label>
+          <input type="text" placeholder="Quarteirão, rua ou ponto de referência" class="w-full rounded-xl px-4 py-3 text-sm">
+        </div>
+        <div>
+          <label class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1.5 block">Descrição</label>
+          <textarea rows="4" placeholder="Descreva o que observou com o máximo detalhe possível..." class="w-full rounded-xl px-4 py-3 text-sm resize-none"></textarea>
+        </div>
+      </div>
+
+      <!-- Photo Attachment -->
+      <div class="glass rounded-2xl p-5">
+        <h3 class="text-sm font-bold text-white mb-3">Anexar Fotografia</h3>
+        <button class="w-full border-2 border-dashed border-premium-400/30 rounded-xl p-6 flex flex-col items-center gap-2 card-press">
+          <i data-lucide="camera" class="w-8 h-8 text-premium-300"></i>
+          <span class="text-sm text-gray-400 font-medium">Toque para adicionar foto</span>
+          <span class="text-xs text-gray-500">JPG, PNG até 10MB</span>
+        </button>
+      </div>
+
+      <!-- Submit -->
+      <button onclick="submitReport()" class="w-full py-4 bg-gradient-to-r from-premium-600 to-premium-500 rounded-xl font-bold text-white text-base shadow-lg flex items-center justify-center gap-3 card-press">
+        <i data-lucide="send" class="w-5 h-5"></i>
+        Enviar Ocorrência
+      </button>
+    </div>
+  </div>
+
+  <!-- ============ VISITORS SCREEN ============ -->
+  <div id="screen-visitors" class="screen">
+    <div class="px-5 pt-12 pb-4">
+      <div class="flex items-center gap-4 mb-6">
+        <button onclick="navigate('home')" class="w-10 h-10 rounded-xl glass flex items-center justify-center card-press">
+          <i data-lucide="arrow-left" class="w-5 h-5 text-gray-300"></i>
+        </button>
+        <div>
+          <h1 class="text-xl font-extrabold text-white">Gestão de Visitantes</h1>
+          <p class="text-xs text-gray-400">Controlo de acessos e autorizações</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="px-5 space-y-4 pb-4">
+      <!-- Stats -->
+      <div class="grid grid-cols-3 gap-3">
+        <div class="glass rounded-xl p-3 text-center card-press">
+          <p class="stat-number text-xl font-extrabold">8</p>
+          <p class="text-[10px] text-gray-400 mt-0.5">Total Hoje</p>
+        </div>
+        <div class="glass rounded-xl p-3 text-center card-press">
+          <p class="text-xl font-extrabold text-gold-400">5</p>
+          <p class="text-[10px] text-gray-400 mt-0.5">Pendentes</p>
+        </div>
+        <div class="glass rounded-xl p-3 text-center card-press">
+          <p class="text-xl font-extrabold text-green-400">3</p>
+          <p class="text-[10px] text-gray-400 mt-0.5">No Local</p>
+        </div>
+      </div>
+
+      <!-- Pending Visitors -->
+      <div>
+        <h3 class="text-sm font-bold text-gold-300 mb-3 px-1 flex items-center gap-2">
+          <i data-lucide="clock" class="w-4 h-4"></i>
+          Visitantes Pendentes
+        </h3>
+        <div class="space-y-3">
+          <div class="glass rounded-xl p-4 visitor-pending card-press">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-premium-700 flex items-center justify-center text-sm font-bold text-gold-300">MC</div>
+                <div>
+                  <p class="text-sm font-bold text-white">Maria Conceição</p>
+                  <p class="text-xs text-gray-400">Visita familiar · Q7 Lote 14</p>
+                </div>
+              </div>
+              <span class="px-2 py-0.5 bg-gold-500/15 text-gold-400 text-[10px] font-bold rounded-full">Pendente</span>
+            </div>
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-[10px] text-gray-400"> Hoje</span>
+              <span class="text-[10px] text-gray-400">🕐 14:00 - 18:00</span>
+              <span class="text-[10px] text-gray-400">🚗 Plate: AC-4567-M</span>
+            </div>
+            <div class="flex gap-2">
+              <button onclick="approveVisitor(this)" class="flex-1 py-2 bg-green-600/80 rounded-lg text-xs font-bold text-white card-press">
+                Aprovar
+              </button>
+              <button class="flex-1 py-2 bg-red-600/80 rounded-lg text-xs font-bold text-white card-press">
+                Recusar
+              </button>
+            </div>
+          </div>
+          <div class="glass rounded-xl p-4 visitor-pending card-press">
+            <div class="flex items-start justify-between mb-3">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-premium-700 flex items-center justify-center text-sm font-bold text-gold-300">PS</div>
+                <div>
+                  <p class="text-sm font-bold text-white">Pedro Santos</p>
+                  <p class="text-xs text-gray-400">Entrega · Q7 Lote 14</p>
+                </div>
+              </div>
+              <span class="px-2 py-0.5 bg-gold-500/15 text-gold-400 text-[10px] font-bold rounded-full">Pendente</span>
+            </div>
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-[10px] text-gray-400">📅 Hoje</span>
+              <span class="text-[10px] text-gray-400"> 15:00 - 15:30</span>
+            </div>
+            <div class="flex gap-2">
+              <button onclick="approveVisitor(this)" class="flex-1 py-2 bg-green-600/80 rounded-lg text-xs font-bold text-white card-press">
+                Aprovar
+              </button>
+              <button class="flex-1 py-2 bg-red-600/80 rounded-lg text-xs font-bold text-white card-press">
+                Recusar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Visitors -->
+      <div>
+        <h3 class="text-sm font-bold text-green-300 mb-3 px-1 flex items-center gap-2">
+          <div class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+          Visitantes no Local
+        </h3>
+        <div class="space-y-3">
+          <div class="glass rounded-xl p-4 visitor-inside card-press">
+            <div class="flex items-start justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-green-600/20 flex items-center justify-center text-sm font-bold text-green-300">AM</div>
+                <div>
+                  <p class="text-sm font-bold text-white">António Matavele</p>
+                  <p class="text-xs text-gray-400">Visita · Q5 Lote 8</p>
+                </div>
+              </div>
+              <span class="px-2 py-0.5 bg-green-500/15 text-green-400 text-[10px] font-bold rounded-full">Dentro</span>
+            </div>
+            <p class="text-[10px] text-gray-400 mt-2">Entrada: 13:20 · Validade: 17:00</p>
+          </div>
+          <div class="glass rounded-xl p-4 visitor-inside card-press">
+            <div class="flex items-start justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-green-600/20 flex items-center justify-center text-sm font-bold text-green-300">SF</div>
+                <div>
+                  <p class="text-sm font-bold text-white">Sofia Fernandes</p>
+                  <p class="text-xs text-gray-400">Técnica EDM · Q3 Lote 22</p>
+                </div>
+              </div>
+              <span class="px-2 py-0.5 bg-green-500/15 text-green-400 text-[10px] font-bold rounded-full">Dentro</span>
+            </div>
+            <p class="text-[10px] text-gray-400 mt-2">Entrada: 14:00 · Validade: 16:00</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- History -->
+      <div>
+        <h3 class="text-sm font-bold text-gray-400 mb-3 px-1">Histórico Recente</h3>
+        <div class="space-y-3">
+          <div class="glass rounded-xl p-4 visitor-completed card-press opacity-60">
+            <div class="flex items-start justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-gray-700/50 flex items-center justify-center text-sm font-bold text-gray-400">RC</div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-300">Rui Cossa</p>
+                  <p class="text-xs text-gray-500">Visita · Q2 Lote 5</p>
+                </div>
+              </div>
+              <span class="px-2 py-0.5 bg-gray-500/15 text-gray-400 text-[10px] font-bold rounded-full">Concluído</span>
+            </div>
+          </div>
+          <div class="glass rounded-xl p-4 visitor-expired card-press opacity-60">
+            <div class="flex items-start justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-red-700/20 flex items-center justify-center text-sm font-bold text-red-400">BN</div>
+                <div>
+                  <p class="text-sm font-semibold text-gray-300">Bruno Neto</p>
+                  <p class="text-xs text-gray-500">Acesso expirado · Q8 Lote 3</p>
+                </div>
+              </div>
+              <span class="px-2 py-0.5 bg-red-500/15 text-red-400 text-[10px] font-bold rounded-full">Expirado</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SECURITY SCREEN ============ -->
+  <div id="screen-security" class="screen">
+    <div class="px-5 pt-12 pb-4">
+      <div class="flex items-center gap-4 mb-6">
+        <button onclick="navigate('home')" class="w-10 h-10 rounded-xl glass flex items-center justify-center card-press">
+          <i data-lucide="arrow-left" class="w-5 h-5 text-gray-300"></i>
+        </button>
+        <div>
+          <h1 class="text-xl font-extrabold text-white">Centro de Segurança</h1>
+          <p class="text-xs text-gray-400">Coordenação e contactos de emergência</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="px-5 space-y-4 pb-4">
+      <!-- Emergency Button -->
+      <button onclick="triggerSOS()" class="w-full py-4 bg-gradient-to-r from-red-700 to-red-600 rounded-xl font-bold text-white text-lg shadow-lg pulse-sos flex items-center justify-center gap-3 card-press">
+        <i data-lucide="shield-alert" class="w-6 h-6"></i>
+        EMERGÊNCIA IMEDIATA
+      </button>
+
+      <!-- Security Status -->
+      <div class="glass rounded-2xl p-5 card-press">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-xl bg-green-600/20 flex items-center justify-center">
+              <i data-lucide="shield-check" class="w-6 h-6 text-green-400"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-white">Estado da Segurança</h3>
+              <p class="text-xs text-gray-400">Nível de alerta actual</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 bg-green-500/20 text-green-300 text-xs font-bold rounded-full border border-green-500/30">BAIXO</span>
+        </div>
+        <div class="w-full bg-premium-800 rounded-full h-2">
+          <div class="bg-green-500 h-2 rounded-full" style="width: 20%"></div>
+        </div>
+        <div class="flex justify-between mt-2">
+          <span class="text-[10px] text-gray-500">Baixo</span>
+          <span class="text-[10px] text-gray-500">Moderado</span>
+          <span class="text-[10px] text-gray-500">Elevado</span>
+          <span class="text-[10px] text-gray-500">Crítico</span>
+        </div>
+      </div>
+
+      <!-- Emergency Contacts -->
+      <div class="glass rounded-2xl p-5">
+        <h3 class="text-sm font-bold text-white mb-4">Contactos de Emergência</h3>
+        <div class="space-y-3">
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-premium-800/50 card-press">
+            <div class="w-11 h-11 rounded-xl bg-blue-600/20 flex items-center justify-center">
+              <i data-lucide="phone-call" class="w-5 h-5 text-blue-400"></i>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-bold text-white">PRM - Polícia</p>
+              <p class="text-xs text-gray-400">Delegacia de Boane</p>
+            </div>
+            <a href="tel:119" class="w-9 h-9 rounded-lg bg-green-600/30 flex items-center justify-center card-press">
+              <i data-lucide="phone" class="w-4 h-4 text-green-400"></i>
+            </a>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-premium-800/50 card-press">
+            <div class="w-11 h-11 rounded-xl bg-green-600/20 flex items-center justify-center">
+              <i data-lucide="users" class="w-5 h-5 text-green-400"></i>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-bold text-white">Coordenação do Bairro</p>
+              <p class="text-xs text-gray-400">AMOBELO · Líder comunitário</p>
+            </div>
+            <a href="tel:+258841234567" class="w-9 h-9 rounded-lg bg-green-600/30 flex items-center justify-center card-press">
+              <i data-lucide="phone" class="w-4 h-4 text-green-400"></i>
+            </a>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-premium-800/50 card-press">
+            <div class="w-11 h-11 rounded-xl bg-gold-500/15 flex items-center justify-center">
+              <i data-lucide="shield" class="w-5 h-5 text-gold-400"></i>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-bold text-white">Segurança Privada</p>
+              <p class="text-xs text-gray-400">Vigilância BH</p>
+            </div>
+            <a href="tel:+258847654321" class="w-9 h-9 rounded-lg bg-green-600/30 flex items-center justify-center card-press">
+              <i data-lucide="phone" class="w-4 h-4 text-green-400"></i>
+            </a>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-premium-800/50 card-press">
+            <div class="w-11 h-11 rounded-xl bg-red-600/20 flex items-center justify-center">
+              <i data-lucide="flame" class="w-5 h-5 text-red-400"></i>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-bold text-white">Bombeiros</p>
+              <p class="text-xs text-gray-400">Corpo de Bombeiros de Maputo</p>
+            </div>
+            <a href="tel:118" class="w-9 h-9 rounded-lg bg-green-600/30 flex items-center justify-center card-press">
+              <i data-lucide="phone" class="w-4 h-4 text-green-400"></i>
+            </a>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-premium-800/50 card-press">
+            <div class="w-11 h-11 rounded-xl bg-blue-500/20 flex items-center justify-center">
+              <i data-lucide="building" class="w-5 h-5 text-blue-400"></i>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-bold text-white">Conselho Municipal</p>
+              <p class="text-xs text-gray-400">Município de Boane</p>
+            </div>
+            <a href="tel:+258217890123" class="w-9 h-9 rounded-lg bg-green-600/30 flex items-center justify-center card-press">
+              <i data-lucide="phone" class="w-4 h-4 text-green-400"></i>
+            </a>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-premium-800/50 card-press">
+            <div class="w-11 h-11 rounded-xl bg-yellow-500/15 flex items-center justify-center">
+              <i data-lucide="zap" class="w-5 h-5 text-yellow-400"></i>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-bold text-white">EDM</p>
+              <p class="text-xs text-gray-400">Electricidade de Moçambique</p>
+            </div>
+            <a href="tel:800800" class="w-9 h-9 rounded-lg bg-green-600/30 flex items-center justify-center card-press">
+              <i data-lucide="phone" class="w-4 h-4 text-green-400"></i>
+            </a>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-premium-800/50 card-press">
+            <div class="w-11 h-11 rounded-xl bg-teal-500/15 flex items-center justify-center">
+              <i data-lucide="droplets" class="w-5 h-5 text-teal-400"></i>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-bold text-white">Águas de Moçambique</p>
+              <p class="text-xs text-gray-400">AdRM · Linha de apoio</p>
+            </div>
+            <a href="tel:800100" class="w-9 h-9 rounded-lg bg-green-600/30 flex items-center justify-center card-press">
+              <i data-lucide="phone" class="w-4 h-4 text-green-400"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Security Alerts -->
+      <div class="glass rounded-2xl p-5">
+        <h3 class="text-sm font-bold text-white mb-4">Alertas Recentes de Segurança</h3>
+        <div class="space-y-3">
+          <div class="p-3 rounded-xl bg-red-500/10 border border-red-500/20">
+            <div class="flex items-center gap-2 mb-1">
+              <i data-lucide="alert-triangle" class="w-4 h-4 text-red-400"></i>
+              <span class="text-xs font-bold text-red-300">CRÍTICO</span>
+              <span class="text-[10px] text-gray-500 ml-auto">13:45</span>
+            </div>
+            <p class="text-xs text-gray-300">Actividade suspeita reportada nas ruas laterais do Q7. Patrulha enviada.</p>
+          </div>
+          <div class="p-3 rounded-xl bg-gold-500/10 border border-gold-500/20">
+            <div class="flex items-center gap-2 mb-1">
+              <i data-lucide="alert-circle" class="w-4 h-4 text-gold-400"></i>
+              <span class="text-xs font-bold text-gold-300">ATENÇÃO</span>
+              <span class="text-[10px] text-gray-500 ml-auto">11:30</span>
+            </div>
+            <p class="text-xs text-gray-300">Falha de iluminação na Rua da Paz. Pedido enviado à EDM.</p>
+          </div>
+          <div class="p-3 rounded-xl bg-green-500/10 border border-green-500/20">
+            <div class="flex items-center gap-2 mb-1">
+              <i data-lucide="check-circle" class="w-4 h-4 text-green-400"></i>
+              <span class="text-xs font-bold text-green-300">RESOLVIDO</span>
+              <span class="text-[10px] text-gray-500 ml-auto">09:15</span>
+            </div>
+            <p class="text-xs text-gray-300">Portão principal reparado. Acesso normalizado.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Access Control -->
+      <div class="glass rounded-2xl p-5">
+        <h3 class="text-sm font-bold text-white mb-4">Controlo de Acessos</h3>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="p-4 rounded-xl bg-green-500/10 border border-green-500/20 text-center">
+            <i data-lucide="lock-open" class="w-6 h-6 text-green-400 mx-auto mb-2"></i>
+            <p class="text-sm font-bold text-green-300">Portão Principal</p>
+            <p class="text-xs text-gray-400 mt-1">Aberto</p>
+          </div>
+          <div class="p-4 rounded-xl bg-green-500/10 border border-green-500/20 text-center">
+            <i data-lucide="lock-open" class="w-6 h-6 text-green-400 mx-auto mb-2"></i>
+            <p class="text-sm font-bold text-green-300">Portão Secundário</p>
+            <p class="text-xs text-gray-400 mt-1">Aberto</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ALERTS SCREEN ============ -->
+  <div id="screen-alerts" class="screen">
+    <div class="px-5 pt-12 pb-4">
+      <div class="flex items-center gap-4 mb-6">
+        <button onclick="navigate('home')" class="w-10 h-10 rounded-xl glass flex items-center justify-center card-press">
+          <i data-lucide="arrow-left" class="w-5 h-5 text-gray-300"></i>
+        </button>
+        <div class="flex-1">
+          <h1 class="text-xl font-extrabold text-white">Alertas</h1>
+          <p class="text-xs text-gray-400">Notificações e avisos do bairro</p>
+        </div>
+        <button class="w-10 h-10 rounded-xl glass flex items-center justify-center card-press">
+          <i data-lucide="filter" class="w-5 h-5 text-gray-300"></i>
+        </button>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="flex gap-2 mb-4">
+        <button onclick="filterAlerts('all', this)" class="alert-filter active px-4 py-2 rounded-lg text-xs font-bold bg-gold-500/20 text-gold-400 card-press">Todos</button>
+        <button onclick="filterAlerts('critical', this)" class="alert-filter px-4 py-2 rounded-lg text-xs font-bold bg-premium-800/50 text-gray-400 card-press">Críticos</button>
+        <button onclick="filterAlerts('general', this)" class="alert-filter px-4 py-2 rounded-lg text-xs font-bold bg-premium-800/50 text-gray-400 card-press">Gerais</button>
+        <button onclick="filterAlerts('resolved', this)" class="alert-filter px-4 py-2 rounded-lg text-xs font-bold bg-premium-800/50 text-gray-400 card-press">Resolvidos</button>
+      </div>
+    </div>
+
+    <div class="px-5 space-y-3 pb-4" id="alerts-list">
+      <!-- Critical Alert -->
+      <div class="alert-item alert-critical glass rounded-2xl p-4 card-press border-l-4 border-l-red-500">
+        <div class="flex items-start justify-between mb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 bg-red-500/20 text-red-400 text-[10px] font-bold rounded-full">CRÍTICO</span>
+            <span class="text-[10px] text-gray-500">Hoje · 13:45</span>
+          </div>
+          <button class="text-xs text-gray-400 card-press"><i data-lucide="more-vertical" class="w-4 h-4"></i></button>
+        </div>
+        <h4 class="text-sm font-bold text-white mb-1">Actividade Suspeita no Q7</h4>
+        <p class="text-xs text-gray-400 mb-3">Indivíduos não identificados foram observados nas ruas laterais do Quarteirão 7. Patrulha de segurança foi despachada.</p>
+        <div class="flex items-center gap-3">
+          <div class="flex items-center gap-1">
+            <i data-lucide="map-pin" class="w-3 h-3 text-gray-500"></i>
+            <span class="text-[10px] text-gray-400">Rua das Acácias, Q7</span>
+          </div>
+          <div class="flex items-center gap-1 ml-auto">
+            <i data-lucide="user" class="w-3 h-3 text-gray-500"></i>
+            <span class="text-[10px] text-gray-400">Reportado por Carlos M.</span>
+          </div>
+        </div>
+        <div class="mt-3 pt-3 border-t border-premium-600/30 flex gap-2">
+          <button class="flex-1 py-2 bg-red-600/30 rounded-lg text-xs font-bold text-red-300 card-press">Ver Detalhes</button>
+          <button class="py-2 px-4 glass rounded-lg text-xs font-semibold text-gray-300 card-press">Marcar como visto</button>
+        </div>
+      </div>
+
+      <!-- General Alert -->
+      <div class="alert-item alert-general glass rounded-2xl p-4 card-press border-l-4 border-l-blue-400">
+        <div class="flex items-start justify-between mb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 bg-blue-500/20 text-blue-400 text-[10px] font-bold rounded-full">GERAL</span>
+            <span class="text-[10px] text-gray-500">Hoje · 10:00</span>
+          </div>
+          <button class="text-xs text-gray-400 card-press"><i data-lucide="more-vertical" class="w-4 h-4"></i></button>
+        </div>
+        <h4 class="text-sm font-bold text-white mb-1">Reunião Comunitária Agendada</h4>
+        <p class="text-xs text-gray-400 mb-3">Reunião geral do bairro no sábado, 15 de Janeiro, às 10h00 no salão comunitário. Ponto de situação sobre segurança e serviços da EDM.</p>
+        <div class="flex items-center gap-3">
+          <div class="flex items-center gap-1">
+            <i data-lucide="map-pin" class="w-3 h-3 text-gray-500"></i>
+            <span class="text-[10px] text-gray-400">Salão Comunitário BH</span>
+          </div>
+          <div class="flex items-center gap-1 ml-auto">
+            <i data-lucide="building" class="w-3 h-3 text-gray-500"></i>
+            <span class="text-[10px] text-gray-400">AMOBELO</span>
+          </div>
+        </div>
+        <div class="mt-3 pt-3 border-t border-premium-600/30">
+          <button class="w-full py-2 bg-blue-600/30 rounded-lg text-xs font-bold text-blue-300 card-press">Confirmar Presença</button>
+        </div>
+      </div>
+
+      <!-- General Alert 2 -->
+      <div class="alert-item alert-general glass rounded-2xl p-4 card-press border-l-4 border-l-gold-400">
+        <div class="flex items-start justify-between mb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 bg-gold-500/20 text-gold-400 text-[10px] font-bold rounded-full">ATENÇÃO</span>
+            <span class="text-[10px] text-gray-500">Ontem · 18:30</span>
+          </div>
+          <button class="text-xs text-gray-400 card-press"><i data-lucide="more-vertical" class="w-4 h-4"></i></button>
+        </div>
+        <h4 class="text-sm font-bold text-white mb-1">Corte de Energia Programado</h4>
+        <p class="text-xs text-gray-400 mb-3">A EDM comunicou corte de energia para manutenção na zona de Boane. Previsão: Terça-feira, 08:00 - 14:00.</p>
+        <div class="flex items-center gap-3">
+          <div class="flex items-center gap-1">
+            <i data-lucide="zap" class="w-3 h-3 text-gray-500"></i>
+            <span class="text-[10px] text-gray-400">Zona Boane</span>
+          </div>
+          <div class="flex items-center gap-1 ml-auto">
+            <i data-lucide="building" class="w-3 h-3 text-gray-500"></i>
+            <span class="text-[10px] text-gray-400">EDM</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resolved Alert -->
+      <div class="alert-item alert-resolved glass rounded-2xl p-4 card-press border-l-4 border-l-green-400 opacity-70">
+        <div class="flex items-start justify-between mb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 bg-green-500/20 text-green-400 text-[10px] font-bold rounded-full">RESOLVIDO</span>
+            <span class="text-[10px] text-gray-500">Ontem · 12:30</span>
+          </div>
+          <button class="text-xs text-gray-400 card-press"><i data-lucide="more-vertical" class="w-4 h-4"></i></button>
+        </div>
+        <h4 class="text-sm font-bold text-gray-300 mb-1">Falha de Iluminação - Rua da Paz</h4>
+        <p class="text-xs text-gray-500 mb-3">Lâmpada avariada na Rua da Paz, Q3. Reparação efectuada pela equipa de manutenção.</p>
+        <div class="flex items-center gap-3">
+          <div class="flex items-center gap-1">
+            <i data-lucide="check-circle" class="w-3 h-3 text-green-400"></i>
+            <span class="text-[10px] text-green-400">Resolvido em 2h</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resolved Alert 2 -->
+      <div class="alert-item alert-resolved glass rounded-2xl p-4 card-press border-l-4 border-l-green-400 opacity-70">
+        <div class="flex items-start justify-between mb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 bg-green-500/20 text-green-400 text-[10px] font-bold rounded-full">RESOLVIDO</span>
+            <span class="text-[10px] text-gray-500">2 dias atrás · 11:15</span>
+          </div>
+          <button class="text-xs text-gray-400 card-press"><i data-lucide="more-vertical" class="w-4 h-4"></i></button>
+        </div>
+        <h4 class="text-sm font-bold text-gray-300 mb-1">Ruído Excessivo - Rua do Comércio</h4>
+        <p class="text-xs text-gray-500 mb-3">Queixa de ruído excessivo no Q9. Situación resolvida após intervenção da coordenação do bairro.</p>
+        <div class="flex items-center gap-3">
+          <div class="flex items-center gap-1">
+            <i data-lucide="check-circle" class="w-3 h-3 text-green-400"></i>
+            <span class="text-[10px] text-green-400">Resolvido em 45min</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PROFILE SCREEN ============ -->
+  <div id="screen-profile" class="screen">
+    <div class="px-5 pt-12 pb-4">
+      <div class="flex items-center gap-4 mb-6">
+        <button onclick="navigate('home')" class="w-10 h-10 rounded-xl glass flex items-center justify-center card-press">
+          <i data-lucide="arrow-left" class="w-5 h-5 text-gray-300"></i>
+        </button>
+        <div>
+          <h1 class="text-xl font-extrabold text-white">O Meu Perfil</h1>
+          <p class="text-xs text-gray-400">Gestão da conta e definições</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="px-5 space-y-4 pb-4">
+      <!-- Profile Header -->
+      <div class="glass rounded-2xl p-6 text-center card-press">
+        <div class="w-20 h-20 rounded-full bg-premium-600 border-2 border-gold-500/40 flex items-center justify-center mx-auto mb-3">
+          <span class="text-2xl font-extrabold text-gold-300">JC</span>
+        </div>
+        <h2 class="text-lg font-bold text-white">João Manuel Chissano</h2>
+        <p class="text-xs text-gray-400 mt-1">BH-2024-0847 · Q7 Lote 14</p>
+        <div class="flex items-center justify-center gap-2 mt-3">
+          <span class="px-3 py-1 bg-green-500/15 text-green-300 text-[10px] font-bold rounded-full border border-green-500/30 flex items-center gap-1">
+            <i data-lucide="shield-check" class="w-3 h-3"></i>
+            Morador Verificado
+          </span>
+          <span class="px-3 py-1 bg-gold-500/15 text-gold-300 text-[10px] font-bold rounded-full border border-gold-500/30 flex items-center gap-1">
+            <i data-lucide="award" class="w-3 h-3"></i>
+            Residente Activo
+          </span>
+        </div>
+      </div>
+
+      <!-- Personal Info -->
+      <div class="glass rounded-2xl p-5">
+        <h3 class="text-sm font-bold text-white mb-4">Dados Pessoais</h3>
+        <div class="space-y-3">
+          <div class="flex items-center justify-between py-2 border-b border-premium-600/20">
+            <span class="text-xs text-gray-400">Nome Completo</span>
+            <span class="text-xs font-semibold text-white">João Manuel Chissano</span>
+          </div>
+          <div class="flex items-center justify-between py-2 border-b border-premium-600/20">
+            <span class="text-xs text-gray-400">Contacto</span>
+            <span class="text-xs font-semibold text-white">+258 84 765 4321</span>
+          </div>
+          <div class="flex items-center justify-between py-2 border-b border-premium-600/20">
+            <span class="text-xs text-gray-400">Email</span>
+            <span class="text-xs font-semibold text-white">joao.chissano@email.co.mz</span>
+          </div>
+          <div class="flex items-center justify-between py-2 border-b border-premium-600/20">
+            <span class="text-xs text-gray-400">Quarteirão / Lote</span>
+            <span class="text-xs font-semibold text-white">Q7 · Lote 14</span>
+          </div>
+          <div class="flex items-center justify-between py-2 border-b border-premium-600/20">
+            <span class="text-xs text-gray-400">Membro desde</span>
+            <span class="text-xs font-semibold text-white">Janeiro 2024</span>
+          </div>
+          <div class="flex items-center justify-between py-2">
+            <span class="text-xs text-gray-400">Estado</span>
+            <span class="text-xs font-semibold text-green-300">Activo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Emergency Contact -->
+      <div class="glass rounded-2xl p-5">
+        <h3 class="text-sm font-bold text-white mb-4">Contacto de Emergência</h3>
+        <div class="flex items-center gap-3 p-3 rounded-xl bg-premium-800/50">
+          <div class="w-10 h-10 rounded-full bg-red-500/15 flex items-center justify-center">
+            <i data-lucide="heart" class="w-5 h-5 text-red-400"></i>
+          </div>
+          <div>
+            <p class="text-sm font-bold text-white">Maria Chissano</p>
+            <p class="text-xs text-gray-400">Esposa · +258 84 123 9876</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vehicles -->
+      <div class="glass rounded-2xl p-5">
+        <h3 class="text-sm font-bold text-white mb-4">Viaturas Associadas</h3>
+        <div class="space-y-3">
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-premium-800/50">
+            <div class="w-10 h-10 rounded-xl bg-premium-700 flex items-center justify-center">
+              <i data-lucide="car" class="w-5 h-5 text-green-300"></i>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-bold text-white">Toyota Corolla</p>
+              <p class="text-xs text-gray-400">AC-4567-M · Branco</p>
+            </div>
+            <span class="px-2 py-0.5 bg-green-500/15 text-green-400 text-[10px] font-bold rounded-full">Registado</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Permissions -->
+      <div class="glass rounded-2xl p-5">
+        <h3 class="text-sm font-bold text-white mb-4">Permissões</h3>
+        <div class="space-y-2">
+          <div class="flex items-center justify-between p-3 rounded-xl bg-premium-800/50">
+            <span class="text-sm text-gray-200">Reportar ocorrências</span>
+            <i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i>
+          </div>
+          <div class="flex items-center justify-between p-3 rounded-xl bg-premium-800/50">
+            <span class="text-sm text-gray-200">Aprovar visitantes</span>
+            <i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i>
+          </div>
+          <div class="flex items-center justify-between p-3 rounded-xl bg-premium-800/50">
+            <span class="text-sm text-gray-200">Acesso a dados comunitários</span>
+            <i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i>
+          </div>
+          <div class="flex items-center justify-between p-3 rounded-xl bg-premium-800/50">
+            <span class="text-sm text-gray-200">Administração do bairro</span>
+            <i data-lucide="x-circle" class="w-5 h-5 text-gray-600"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Documents -->
+      <div class="glass rounded-2xl p-5">
+        <h3 class="text-sm font-bold text-white mb-4">Documentos Úteis</h3>
+        <div class="space-y-2">
+          <button class="w-full flex items-center gap-3 p-3 rounded-xl bg-premium-800/50 card-press">
+            <i data-lucide="file-text" class="w-5 h-5 text-gold-400"></i>
+            <span class="text-sm text-gray-200 flex-1 text-left">Regulamento do Bairro</span>
+            <i data-lucide="download" class="w-4 h-4 text-gray-500"></i>
+          </button>
+          <button class="w-full flex items-center gap-3 p-3 rounded-xl bg-premium-800/50 card-press">
+            <i data-lucide="file-text" class="w-5 h-5 text-gold-400"></i>
+            <span class="text-sm text-gray-200 flex-1 text-left">Plano de Emergência</span>
+            <i data-lucide="download" class="w-4 h-4 text-gray-500"></i>
+          </button>
+          <button class="w-full flex items-center gap-3 p-3 rounded-xl bg-premium-800/50 card-press">
+            <i data-lucide="file-text" class="w-5 h-5 text-gold-400"></i>
+            <span class="text-sm text-gray-200 flex-1 text-left">Directrizes do Conselho Municipal</span>
+            <i data-lucide="download" class="w-4 h-4 text-gray-500"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Access History -->
+      <div class="glass rounded-2xl p-5">
+        <h3 class="text-sm font-bold text-white mb-4">Histórico de Acessos</h3>
+        <div class="space-y-3">
+          <div class="flex items-center justify-between py-2 border-b border-premium-600/20">
+            <div class="flex items-center gap-2">
+              <i data-lucide="log-in" class="w-4 h-4 text-green-400"></i>
+              <span class="text-xs text-gray-300">Último acesso à app</span>
+            </div>
+            <span class="text-xs text-gray-400">Hoje · 14:28</span>
+          </div>
+          <div class="flex items-center justify-between py-2 border-b border-premium-600/20">
+            <div class="flex items-center gap-2">
+              <i data-lucide="log-in" class="w-4 h-4 text-green-400"></i>
+              <span class="text-xs text-gray-300">Acesso ao bairro</span>
+            </div>
+            <span class="text-xs text-gray-400">Hoje · 07:15</span>
+          </div>
+          <div class="flex items-center justify-between py-2">
+            <div class="flex items-center gap-2">
+              <i data-lucide="log-out" class="w-4 h-4 text-gray-500"></i>
+              <span class="text-xs text-gray-300">Saída do bairro</span>
+            </div>
+            <span class="text-xs text-gray-400">Ontem · 18:30</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings -->
+      <div class="glass rounded-2xl p-5">
+        <h3 class="text-sm font-bold text-white mb-4">Definições</h3>
+        <div class="space-y-2">
+          <button class="w-full flex items-center justify-between p-3 rounded-xl bg-premium-800/50 card-press">
+            <div class="flex items-center gap-3">
+              <i data-lucide="bell" class="w-5 h-5 text-gold-400"></i>
+              <span class="text-sm text-gray-200">Notificações</span>
+            </div>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-gray-500"></i>
+          </button>
+          <button class="w-full flex items-center justify-between p-3 rounded-xl bg-premium-800/50 card-press">
+            <div class="flex items-center gap-3">
+              <i data-lucide="lock" class="w-5 h-5 text-gold-400"></i>
+              <span class="text-sm text-gray-200">Segurança da Conta</span>
+            </div>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-gray-500"></i>
+          </button>
+          <button class="w-full flex items-center justify-between p-3 rounded-xl bg-premium-800/50 card-press">
+            <div class="flex items-center gap-3">
+              <i data-lucide="globe" class="w-5 h-5 text-gold-400"></i>
+              <span class="text-sm text-gray-200">Idioma</span>
+            </div>
+            <span class="text-xs text-gray-400">Português</span>
+          </button>
+          <button class="w-full flex items-center justify-between p-3 rounded-xl bg-premium-800/50 card-press">
+            <div class="flex items-center gap-3">
+              <i data-lucide="info" class="w-5 h-5 text-gold-400"></i>
+              <span class="text-sm text-gray-200">Sobre a Aplicação</span>
+            </div>
+            <span class="text-xs text-gray-400">v2.1.0</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Logout -->
+      <button class="w-full py-3 border border-red-500/30 rounded-xl text-sm font-bold text-red-400 card-press">
+        Terminar Sessão
+      </button>
+    </div>
+  </div>
+
+  <!-- ============ BOTTOM NAVIGATION ============ -->
+  <nav class="fixed bottom-0 left-0 right-0 z-50 max-w-md mx-auto">
+    <div class="glass-light rounded-t-3xl px-4 py-2 pb-6 border-t border-premium-600/20">
+      <div class="flex items-center justify-between">
+        <button onclick="navigate('home')" class="nav-item active flex flex-col items-center gap-1 py-1 px-3" data-screen="home">
+          <i data-lucide="home" class="w-5 h-5 nav-icon"></i>
+          <span class="text-[10px] font-semibold">Início</span>
+        </button>
+        <button onclick="navigate('card')" class="nav-item flex flex-col items-center gap-1 py-1 px-3 text-gray-500" data-screen="card">
+          <i data-lucide="credit-card" class="w-5 h-5 nav-icon"></i>
+          <span class="text-[10px] font-semibold">Cartão</span>
+        </button>
+        
+        <!-- Central Action Button -->
+        <button onclick="openActionMenu()" class="relative -mt-6">
+          <div class="w-14 h-14 rounded-full bg-gradient-to-br from-gold-500 to-gold-400 flex items-center justify-center shadow-glow-gold card-press">
+            <i data-lucide="plus" class="w-6 h-6 text-premium-900"></i>
+          </div>
+        </button>
+        
+        <button onclick="navigate('alerts')" class="nav-item flex flex-col items-center gap-1 py-1 px-3 text-gray-500 relative" data-screen="alerts">
+          <i data-lucide="alert-circle" class="w-5 h-5 nav-icon"></i>
+          <span class="text-[10px] font-semibold">Alertas</span>
+          <span class="absolute -top-1 right-0 w-4 h-4 bg-red-600 rounded-full text-[8px] font-bold flex items-center justify-center">3</span>
+        </button>
+        <button onclick="navigate('profile')" class="nav-item flex flex-col items-center gap-1 py-1 px-3 text-gray-500" data-screen="profile">
+          <i data-lucide="user" class="w-5 h-5 nav-icon"></i>
+          <span class="text-[10px] font-semibold">Perfil</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ ACTION MENU MODAL ============ -->
+  <div id="action-menu" class="modal-overlay hidden" onclick="closeActionMenu(event)">
+    <div class="w-full max-w-md bg-dark-800 rounded-t-3xl p-6 pb-8 slide-up" onclick="event.stopPropagation()">
+      <div class="w-12 h-1 bg-gray-600 rounded-full mx-auto mb-6"></div>
+      <h3 class="text-lg font-bold text-white text-center mb-6">Acções Rápidas</h3>
+      <div class="grid grid-cols-2 gap-3">
+        <button onclick="navigate('report'); closeActionMenu();" class="glass rounded-xl p-5 flex flex-col items-center gap-3 card-press">
+          <div class="w-12 h-12 rounded-full bg-red-500/15 flex items-center justify-center">
+            <i data-lucide="flag" class="w-6 h-6 text-red-400"></i>
+          </div>
+          <span class="text-sm font-bold text-white">Reportar</span>
+        </button>
+        <button onclick="navigate('visitors'); closeActionMenu();" class="glass rounded-xl p-5 flex flex-col items-center gap-3 card-press">
+          <div class="w-12 h-12 rounded-full bg-green-500/15 flex items-center justify-center">
+            <i data-lucide="user-plus" class="w-6 h-6 text-green-400"></i>
+          </div>
+          <span class="text-sm font-bold text-white">Adicionar Visitante</span>
+        </button>
+        <button onclick="navigate('security'); closeActionMenu();" class="glass rounded-xl p-5 flex flex-col items-center gap-3 card-press">
+          <div class="w-12 h-12 rounded-full bg-gold-500/15 flex items-center justify-center">
+            <i data-lucide="shield" class="w-6 h-6 text-gold-400"></i>
+          </div>
+          <span class="text-sm font-bold text-white">Segurança</span>
+        </button>
+        <button onclick="triggerSOS(); closeActionMenu();" class="glass rounded-xl p-5 flex flex-col items-center gap-3 card-press">
+          <div class="w-12 h-12 rounded-full bg-red-600/15 flex items-center justify-center">
+            <i data-lucide="shield-alert" class="w-6 h-6 text-red-400"></i>
+          </div>
+          <span class="text-sm font-bold text-red-400">SOS / Pânico</span>
+        </button>
+      </div>
+      <button onclick="closeActionMenu()" class="w-full py-3 mt-4 text-sm text-gray-400 font-semibold card-press">
+        Cancelar
+      </button>
+    </div>
+  </div>
+
+  <!-- ============ SOS CONFIRMATION MODAL ============ -->
+  <div id="sos-modal" class="modal-overlay hidden" onclick="closeSOS(event)">
+    <div class="w-full max-w-md bg-dark-800 rounded-t-3xl p-6 pb-8 slide-up" onclick="event.stopPropagation()">
+      <div class="w-12 h-1 bg-gray-600 rounded-full mx-auto mb-6"></div>
+      <div class="text-center mb-6">
+        <div class="w-16 h-16 rounded-full bg-red-600/20 flex items-center justify-center mx-auto mb-4 pulse-sos">
+          <i data-lucide="shield-alert" class="w-8 h-8 text-red-400"></i>
+        </div>
+        <h3 class="text-xl font-extrabold text-white">Confirmar SOS</h3>
+        <p class="text-sm text-gray-400 mt-2">Tem a certeza que deseja activar o alerta de emergência?</p>
+      </div>
+      <div class="space-y-3">
+        <button onclick="confirmSOS()" class="w-full py-4 bg-gradient-to-r from-red-700 to-red-600 rounded-xl font-bold text-white text-base shadow-lg flex items-center justify-center gap-3 card-press">
+          <i data-lucide="phone-call" class="w-5 h-5"></i>
+          Activar Alerta de Emergência
+        </button>
+        <button onclick="closeSOS()" class="w-full py-3 border border-gray-600 rounded-xl text-sm font-semibold text-gray-400 card-press">
+          Cancelar
+        </button>
+      </div>
+      <p class="text-xs text-gray-500 text-center mt-4">A coordenação do bairro, PRM e contactos de emergência serão notificados imediatamente.</p>
+    </div>
+  </div>
+
+  <!-- ============ SUCCESS TOAST ============ -->
+  <div id="toast" class="fixed top-6 left-4 right-4 z-[200] max-w-md mx-auto hidden">
+    <div class="glass rounded-xl p-4 flex items-center gap-3 fade-in">
+      <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
+        <i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i>
+      </div>
+      <div>
+        <p class="text-sm font-bold text-white" id="toast-title">Sucesso</p>
+        <p class="text-xs text-gray-400" id="toast-message">Acção realizada com sucesso</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Initialize Lucide icons
+lucide.createIcons();
+
+// Time-based greeting and hero state
+function updateHeroState() {
+  const hour = new Date().getHours();
+  const overlay = document.getElementById('hero-overlay');
+  const greeting = document.getElementById('greeting');
+  
+  overlay.className = 'absolute inset-0 ';
+  
+  if (hour >= 6 && hour < 12) {
+    overlay.classList.add('hero-overlay-morning');
+    greeting.textContent = 'Bom dia';
+  } else if (hour >= 12 && hour < 17) {
+    overlay.classList.add('hero-overlay-afternoon');
+    greeting.textContent = 'Boa tarde';
+  } else if (hour >= 17 && hour < 20) {
+    overlay.classList.add('hero-overlay-evening');
+    greeting.textContent = 'Boa tarde';
+  } else {
+    overlay.classList.add('hero-overlay-night');
+    greeting.textContent = 'Boa noite';
+  }
+}
+
+// Clock
+function updateClock() {
+  const now = new Date();
+  const h = String(now.getHours()).padStart(2, '0');
+  const m = String(now.getMinutes()).padStart(2, '0');
+  document.getElementById('clock-time').textContent = h + ':' + m;
+}
+
+// Navigation
+function navigate(screenId) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('screen-' + screenId).classList.add('active');
+  
+  document.querySelectorAll('.nav-item').forEach(item => {
+    item.classList.remove('active');
+    item.classList.add('text-gray-500');
+  });
+  
+  const activeNav = document.querySelector('.nav-item[data-screen="' + screenId + '"]');
+  if (activeNav) {
+    activeNav.classList.add('active');
+    activeNav.classList.remove('text-gray-500');
+  }
+  
+  window.scrollTo(0, 0);
+  lucide.createIcons();
+  
+  if (screenId === 'card') {
+    setTimeout(generateQR, 100);
+  }
+}
+
+// Action Menu
+function openActionMenu() {
+  document.getElementById('action-menu').classList.remove('hidden');
+}
+
+function closeActionMenu(e) {
+  if (e && e.target !== e.currentTarget) return;
+  document.getElementById('action-menu').classList.add('hidden');
+}
+
+// SOS
+function triggerSOS() {
+  document.getElementById('sos-modal').classList.remove('hidden');
+}
+
+function closeSOS(e) {
+  if (e && e.target !== e.currentTarget) return;
+  document.getElementById('sos-modal').classList.add('hidden');
+}
+
+function confirmSOS() {
+  document.getElementById('sos-modal').classList.add('hidden');
+  showToast('Alerta de Emergência', 'PRM e coordenação do bairro foram notificados.');
+}
+
+// Toast
+function showToast(title, message) {
+  const toast = document.getElementById('toast');
+  document.getElementById('toast-title').textContent = title;
+  document.getElementById('toast-message').textContent = message;
+  toast.classList.remove('hidden');
+  setTimeout(() => toast.classList.add('hidden'), 4000);
+}
+
+// Category selection
+function selectCategory(btn, type) {
+  document.querySelectorAll('.cat-btn').forEach(b => {
+    b.classList.remove('border-2');
+    b.style.borderColor = '';
+  });
+  btn.style.borderColor = '#c4a24e';
+  btn.style.borderWidth = '2px';
+}
+
+// Severity selection
+function selectSeverity(btn, level) {
+  document.querySelectorAll('.sev-btn').forEach(b => {
+    b.classList.remove('border-2');
+    b.style.borderColor = '';
+    b.style.background = '';
+  });
+  
+  const colors = {
+    'baixa': 'rgba(34,197,94,0.2)',
+    'media': 'rgba(196,162,78,0.2)',
+    'alta': 'rgba(251,146,60,0.2)',
+    'critica': 'rgba(220,38,38,0.2)'
+  };
+  
+  btn.style.background = colors[level] || '';
+  btn.style.borderColor = '#c4a24e';
+  btn.style.borderWidth = '2px';
+}
+
+// Submit report
+function submitReport() {
+  showToast('Ocorrência Enviada', 'A sua ocorrência foi registada com sucesso.');
+}
+
+// Approve visitor
+function approveVisitor(btn) {
+  const card = btn.closest('.visitor-pending');
+  card.classList.remove('visitor-pending');
+  card.classList.add('visitor-inside');
+  const statusSpan = card.querySelector('.px-2.py-0.5');
+  statusSpan.className = 'px-2 py-0.5 bg-green-500/15 text-green-400 text-[10px] font-bold rounded-full';
+  statusSpan.textContent = 'Autorizado';
+  
+  const buttons = card.querySelectorAll('button.flex-1');
+  buttons[0].textContent = 'Revogar';
+  buttons[0].className = 'flex-1 py-2 bg-red-600/80 rounded-lg text-xs font-bold text-white card-press';
+  buttons[1].style.display = 'none';
+  
+  showToast('Visitante Aprovado', 'Acesso autorizado com sucesso.');
+}
+
+// Filter alerts
+function filterAlerts(type, btn) {
+  document.querySelectorAll('.alert-filter').forEach(f => {
+    f.classList.remove('active', 'bg-gold-500/20', 'text-gold-400');
+    f.classList.add('bg-premium-800/50', 'text-gray-400');
+  });
+  btn.classList.add('active', 'bg-gold-500/20', 'text-gold-400');
+  btn.classList.remove('bg-premium-800/50', 'text-gray-400');
+  
+  document.querySelectorAll('.alert-item').forEach(item => {
+    if (type === 'all') {
+      item.style.display = '';
+    } else {
+      item.style.display = item.classList.contains('alert-' + type) ? '' : 'none';
+    }
+  });
+}
+
+// QR Code
+function generateQR() {
+  const container = document.getElementById('qrcode');
+  if (container && !container.hasChildNodes()) {
+    new QRCode(container, {
+      text: 'BH-2024-0847|João Manuel Chissano|Q7-L14|VERIFIED',
+      width: 100,
+      height: 100,
+      colorDark: '#0a1a0f',
+      colorLight: '#ffffff',
+      correctLevel: QRCode.CorrectLevel.M
+    });
+  }
+}
+
+// Initialize
+updateHeroState();
+updateClock();
+setInterval(updateClock, 30000);
+
+// Generate QR on card screen load
+const observer = new MutationObserver(() => {
+  if (document.getElementById('screen-card').classList.contains('active')) {
+    setTimeout(generateQR, 200);
+  }
+});
+observer.observe(document.getElementById('screen-card'), { attributes: true, attributeFilter: ['class'] });
+
+// Initial icon rendering
+setTimeout(() => lucide.createIcons(), 100);
+</script>
+
+</body>
+</html>
+
