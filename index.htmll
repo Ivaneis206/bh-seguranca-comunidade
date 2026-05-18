@@ -1,0 +1,389 @@
+Act as a principal product designer, senior UX architect, frontend strategist, and premium civic-tech platform specialist.
+
+I want you to create a complete premium mobile-first neighbourhood platform from scratch for:
+
+BH Segurança & Comunidade
+
+Location:
+Belo Horizonte, Boane, Mozambique
+
+Language:
+Portuguese (Portugal), written naturally for Mozambique.
+
+CORE PURPOSE
+This must be a private community platform for residents of Belo Horizonte.
+It should combine:
+- security
+- alerts
+- incident reporting
+- resident identity
+- visitor management
+- neighbourhood communication
+- operational visibility
+- community organisation
+
+This is not just a simple app.
+It must feel like a serious, premium, resident-only digital platform for a verified and organised neighbourhood.
+
+POSITIONING
+The app must feel:
+- premium
+- exclusive
+- secure
+- elegant
+- modern
+- 2026
+- polished
+- credible
+- desirable
+- suitable for a high-standard private community
+
+Do not make it feel:
+- plain
+- flat
+- childish
+- generic
+- like a template
+- like a wireframe
+- like a fintech
+- like a social media app
+- like a gaming UI
+- overloaded with gimmicks
+
+VISUAL DIRECTION
+Use a strong premium interface style with:
+- deep dark green
+- green-black gradients
+- soft gold accents
+- off-white and light grey
+- red only for emergency and critical alerts
+- soft blue only for neutral operational information
+
+The visual system must include:
+- refined shadows
+- premium depth
+- layered cards
+- elegant rounded corners
+- subtle glass treatment only where tasteful
+- clean typography
+- clear hierarchy
+- excellent spacing
+- stronger contrast
+- premium iconography
+- subtle microinteractions
+- buttons that clearly feel clickable
+
+MOZAMBIQUE CONTEXT
+The platform must feel local and credible.
+Use realistic labels and context such as:
+- Belo Horizonte
+- Boane
+- Moçambique
+- Quarteirão
+- Morador
+- Coordenação do Bairro
+- AMOBELO
+- PRM
+- Conselho Municipal de Boane
+- EDM
+- AdRM
+
+Use realistic Mozambican names, realistic notices, realistic incidents, realistic community references, and realistic operational data.
+
+MAIN EXPERIENCE
+The app must be mobile-first and easy to use for:
+- young adults
+- working adults
+- older residents
+
+So I want:
+- strong legibility
+- large touch areas
+- simple navigation
+- very clear buttons
+- little confusion
+- practical flows
+- elegant but accessible design
+
+HERO SECTION
+Create a premium hero section for the home screen.
+
+It must include:
+- a realistic and elegant image inspired by Belo Horizonte / Boane
+- premium live-wallpaper feeling
+- dynamic mood based on time of day
+
+Hero states:
+- morning: light, fresh, calm
+- afternoon: brighter, warmer
+- evening: soft golden tone
+- night: darker premium ambience with subtle lights
+
+Hero content:
+- greeting: Bom dia / Boa tarde / Boa noite
+- BH Segurança & Comunidade
+- Belo Horizonte · Boane · Moçambique
+- current time
+- temperature
+- weather state
+- neighbourhood status
+- Comunidade Verificada
+- notification icon
+- elegant SOS / Pânico button
+
+Important:
+Weather must appear only in the hero section.
+Do not repeat weather again in lower widgets.
+
+EXCLUSIVITY LAYER
+The app must feel like a verified private community.
+
+Add premium exclusivity signals such as:
+- Morador Verificado
+- Residente Activo
+- Comunidade Verificada
+- secure badges
+- premium identity strip
+- trusted access state
+- resident-only appearance
+- a feeling of status and belonging
+
+HOME SCREEN
+Create a premium and functional home screen with:
+
+1. Hero section
+2. Resident identity strip
+3. Elegant SOS / Pânico button
+4. Active incident card
+5. Important meeting / notice card
+6. Quick actions
+7. Operational widgets
+8. Recent incidents
+9. Neighbourhood status
+10. Community presence / nearby active residents
+
+Quick actions:
+- Cartão
+- Reportar
+- Visitantes
+- Segurança
+- Alertas
+- Contactos
+
+Mandatory widgets:
+- Acessos Hoje
+- Acessos Negados
+- Visitantes Activos
+- Alertas Activos
+- Incidentes Pendentes
+- Tempo Médio de Resposta
+- Última Ronda
+- Próxima Reunião
+- Aprovações Pendentes
+- Última Actualização
+- Estado dos Acessos
+- Sistema Online
+- Ocorrências Resolvidas Hoje
+
+Important:
+Do not duplicate weather in lower cards.
+
+CARD HIERARCHY
+Use three hierarchy levels:
+1. Primary cards:
+- Estado do Bairro
+- Alertas Activos
+- Incidentes Pendentes
+
+2. KPI cards:
+- Visitantes
+- Acessos
+- Última Ronda
+- Próxima Reunião
+- Tempo Médio de Resposta
+- Resolvidos Hoje
+
+3. Support cards:
+- Aprovações Pendentes
+- Última Actualização
+- Estado dos Acessos
+- Sistema Online
+
+COMMUNITY PRESENCE
+Add a refined community presence feature.
+Do not make it childish and do not use a fake gaming radar.
+
+Use a premium widget such as:
+- Moradores activos na zona
+- Comunidade online perto de si
+- Presença próxima
+- nearby active users with app open
+- elegant proximity scanner feeling
+
+CARD SCREEN
+Create a premium Cartão do Morador screen with:
+- resident name
+- photo or premium avatar
+- zone / quarteirão
+- contact
+- emergency contact
+- resident ID
+- QR code
+- Morador Verificado
+- validity
+- access permissions
+- premium benefits / exclusive access section
+
+This must feel like a verified private member card.
+
+REPORT SCREEN
+Create a very clean report flow with:
+- Nome
+- Contacto
+- Localização
+- Tipo de Ocorrência
+- Gravidade
+- Descrição
+- future photo attachment area
+- Enviar Ocorrência
+
+Categories:
+- Intrusão
+- Actividade Suspeita
+- Roubo
+- Ruído
+- Iluminação
+- Lixo
+- Outro
+
+VISITORS SCREEN
+Create a serious and premium visitor management section with:
+- visitante pré-aprovado
+- visitante pendente
+- histórico recente
+- validade do acesso
+- state of visitor
+- aprovar
+- cancelar
+- revogar
+
+States:
+- pendente
+- autorizado
+- dentro
+- expirado
+- concluído
+
+SECURITY SCREEN
+Create a strong security centre with:
+- PRM
+- coordenação do bairro
+- emergency contacts
+- private security if relevant
+- emergency button
+- recent alerts
+- priority incidents
+- access status
+- quick emergency actions
+
+ALERTS SCREEN
+Create a premium alerts section with:
+- alertas críticos
+- alertas gerais
+- alertas resolvidos
+- priority
+- time
+- location
+- source
+- state
+- recommended action
+- simple filters
+
+PROFILE SCREEN
+Create a richer profile screen with:
+- resident identity
+- resident card summary
+- emergency contacts
+- associated vehicles
+- permissions
+- useful documents
+- notifications
+- access history
+- account settings
+- verification state
+
+BOTTOM NAVIGATION
+Create a premium bottom navigation with:
+- Início
+- Cartão
+- central action button
+- Alertas
+- Perfil
+
+The central action button must feel strong and premium.
+It can be used for:
+- Reportar Ocorrência
+or
+- open a quick actions menu
+
+BUTTONS
+All buttons must feel real and interactive.
+I want:
+- hover state
+- pressed state
+- active state
+- disabled state where needed
+- better visual feedback
+- stronger clickability
+
+ICONS
+Use a single premium modern icon family.
+Do not use emojis as the main UI language.
+
+Icons must feel:
+- premium
+- elegant
+- consistent
+- serious
+- slightly animated where useful
+
+MICROINTERACTIONS
+Add subtle premium microinteractions such as:
+- notification bell pulse
+- soft SOS pulse
+- active alert glow
+- smooth count-up transitions on KPIs
+- refined screen transitions
+- stronger active state in bottom nav
+- elegant hover and tap responses
+
+QUALITY REQUIREMENTS
+The final result must:
+- look much better than a simple prototype
+- feel exclusive
+- feel more polished
+- feel more expensive
+- feel ready for a serious demo
+- have stronger hierarchy
+- avoid empty-looking sectioRefina esta proposta e melhora os seguintes pontos:
+- hero mais compacto
+- sem duplicação de meteorologia
+- botões mais clicáveis
+- ícones mais premium
+- cartões com mais profundidade
+- navegação inferior mais forte
+- alertas mais claros
+- perfil mais completo
+- visitantes melhor resolvidos
+- maior sensação de exclusividade
+- aparência mais polida e menAgora faz a versão final com acabamento premium, consistência total, melhor hierarquia visual, melhor uso do espaço, melhores estados, melhores ícones, melhores botões, melhor navegação e sensação clara de produto privado pronto para piloto real.os genéricans
+- avoid duplication
+- avoid weak buttons
+- avoid generic cards
+- avoid plain layout
+
+DELIVERABLE
+I want the complete product direction and the full interface structure.
+If generating code, provide one complete final version.
+If generating design, provide a fully refined premium concept.
+Focus on quality, realism, exclusivity, clarity, and Mozambican credibility.
